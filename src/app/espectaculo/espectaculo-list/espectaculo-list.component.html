@@ -1,3 +1,23 @@
 <p>
   espectaculo-list works!
 </p>
+<div class="container-fluid">
+    <div class="col-md-2">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre del espectaculo</th> 
+                    <th>Fecha Espectaculo</th>
+                    <th>Artista</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let es of espectaculos">
+                    <td>{{es.nombre}}</td>
+                    <td>{{es.fecha}}</td>
+                    <td>{{es.artista}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+

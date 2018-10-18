@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Espectaculo} from '../espectaculo';
+import {EspectaculoService} from '../espectaculo.service';
+
 
 @Component({
   selector: 'app-espectaculo-list',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EspectaculoListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private espectaculoService: EspectaculoService) { }
+
+  espectaculos: Espectaculo[];
+  
+  getEspectaculos():void{
+      this.espectaculoService.getEspectaculos().subscribe(espectaculos => this.espectaculos = espectaculos);
+      
+  }
 
   ngOnInit() {
+      this.getEspectaculos();
   }
 
 }
