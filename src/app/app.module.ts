@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { CompraModule } from './compra/compra.module';
 import {EspectaculoModule} from './espectaculo/espectaculo.module';
+import {SillaModule} from './silla/silla.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -11,7 +12,8 @@ import {EspectaculoModule} from './espectaculo/espectaculo.module';
   imports: [
     BrowserModule,
     CompraModule,
-    EspectaculoModule
+    EspectaculoModule,
+    SillaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
