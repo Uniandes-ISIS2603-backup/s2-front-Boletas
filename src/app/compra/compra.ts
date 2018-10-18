@@ -1,3 +1,6 @@
+//import (Cliente) from './cliente';
+//import (Boleta) from './boleta';
+
 export interface Compra {
 
     id: number;
