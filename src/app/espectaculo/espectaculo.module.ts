@@ -6,6 +6,7 @@ import { EspectaculoListComponent } from './espectaculo-list/espectaculo-list.co
   imports: [
     CommonModule
   ],
-  declarations: [EspectaculoListComponent]
+  declarations: [EspectaculoListComponent],
+  exports:[EspectaculoListComponent]
 })
 export class EspectaculoModule { }
