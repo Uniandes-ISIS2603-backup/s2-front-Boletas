@@ -7,7 +7,7 @@ const API_URL = "../../assets/";
 const compras = 'compras.json';
 
 @Injectable()
-export class ComprasService {
+export class CompraService {
     
     constructor(private http: HttpClient) { }
     
