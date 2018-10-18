@@ -6,6 +6,7 @@ import { SillaListComponent } from './silla-list/silla-list.component';
   imports: [
     CommonModule
   ],
-  declarations: [SillaListComponent]
+  declarations: [SillaListComponent],
+  exports:[SillaListComponent]
 })
 export class SillaModule { }
