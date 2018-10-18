@@ -1,14 +1,5 @@
-import { AppPage } from './app.po';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule, Routes} from '@angular/router';
 
-describe('workspace-project App', () => {
-  let page: AppPage;
-
-  beforeEach(() => {
-    page = new AppPage();
-  });
-
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to s2-front-Boletas!');
-  });
-});
+const routes: Routes=[]
