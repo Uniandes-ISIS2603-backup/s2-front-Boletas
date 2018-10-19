@@ -1,3 +1,23 @@
-<p>
-  compra-list works!
-</p>
+<div class="container-fluid">
+    <div class="col-md-2">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>   
+                    <th>Costo</th>
+                    <th>Fecha</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let com of compras">
+                    <td>{{com.id}}</td>
+                    <td>{{com.costoTotal}}</td>
+                    <td>{{com.fecha}}</td>
+                    <td>{{com.estado}}</td>
+                                       
+                  
+                </tr>
+            </tbody>
+        </table>
+    </div>
