@@ -3,12 +3,16 @@
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
-                    <th>Compra Id</th>    
+                    <th>Compras</th>    
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let compra of compra">
+                <tr *ngFor="let com of compras">
                     <td>{{compra.id}}</td>
+                    <td>{{compra.costoTotal}}</td>
+                    <td>{{compra.fecha}}</td>
+                    <td>{{compra.estado}}</td>
+                                       
                   
                 </tr>
             </tbody>

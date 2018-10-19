@@ -9,6 +9,6 @@ export interface Compra {
     fecha:Date;
     direccion:string;
     estado:boolean;
-    //cliente?
-    //boletas?
+    //cliente:Cliente
+    //boletas[]:Boleta
 }
