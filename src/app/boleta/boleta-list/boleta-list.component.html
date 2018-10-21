@@ -1,0 +1,26 @@
+<p>
+  boleta-list works!
+</p>
+<div class="container-fluid">
+    <div class="col-md-2">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th> 
+                    <th>precio</th> 
+                    <th>fecha</th> 
+                    <th>vendida</th> 
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let b of boletas">
+                    <td>{{b.id}}</td>
+                    <td>{{b.precio}}</td>
+                    <td>{{b.fecha}}</td>
+                    <td>{{b.vendida}}</td>
+                  
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
