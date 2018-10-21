@@ -7,6 +7,8 @@ import { CompraModule } from './compra/compra.module';
 import {EspectaculoModule} from './espectaculo/espectaculo.module';
 import {SillaModule} from './silla/silla.module';
 import {ClienteModule} from './cliente/cliente.module';
+import {BoletaModule} from './boleta/boleta.module';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -17,7 +19,8 @@ import {ClienteModule} from './cliente/cliente.module';
     CompraModule,
     EspectaculoModule,
     ClienteModule,
-    SillaModule
+    SillaModule,
+    BoletaModule
     
   ],
   providers: [],

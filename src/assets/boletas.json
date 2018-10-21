@@ -1,0 +1,10 @@
+[{"id":1,"precio":25028,"fecha":"12/16/2018","vendida":false},
+{"id":2,"precio":87581,"fecha":"12/6/2018","vendida":false},
+{"id":3,"precio":15022,"fecha":"9/17/2019","vendida":true},
+{"id":4,"precio":57367,"fecha":"10/5/2019","vendida":true},
+{"id":5,"precio":53758,"fecha":"12/11/2018","vendida":false},
+{"id":6,"precio":28395,"fecha":"11/1/2018","vendida":true},
+{"id":7,"precio":44936,"fecha":"3/27/2019","vendida":true},
+{"id":8,"precio":97954,"fecha":"5/8/2019","vendida":false},
+{"id":9,"precio":38419,"fecha":"4/25/2019","vendida":false},
+{"id":10,"precio":69032,"fecha":"11/29/2018","vendida":true}]
