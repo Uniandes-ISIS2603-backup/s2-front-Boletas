@@ -1,0 +1,23 @@
+        <div class="container-fluid">
+            <div class="col-md-2">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th> Nombre</th>
+                        <th>Usuario</th>
+                        <th>Cedula</th>
+                        <th>Medio de pago</th>
+                    </tr>
+                </thead>
+                <tbody>     
+                    <tr *ngFor  ="let cliente of clientes">
+                        <td>{{cliente.id}}</td>
+                        <td>{{cliente.nombre}}</td>
+                        <td>{{cliente.usuario}}</td>
+                        <td>{{cliente.cedula}}</td>
+                        <td>{{cliente.pago}}</td>
+                </tr>
+                </tbody>
+            </table>
+            </div>

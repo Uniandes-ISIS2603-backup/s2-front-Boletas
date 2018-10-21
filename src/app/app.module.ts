@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CompraModule } from './compra/compra.module';
 import {EspectaculoModule} from './espectaculo/espectaculo.module';
 import {SillaModule} from './silla/silla.module';
+import {ClienteModule} from './cliente/cliente.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -15,7 +16,9 @@ import {SillaModule} from './silla/silla.module';
     HttpClientModule,
     CompraModule,
     EspectaculoModule,
+    ClienteModule,
     SillaModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
