@@ -3,8 +3,9 @@ import {HttpClient} from '@angular/common/http';
 import {Espectaculo} from './espectaculo';
 import {Observable} from 'rxjs';
 
-const API_URL = '../../assets/';
-const espectaculos = 'espectaculos.json';
+import { environment } from '../../environments/environment';
+const API_URL = environment.apiURL;
+const espectaculos = '/espectaculos';
 
 @Injectable({
   providedIn: 'root'
