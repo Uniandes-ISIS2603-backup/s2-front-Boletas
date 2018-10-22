@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 import { CompraDetail } from './compra-detail';
 
 const API_URL = environment.apiURL;
-const compras = 'compras';
+const compras = '/compras';
 
 @Injectable()
 export class CompraService {

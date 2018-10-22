@@ -1,3 +1,28 @@
-<p>
-  compra-detail works!
-</p>
+<div class="panel-body">
+    <div class="border margin">
+        <p class="h3 p-3">{{compraDetail.id}}<p> 
+        <div class="row">
+            <div class="col-md-3">
+                <dl>
+                    <dt>Costo Total</dt>
+                    <dd>{{compraDetail.costoTotal}}</dd>
+                    <dt>Envio</dt>
+                    <dd>{{compraDetail.envio}}</dd>
+                    <dt>Estado</dt>
+                    <dd>{{compraDetail.estado}}</dd>
+                </dl>
+            </div>
+            <div class="col">
+                <dl>     
+                    <dt>Direccion</dt>
+                    <dd>{{compraDetail.direccion}}</dd>
+                    <dt>Fecha</dt>
+                    <dd>{{compraDetail.fecha| date:'MM/dd/yyyy'}}</dd>
+                    <dt>Direccion</dt>
+                    <dd>{{compraDetail.direccion}}</dd>
+                </dl>
+            </div>
+
+        </div>
+    </div>
+</div>
