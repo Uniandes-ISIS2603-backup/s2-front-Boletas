@@ -33,6 +33,11 @@ export interface Espectaculo {
     /*
      * Tipo del espectaculo
      */
-    tipo:string;    
+    tipo:string;  
     
+    /*
+     * Ruta de la imagen
+     */  
+    
+     imagen :string;
 }
