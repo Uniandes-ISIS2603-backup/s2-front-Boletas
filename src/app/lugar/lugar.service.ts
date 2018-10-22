@@ -4,7 +4,7 @@ import {Lugar} from './lugar';
 import {Observable} from 'rxjs';
 
 import {environment} from '../../environments/environment';
-const API_URL = environment.apiURL;
+const API_URL = "../../assets/";
 const lugares = "lugares.json";
 
 @Injectable({
