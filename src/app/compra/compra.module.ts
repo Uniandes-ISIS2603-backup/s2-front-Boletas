@@ -4,13 +4,14 @@ import { CompraListComponent } from './compra-list/compra-list.component';
 
 import { CompraService } from './compra.service';
 import { FormsModule } from '@angular/forms';
+import { CompraDetailComponent } from './compra-detail/compra-detail.component';
 
 @NgModule({
     imports: [       
         CommonModule,
         FormsModule
     ],
-    declarations: [CompraListComponent],
+    declarations: [CompraListComponent, CompraDetailComponent],
     providers: [CompraService],
     exports:[CompraListComponent]
 })
