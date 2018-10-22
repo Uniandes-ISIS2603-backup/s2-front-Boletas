@@ -3,6 +3,7 @@ export interface Lugar {
      * El id del lugar
      */
     id:number;
+    
     /**
      * La dirección del lugar
      */

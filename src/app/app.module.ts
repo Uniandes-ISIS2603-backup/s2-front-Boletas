@@ -11,6 +11,7 @@ import {EspectaculoModule} from './espectaculo/espectaculo.module';
 import {SillaModule} from './silla/silla.module';
 import {ClienteModule} from './cliente/cliente.module';
 import {BoletaModule} from './boleta/boleta.module';
+import {LugarModule} from './lugar/lugar.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {BoletaModule} from './boleta/boleta.module';
     EspectaculoModule,
     ClienteModule,
     SillaModule,
-    BoletaModule
+    BoletaModule,
+    LugarModule
     
   ],
   providers: [{

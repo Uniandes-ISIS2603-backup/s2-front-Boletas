@@ -5,7 +5,7 @@ import {Observable} from 'rxjs';
 
 import {environment} from '../../environments/environment';
 const API_URL = environment.apiURL;
-const lugares = "/lugares";
+const lugares = "lugares.json";
 
 @Injectable({
   providedIn: 'root'
