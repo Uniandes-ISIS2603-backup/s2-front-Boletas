@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 import { HttpErrorInterceptor } from './interceptors/httperrorinterceptor.service';
-import { ToastrModule } from 'ngx-toastr';
+
 
 
 import { AppComponent } from './app.component';
