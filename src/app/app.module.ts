@@ -2,8 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 import { HttpErrorInterceptor } from './interceptors/httperrorinterceptor.service';
-import { ToastrModule } from 'ngx-toastr';
 
+import { RoutingModule } from './routing.module';
+
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import { CompraModule } from './compra/compra.module';
@@ -19,6 +21,7 @@ import {LugarModule} from './lugar/lugar.module';
   ],
   imports: [
     BrowserModule,
+    RoutingModule,
     HttpClientModule,
     CompraModule,
     EspectaculoModule,
