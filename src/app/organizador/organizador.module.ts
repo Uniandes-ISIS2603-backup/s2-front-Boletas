@@ -6,7 +6,7 @@ import {OrganizadorService} from './organizador.service'
 import {FormsModule} from '@angular/forms'
 
 @NgModule({
-    imports:[CommonModule,FormsModule],
+    imports : [CommonModule,FormsModule],
     declarations:[OrganizadorListComponent],
     providers: [OrganizadorService],
     exports: [OrganizadorListComponent]

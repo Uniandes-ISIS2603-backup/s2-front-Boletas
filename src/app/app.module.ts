@@ -14,6 +14,7 @@ import {SillaModule} from './silla/silla.module';
 import {ClienteModule} from './cliente/cliente.module';
 import {BoletaModule} from './boleta/boleta.module';
 import {LugarModule} from './lugar/lugar.module';
+import {OrganizadorModule} from './organizador/organizador.module'
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {LugarModule} from './lugar/lugar.module';
     ClienteModule,
     SillaModule,
     BoletaModule,
-    LugarModule
+    LugarModule,
+    OrganizadorModule
     
   ],
   providers: [{
