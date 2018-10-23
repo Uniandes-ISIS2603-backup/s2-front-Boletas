@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Espectaculo} from '../espectaculo';
 import {EspectaculoService} from '../espectaculo.service';
+import {ActivatedRoute} from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,7 @@ import {EspectaculoService} from '../espectaculo.service';
 })
 export class EspectaculoListComponent implements OnInit {
 
-  constructor(private espectaculoService: EspectaculoService) { }
+  constructor(private espectaculoService: EspectaculoService ,private route: ActivatedRoute) { }
 
   espectaculos: Espectaculo[];
   

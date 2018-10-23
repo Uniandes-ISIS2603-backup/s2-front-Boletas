@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EspectaculoListComponent } from './espectaculo-list/espectaculo-list.component';
 import { EspectaculoDetailComponent } from './espectaculo-detail/espectaculo-detail.component';
-import { AppRouting} from '../app/routing';
+import {EspectaculoService} from './espectaculo.service';
 
 @NgModule({
   imports: [
-    CommonModule,
-    AppRoutingModule
+    CommonModule
   ],
   declarations: [EspectaculoListComponent, EspectaculoDetailComponent],
+  providers:[EspectaculoService],
   exports:[EspectaculoListComponent]
 })
 export class EspectaculoModule { }

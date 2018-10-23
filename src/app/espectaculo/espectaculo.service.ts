@@ -24,7 +24,6 @@ export class EspectaculoService {
   {
       return this.http.get<EspectaculoDetail>(API_URL + espectaculos + '/' + espectaculoId);
       
-      espectaculo = new EspectaculoDetail();
   }
   
   

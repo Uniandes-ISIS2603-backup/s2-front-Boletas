@@ -16,7 +16,9 @@
             </thead>
             <tbody>
                 <tr *ngFor = "let es of espectaculos">
-                    <td>{{es.nombre}}</td>
+                    <td style = "cursor: pointer">
+                        <dd routerLink = "/espectaculos/{{es.id}}">{{es.nombre}}
+                    </td>
                     <td>{{es.fecha}}</td>
                     <td>{{es.artista}}</td>
                 </tr>

@@ -13,16 +13,25 @@ import {EspectaculoDetail} from '../espectaculo-detail';
 export class EspectaculoDetailComponent implements OnInit {
 
   constructor(private espectaculoService: EspectaculoService,
-  private route: ActivatedRoute) { }
+  private route: ActivatedRoute,
+  private router : Router) { }
 
   espectaculo_id: number;
   
   espectaculoDetail: EspectaculoDetail;
     
+  
+   getBookDetail(): void {
+       this.espectaculoService.getEspectaculoDetail(this.espectaculo_id)
+            .subscribe(espectaculoDetail => {
+                this.espectaculoDetail = espectaculoDetail;
+            });
+    }
+    
   ngOnInit() {
       
         this.espectaculo_id = +this.route.snapshot.paramMap.get('id');              
-        
+        this.getBookDetail();
   }
 
 }
