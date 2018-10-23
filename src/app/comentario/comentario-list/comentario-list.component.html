@@ -5,20 +5,14 @@
             <thead class="thead-dark">
                 <tr>
                     <th>Id</th> 
-                    <th>precio</th> 
-                    <th>fecha</th> 
-                    <th>vendida</th> 
+                    <th>mensaje</th> 
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let b of boletas">
-                    <td>{{b.id}}</td>
-                    <td>{{b.precio}}</td>
-                    <td>{{b.fecha}}</td>
-                    <td>{{b.vendida}}</td>
-                  
+                <tr *ngFor = "let c of comentarios">
+                    <td>{{c.id}}</td>
+                    <td>{{c.mensaje}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
-

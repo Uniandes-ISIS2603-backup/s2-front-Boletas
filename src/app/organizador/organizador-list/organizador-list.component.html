@@ -1,0 +1,14 @@
+        <div class="container-fluid">
+            <div class="col-md-2">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Id</th>
+                    </tr>
+                </thead>
+                <tbody>     
+                    <tr *ngFor  ="let organizador of organizadores">
+                        <td>{{organizador.id}}</td>
+                </tbody>
+            </table>
+            </div>

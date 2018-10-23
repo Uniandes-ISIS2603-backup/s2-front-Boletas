@@ -1,3 +1,31 @@
 <p>
   silla-list works!
 </p>
+<div class="container-fluid">
+    <div class="container-responsive">
+        <div class="card">
+            <div class="card-body">
+                <h3>Sillas Actuales</h3>
+                <table class="table table-striped table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Id</th>
+                            <th>Número</th>
+                            <th>Tipo</th>
+                            <th>Disponible</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor = "let es of sillas">
+                            <td>{{es.id}}</td>
+                            <td>{{es.numero}}</td>
+                            <td>{{es.tipo}}</td>
+                            <td>{{es.disponible}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+</div>

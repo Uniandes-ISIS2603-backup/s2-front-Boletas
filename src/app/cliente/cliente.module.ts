@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core/';
 import {CommonModule} from '@angular/common/';
 import {ClienteListComponent} from './cliente-list/cliente-list.component';
+import {ClienteDetailComponent} from './cliente-detail/cliente-detail.component';
 
 import {ClienteService} from './cliente.service';
 import {FormsModule} from '@angular/forms'
@@ -11,7 +12,7 @@ import {FormsModule} from '@angular/forms'
         FormsModule
     ],
     
-    declarations:[ClienteListComponent],
+    declarations:[ClienteListComponent, ClienteDetailComponent],
     providers:[ClienteService],
     exports:[ClienteListComponent]
 })
