@@ -3,7 +3,7 @@ import {Compra} from '../compra/compra';
 import {Cliente} from './cliente'
 
 /**
-*Inteface para ClienteDetail
+*Inteface para ClienteDetail .
 *@author Vilma Tirado Gomez
 **/
 export interface ClienteDetail extends Cliente{
