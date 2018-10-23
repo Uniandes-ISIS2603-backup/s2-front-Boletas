@@ -2,9 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 import { HttpErrorInterceptor } from './interceptors/httperrorinterceptor.service';
-
-
-
+import { RoutingModule } from './routing.module';
 import { AppComponent } from './app.component';
 import { CompraModule } from './compra/compra.module';
 import {EspectaculoModule} from './espectaculo/espectaculo.module';
@@ -18,6 +16,7 @@ import {BoletaModule} from './boleta/boleta.module';
   ],
   imports: [
     BrowserModule,
+    RoutingModule,
     HttpClientModule,
     CompraModule,
     EspectaculoModule,
