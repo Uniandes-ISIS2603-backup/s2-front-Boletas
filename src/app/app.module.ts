@@ -2,13 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 import { HttpErrorInterceptor } from './interceptors/httperrorinterceptor.service';
+
 import { RoutingModule } from './routing.module';
+
+import { ToastrModule } from 'ngx-toastr';
+
 import { AppComponent } from './app.component';
 import { CompraModule } from './compra/compra.module';
 import {EspectaculoModule} from './espectaculo/espectaculo.module';
 import {SillaModule} from './silla/silla.module';
 import {ClienteModule} from './cliente/cliente.module';
 import {BoletaModule} from './boleta/boleta.module';
+import {LugarModule} from './lugar/lugar.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,8 @@ import {BoletaModule} from './boleta/boleta.module';
     EspectaculoModule,
     ClienteModule,
     SillaModule,
-    BoletaModule
+    BoletaModule,
+    LugarModule
     
   ],
   providers: [{

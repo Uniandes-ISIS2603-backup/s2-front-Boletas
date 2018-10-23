@@ -6,6 +6,7 @@ import {EspectaculoListComponent} from '../app/espectaculo/espectaculo-list/espe
 import {CompraListComponent} from '../app/compra/compra-list/compra-list.component';
 import { CompraDetailComponent } from '../app/compra/compra-detail/compra-detail.component';
 import { BoletaListComponent } from '../app/boleta/boleta-list/boleta-list.component';
+import { BoletaDetailComponent } from '../app/boleta/boleta-detail/boleta-detail.component';
 
 const routes: Routes=[
     {
@@ -39,7 +40,7 @@ const routes: Routes=[
             },
             {
                 path:'id',
-                component;BoletaDetailComponent
+                component:BoletaDetailComponent
             }
         ]
     }
