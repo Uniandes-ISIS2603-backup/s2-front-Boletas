@@ -10,6 +10,8 @@ import { BoletaDetailComponent } from '../app/boleta/boleta-detail/boleta-detail
 import {OrganizadorListComponent} from '../app/organizador/organizador-list/organizador-list.component';
 import {ClienteListComponent} from '../app/cliente/cliente-list/cliente-list.component';
 import {ClienteDetailComponent} from '../app/cliente/cliente-detail/cliente-detail.component';
+import {ComentarioListComponent} from '../app/comentario/comentario-list/comentario-list.component';
+import {ComentarioDetailComponent} from '../app/comentario/comentario-detail/comentario-detail.component';
 
 
 const routes: Routes=[
@@ -68,6 +70,19 @@ const routes: Routes=[
             path: ':id',
              component: ClienteDetailComponent
              }
+        ]
+    },
+    {
+        path: 'comentarios',
+        children: [
+            {
+                path: 'list',
+                component: ComentarioListComponent
+            },
+            {
+                path:'id',
+                component:ComentarioDetailComponent
+            }
         ]
     }
 ]
