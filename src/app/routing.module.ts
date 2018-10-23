@@ -7,6 +7,12 @@ import {CompraListComponent} from '../app/compra/compra-list/compra-list.compone
 import { CompraDetailComponent } from '../app/compra/compra-detail/compra-detail.component';
 import { BoletaListComponent } from '../app/boleta/boleta-list/boleta-list.component';
 import { BoletaDetailComponent } from '../app/boleta/boleta-detail/boleta-detail.component';
+import {OrganizadorListComponent} from '../app/organizador/organizador-list/organizador-list.component';
+import {ClienteListComponent} from '../app/cliente/cliente-list/cliente-list.component';
+import {ClienteDetailComponent} from '../app/cliente/cliente-detail/cliente-detail.component';
+import {ComentarioListComponent} from '../app/comentario/comentario-list/comentario-list.component';
+import {ComentarioDetailComponent} from '../app/comentario/comentario-detail/comentario-detail.component';
+
 
 const routes: Routes=[
     {
@@ -43,8 +49,44 @@ const routes: Routes=[
                 component:BoletaDetailComponent
             }
         ]
+    },
+    {
+        path: 'organizadores',
+        children: [
+            {
+                path: 'list',
+                component:OrganizadorListComponent
+            }
+        ]
+    },
+    {
+        path: 'clientes',
+        children: [
+            {
+                path: 'list',
+                component: ClienteListComponent
+            },
+            {
+            path: ':id',
+             component: ClienteDetailComponent
+             }
+        ]
+    },
+    {
+        path: 'comentarios',
+        children: [
+            {
+                path: 'list',
+                component: ComentarioListComponent
+            },
+            {
+                path:'id',
+                component:ComentarioDetailComponent
+            }
+        ]
     }
 ]
+
 @NgModule({
     imports: [
         CommonModule,
