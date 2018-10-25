@@ -4,9 +4,12 @@ import {Espectaculo} from './espectaculo';
 import {EspectaculoDetail} from './espectaculo-detail';
 import {Observable} from 'rxjs';
 
-import { environment } from '../../environments/environment';
-const API_URL = environment.apiURL;
-const espectaculos = '/espectaculos';
+//import { environment } from '../../environments/environment';
+//const API_URL = environment.apiURL;
+//const espectaculos = '/espectaculos';
+
+const API_URL = '../../assets';
+const espectaculos = '/espectaculos.json';
 
 @Injectable({
   providedIn: 'root'
