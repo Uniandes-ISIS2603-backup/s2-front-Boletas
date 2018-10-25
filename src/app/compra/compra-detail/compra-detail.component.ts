@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { CompraService } from '../compra.service';
 
 import { CompraDetail } from '../compra-detail';
-import { Compra } from '../compra';
 
 
 @Component({
@@ -14,14 +13,12 @@ import { Compra } from '../compra';
 })
 export class CompraDetailComponent implements OnInit {
 
-    @Input() compraDetail: CompraDetail;
-
     constructor(
         private route: ActivatedRoute,
         private compraService: CompraService 
     ) { }
 
-
+    compraDetail : CompraDetail;
     compra_id: number;
     
     getCompraDetail(): void {
@@ -32,8 +29,8 @@ export class CompraDetailComponent implements OnInit {
     }
     
     ngOnInit() {
-        console.log(this.compra_id);
         this.compra_id = +this.route.snapshot.paramMap.get('id');
+        this.compraDetail = new CompraDetail();
         this.getCompraDetail();
             }
 }
