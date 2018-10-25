@@ -3,10 +3,15 @@ import { CommonModule } from '@angular/common';
 import { EspectaculoListComponent } from './espectaculo-list/espectaculo-list.component';
 import { EspectaculoDetailComponent } from './espectaculo-detail/espectaculo-detail.component';
 import {EspectaculoService} from './espectaculo.service';
+import {RoutingModule} from '../routing.module';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    RoutingModule,
+    HttpClientModule
   ],
   declarations: [EspectaculoListComponent, EspectaculoDetailComponent],
   providers:[EspectaculoService],
