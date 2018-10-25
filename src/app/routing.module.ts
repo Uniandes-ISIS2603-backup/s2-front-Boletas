@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 
 import {EspectaculoListComponent} from '../app/espectaculo/espectaculo-list/espectaculo-list.component';
+import {EspectaculoDetailComponent} from '../app/espectaculo/espectaculo-detail/espectaculo-detail.component';
 import {CompraListComponent} from '../app/compra/compra-list/compra-list.component';
 import { CompraDetailComponent } from '../app/compra/compra-detail/compra-detail.component';
 import { BoletaListComponent } from '../app/boleta/boleta-list/boleta-list.component';
@@ -21,6 +22,10 @@ const routes: Routes=[
             {
                 path: 'list',
                 component : EspectaculoListComponent
+            },
+            {
+                path:':id',
+                component : EspectaculoDetailComponent
             }
         ]
     },
