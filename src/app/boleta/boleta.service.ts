@@ -6,7 +6,7 @@ import { environment } from '../../environments/environment';
 import { BoletaDetail } from './boleta-detail';
 
 const API_URL = environment.apiURL;
-const boletas = 'boletas';
+const boletas = '/boletas';
 
 @Injectable()
 export class BoletaService {

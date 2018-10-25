@@ -28,7 +28,7 @@ export class OrganizadorListComponent implements OnInit
     organizadores: Organizador[];
     
     /**
-    * Le pide al cliente que actualize la lista de servicios 
+    * Le pide al organizador que actualize la lista de servicios 
      **/
     getOrganizadores(): void {
         this.organizadorService.getOrganizadores().subscribe(organizadores => this.organizadores= organizadores)
