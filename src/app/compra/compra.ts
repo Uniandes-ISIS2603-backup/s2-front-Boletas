@@ -1,7 +1,7 @@
-//import (Cliente) from './cliente';
+//import (Cliente) from './cliente/cliente';
 //import (Boleta) from './boleta';
 
-export interface Compra {
+export class Compra {
 
     id: number;
     costoTotal: number;

@@ -14,22 +14,18 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let com of compras">
-                        <td style="cursor: pointer;"><span>
+                        <td style="cursor: pointer;">
                         <dd class="figure-caption" routerLink="/compras/{{com.id}}">{{com.id}}</dd>
-                        </span></td>
-                        <td style="cursor: pointer;"><span>
+                        </td>
+                        <td style="cursor: pointer;">
                         <dd class="figure-caption" routerLink="/compras/{{com.id}}">{{com.costoTotal}}</dd>
-                        </span></td>
-                        <td style="cursor: pointer;"><span>
+                       </td>
+                        <td style="cursor: pointer;">
                         <dd class="figure-caption" routerLink="/compras/{{com.id}}">{{com.fecha}}</dd>
-                        </span></td>
-                        <td style="cursor: pointer;"><span>
+                        </td>
+                        <td style="cursor: pointer;">
                         <dd class="figure-caption" routerLink="/compras/{{com.id}}">{{com.estado}}</dd>
-                        </span></td>
-<!--                        <td>{{com.costoTotal}}</td>-->
-<!--                        <td>{{com.fecha}}</td>
-                        <td>{{com.estado}}</td>-->
-
+                        </td>
 
                     </tr>
                 </tbody>
