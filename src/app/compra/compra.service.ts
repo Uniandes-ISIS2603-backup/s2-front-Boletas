@@ -6,15 +6,16 @@ import { environment } from '../../environments/environment';
 
 import { CompraDetail } from './compra-detail';
 
-const API_URL = environment.apiURL;
-const compras = '/compras';
-
+//const API_URL = environment.apiURL;
+//const compras = '/compras';
+const API_URL = '../../assets/';
+const compras = 'compras.json';
 @Injectable()
 export class CompraService {
     
     constructor(private http: HttpClient) { }
     
-    getCompraDetail(compraId): Observable<CompraDetail> {
+    getCompraDetail(compraId: number): Observable<CompraDetail> {
         return this.http.get<CompraDetail>(API_URL + compras + '/' + compraId);
     }
     

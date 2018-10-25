@@ -1,9 +1,8 @@
 <div class="container-fluid">
     <div class="container-responsive">
-        <div class="col-md-2">
+       
         <div class ="card">
             <div class="card-body">
-            <h3 class="card-title">Compras</h3>
             <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
@@ -15,12 +14,21 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let com of compras">
-<!--                        <td style="cursor: pointer;">
+                        <td style="cursor: pointer;"><span>
                         <dd class="figure-caption" routerLink="/compras/{{com.id}}">{{com.id}}</dd>
-                    </td>-->
-                        <td>{{com.costoTotal}}</td>
-                        <td>{{com.fecha}}</td>
-                        <td>{{com.estado}}</td>
+                        </span></td>
+                        <td style="cursor: pointer;"><span>
+                        <dd class="figure-caption" routerLink="/compras/{{com.id}}">{{com.costoTotal}}</dd>
+                        </span></td>
+                        <td style="cursor: pointer;"><span>
+                        <dd class="figure-caption" routerLink="/compras/{{com.id}}">{{com.fecha}}</dd>
+                        </span></td>
+                        <td style="cursor: pointer;"><span>
+                        <dd class="figure-caption" routerLink="/compras/{{com.id}}">{{com.estado}}</dd>
+                        </span></td>
+<!--                        <td>{{com.costoTotal}}</td>-->
+<!--                        <td>{{com.fecha}}</td>
+                        <td>{{com.estado}}</td>-->
 
 
                     </tr>
@@ -28,6 +36,6 @@
             </table>
             </div>
         </div>
-        </div>
+        
     </div>    
 </div>
