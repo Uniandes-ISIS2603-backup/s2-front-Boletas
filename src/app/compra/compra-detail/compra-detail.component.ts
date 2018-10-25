@@ -18,7 +18,7 @@ export class CompraDetailComponent implements OnInit {
         private compraService: CompraService 
     ) { }
 
-    compraDetail : CompraDetail;
+     @Input() compraDetail: CompraDetail;
     compra_id: number;
     
     getCompraDetail(): void {
@@ -29,8 +29,8 @@ export class CompraDetailComponent implements OnInit {
     }
     
     ngOnInit() {
+        console.log(this.compra_id);
         this.compra_id = +this.route.snapshot.paramMap.get('id');
-        this.compraDetail = new CompraDetail();
         this.getCompraDetail();
             }
 }
