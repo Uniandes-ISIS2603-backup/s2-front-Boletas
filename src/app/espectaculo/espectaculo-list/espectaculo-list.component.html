@@ -6,7 +6,19 @@
         <div class ="card">
         <div class="card-body">
         <h3 class="card-title">Espectaculos Actuales</h3>
-        <table class="table table-striped table-bordered" >
+        <div *ngFor = "let es of espectaculos">
+            <figure class="figure" routerLink="/espectaculos/{{es.id}}" style="cursor: pointer;"> 
+                <div class="img-thumbnail border-0">                        
+                    <img class="img-fluid" src='{{es.image}}' alt="{{es.name}}" />                                     
+                </div>
+                <figcaption class="title-caption text-center">{{es.name}}</figcaption>
+            </figure>
+        </div>
+        </div>
+        </div>
+    </div>
+        <!--
+             <table class="table table-striped table-bordered" >
             <thead class="thead-dark">
                 <tr>
                     <th>Nombre del espectaculo</th> 
@@ -16,7 +28,9 @@
             </thead>
             <tbody>
                 <tr *ngFor = "let es of espectaculos">
-                    <td>{{es.nombre}}</td>
+                    <td style = "cursor: pointer">
+                    <dd routerLink = "/espectaculos/{{es.id}}">{{es.nombre}}</dd>
+                    </td>
                     <td>{{es.fecha}}</td>
                     <td>{{es.artista}}</td>
                 </tr>
@@ -25,4 +39,4 @@
         </div>
         </div>
     </div>
-
+-->

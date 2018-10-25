@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Espectaculo} from './espectaculo';
+import {EspectaculoDetail} from './espectaculo-detail';
 import {Observable} from 'rxjs';
 
 import { environment } from '../../environments/environment';
@@ -17,6 +18,12 @@ export class EspectaculoService {
   getEspectaculos():Observable<Espectaculo[]>
   {
       return this.http.get<Espectaculo[]>(API_URL + espectaculos);
+  }
+  
+  getEspectaculoDetail(espectaculoId:number):Observable<EspectaculoDetail>
+  {
+      return this.http.get<EspectaculoDetail>(API_URL + espectaculos + '/' + espectaculoId);
+      
   }
   
   
