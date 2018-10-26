@@ -31,7 +31,7 @@ export class EspectaculoDetailComponent implements OnInit {
   ngOnInit() {
       
         this.espectaculo_id = +this.route.snapshot.paramMap.get('id');  
-        this.espectaculoDetail = new EspectaculoDetail();            
+       // this.espectaculoDetail = new EspectaculoDetail();            
         this.getEspectaculoDetail();
   }
 
