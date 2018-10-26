@@ -21,7 +21,7 @@ export class EspectaculoDetailComponent implements OnInit {
   @Input() espectaculoDetail: EspectaculoDetail;
     
   
-   getBookDetail(): void {
+   getEspectaculoDetail(): void {
        this.espectaculoService.getEspectaculoDetail(this.espectaculo_id)
             .subscribe(espectaculoDetail => {
                 this.espectaculoDetail = espectaculoDetail;
@@ -30,8 +30,9 @@ export class EspectaculoDetailComponent implements OnInit {
     
   ngOnInit() {
       
-        this.espectaculo_id = +this.route.snapshot.paramMap.get('id');              
-        this.getBookDetail();
+        this.espectaculo_id = +this.route.snapshot.paramMap.get('id');  
+        this.espectaculoDetail = new EspectaculoDetail();            
+        this.getEspectaculoDetail();
   }
 
 }
