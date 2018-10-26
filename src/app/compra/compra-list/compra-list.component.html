@@ -36,6 +36,9 @@
             <div *ngIf="selectedCompra">
                 <app-compra-detail [compraDetail]="selectedCompra"></app-compra-detail>
             </div>
+            <div *ngIf="showCreate">
+                <app-compra-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-compra-create>
+            </div
             </div>   
         </div>
     </div>
