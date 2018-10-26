@@ -1,6 +1,8 @@
 <div class="container-fluid">
     <div class="container-responsive">
-       
+        <div class="row">
+        <div class="col">
+        
         <div class ="card">
             <div class="card-body">
             <table class="table table-striped">
@@ -9,22 +11,18 @@
                         <th>Id</th>   
                         <th>Costo</th>
                         <th>Fecha</th>
-                        <th>Estado</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let com of compras">
+                    <tr *ngFor="let com of compras" (click)="onSelected(com.id)"> 
                         <td style="cursor: pointer;">
-                        <dd class="figure-caption" routerLink="/compras/{{com.id}}">{{com.id}}</dd>
+                        <dd >{{com.id}}</dd>
                         </td>
                         <td style="cursor: pointer;">
-                        <dd class="figure-caption" routerLink="/compras/{{com.id}}">{{com.costoTotal}}</dd>
+                        <dd>{{com.costoTotal}}</dd>
                        </td>
                         <td style="cursor: pointer;">
-                        <dd class="figure-caption" routerLink="/compras/{{com.id}}">{{com.fecha}}</dd>
-                        </td>
-                        <td style="cursor: pointer;">
-                        <dd class="figure-caption" routerLink="/compras/{{com.id}}">{{com.estado}}</dd>
+                        <dd >{{com.fecha| date:'MM/dd/yyyy'}}</dd>
                         </td>
 
                     </tr>
@@ -33,5 +31,12 @@
             </div>
         </div>
         
-    </div>    
+         </div>
+            <div class="col-8">
+            <div *ngIf="selectedCompra">
+                <app-compra-detail [compraDetail]="selectedCompra"></app-compra-detail>
+            </div>
+            </div>   
+        </div>
+    </div>
 </div>
