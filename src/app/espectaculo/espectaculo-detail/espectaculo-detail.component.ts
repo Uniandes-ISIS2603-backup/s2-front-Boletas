@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input} from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import {EspectaculoService} from '../espectaculo.service';
 import {Espectaculo} from '../espectaculo';
@@ -18,7 +18,7 @@ export class EspectaculoDetailComponent implements OnInit {
 
   espectaculo_id: number;
   
-  espectaculoDetail: EspectaculoDetail;
+  @Input() espectaculoDetail: EspectaculoDetail;
     
   
    getBookDetail(): void {
