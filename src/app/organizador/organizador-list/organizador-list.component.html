@@ -1,14 +1,20 @@
-        <div class="container-fluid">
-            <div class="col-md-2">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
             <table class="table table-striped">
                 <thead class="thead-dark">
-                    <tr>
-                        <th>Id</th>
-                    </tr>
+                        <th class="h4">Nombre del organizador</th>   
                 </thead>
+                <tbody>
                 <tbody>     
-                    <tr *ngFor  ="let organizador of organizadores">
-                        <td>{{organizador.id}}</td>
+                    <tr *ngFor  ="let organizador of organizadores"
+                              (click)="onSelected(organizador.id)">
+                        <td style="cursor: pointer;"> 
+                <dd>{{organizador.nombre}}</dd>
+                    </td>
+                </tr>
                 </tbody>
             </table>
             </div>
+        </div>
+        </div>

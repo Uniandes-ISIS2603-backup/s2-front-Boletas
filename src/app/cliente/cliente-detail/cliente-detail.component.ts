@@ -39,9 +39,13 @@ export class ClienteDetailComponent implements OnInit{
 *Esto inicializa la lista cuando se crea el componente 
 *Este metodo se llama cuando se crea el compoente
 **/
-ngOnInit(){
-    this.getClienteDetail()
-}
+    ngOnInit() {
+        this.cliente_id = +this.route.snapshot.paramMap.get('id');
+        if (this.cliente_id){
+        this.clienteDetail = new ClienteDetail();
+        this.getClienteDetail();
+        }
+    }
     
     
     
