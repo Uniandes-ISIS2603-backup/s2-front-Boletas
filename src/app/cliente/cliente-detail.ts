@@ -6,7 +6,7 @@ import {Cliente} from './cliente'
 *Inteface para ClienteDetail .
 *@author Vilma Tirado Gomez
 **/
-export interface ClienteDetail extends Cliente{
+export class ClienteDetail extends Cliente{
 /**
 * Compras del cliente
 **/

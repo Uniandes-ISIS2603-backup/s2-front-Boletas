@@ -1,7 +1,7 @@
 /**
 *Esta clase representa la interface del cliente de Boletas
 **/
-export interface Cliente 
+export class Cliente 
 {
     /**
      * Identificador del cliente
