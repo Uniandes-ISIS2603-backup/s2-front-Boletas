@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input} from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import {EspectaculoService} from '../espectaculo.service';
 import {Espectaculo} from '../espectaculo';
@@ -18,10 +18,10 @@ export class EspectaculoDetailComponent implements OnInit {
 
   espectaculo_id: number;
   
-  espectaculoDetail: EspectaculoDetail;
+  @Input() espectaculoDetail: EspectaculoDetail;
     
   
-   getBookDetail(): void {
+   getEspectaculoDetail(): void {
        this.espectaculoService.getEspectaculoDetail(this.espectaculo_id)
             .subscribe(espectaculoDetail => {
                 this.espectaculoDetail = espectaculoDetail;
@@ -30,8 +30,9 @@ export class EspectaculoDetailComponent implements OnInit {
     
   ngOnInit() {
       
-        this.espectaculo_id = +this.route.snapshot.paramMap.get('id');              
-        this.getBookDetail();
+        this.espectaculo_id = +this.route.snapshot.paramMap.get('id');  
+        this.espectaculoDetail = new EspectaculoDetail();            
+        this.getEspectaculoDetail();
   }
 
 }

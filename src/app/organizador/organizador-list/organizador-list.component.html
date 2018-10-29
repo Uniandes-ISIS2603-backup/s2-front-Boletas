@@ -1,20 +1,24 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col">
+    <div class="container-fluid">
+        <div class="col-md-2">
             <table class="table table-striped">
                 <thead class="thead-dark">
-                        <th class="h4">Nombre del organizador</th>   
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                    </tr>
+
                 </thead>
                 <tbody>
                 <tbody>     
-                    <tr *ngFor  ="let organizador of organizadores"
-                              (click)="onSelected(organizador.id)">
-                        <td style="cursor: pointer;"> 
-                <dd>{{organizador.nombre}}</dd>
-                    </td>
+                    <tr *ngFor  ="let organizador of organizadores">
+                        <td style ="cursor:pointer;">
+                            <dd routerLink = "/organizadores/{{organizador.id}}"> {{organizador.id}}</dd>
+                        </td>
+                        <td>
+                            {{organizador.nombre}}
+                        </td>
                 </tr>
                 </tbody>
             </table>
-            </div>
         </div>
-        </div>
+    </div>
