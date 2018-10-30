@@ -4,13 +4,14 @@ import { LugarListComponent } from './lugar-list/lugar-list.component';
 
 import {LugarService} from './lugar.service';
 import {FormsModule} from '@angular/forms';
+import { LugarDetailComponent } from './lugar-detail/lugar-detail.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule
   ],
-  declarations: [LugarListComponent],
+  declarations: [LugarListComponent, LugarDetailComponent],
   providers: [LugarService], 
   exports:[LugarListComponent]
 })

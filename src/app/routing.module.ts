@@ -14,6 +14,8 @@ import {ClienteDetailComponent} from '../app/cliente/cliente-detail/cliente-deta
 import {ComentarioListComponent} from '../app/comentario/comentario-list/comentario-list.component';
 import {ComentarioDetailComponent} from '../app/comentario/comentario-detail/comentario-detail.component';
 import {OrganizadorDetailComponent} from '../app/organizador/organizador-detail/organizador-detail.component';
+import {LugarListComponent} from '../app/lugar/lugar-list/lugar-list.component';
+import {LugarDetailComponent} from '../app/lugar/lugar-detail/lugar-detail.component';
 
 const routes: Routes=[
     {
@@ -92,6 +94,15 @@ const routes: Routes=[
                 path:'id',
                 component:ComentarioDetailComponent
             }
+        ]
+    },
+    {
+        path: 'lugares',
+        children: [
+           {
+               path: 'list',
+               component: LugarListComponent
+           }
         ]
     }
 ]
