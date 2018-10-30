@@ -1,4 +1,4 @@
-export interface Lugar {
+export class Lugar {
     /**
      * El id del lugar
      */
