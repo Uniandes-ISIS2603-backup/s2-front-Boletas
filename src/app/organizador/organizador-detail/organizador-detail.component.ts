@@ -14,7 +14,7 @@ export class OrganizadorDetailComponent implements OnInit {
   
   organizador_id:number;
   
-  @Input()  organizadorDetail : OrganizadorDetail;
+  @Input() organizadorDetail : OrganizadorDetail;
 
   getOrganizadorDetail(): void {
       this.organizadorService.getOrganizadorDetail(this.organizador_id)
@@ -26,7 +26,7 @@ export class OrganizadorDetailComponent implements OnInit {
   ngOnInit() {
       
         this.organizador_id = +this.route.snapshot.paramMap.get('id');  
-        //this.organizadorDetail = new OrganizadorDetail();            
+        this.organizadorDetail = new OrganizadorDetail();            
         this.getOrganizadorDetail();
   }
 
