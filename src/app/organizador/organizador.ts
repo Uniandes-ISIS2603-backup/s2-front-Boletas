@@ -17,7 +17,7 @@ export interface Organizador
     /**
     * nombre del organizador 
     **/
-    nombre:String
+    nombre:string;
     
    /**
     * presupuesto del organizador 

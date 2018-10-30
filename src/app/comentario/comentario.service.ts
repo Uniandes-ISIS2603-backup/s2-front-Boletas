@@ -6,7 +6,7 @@ import { environment } from '../../environments/environment';
 import { ComentarioDetail } from './comentario-detail';
 
 const API_URL = environment.apiURL;
-const comentarios = 'comentarios';
+const comentarios = '/comentarios';
 
 @Injectable()
 export class ComentarioService {

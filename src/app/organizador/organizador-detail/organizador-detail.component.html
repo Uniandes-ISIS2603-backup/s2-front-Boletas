@@ -1,0 +1,17 @@
+
+<p class="h3 p-3">{{organizadorDetail.usuario}}<p> 
+        <div class="row">
+            <div class="col-md-3">
+                <dl>     
+                    <dt>Nombre</dt>
+                    <dd>{{organizadorDetail.nombre}}</dd>
+                    <dt>Presupuesto</dt>
+                    <dd>{{organizadorDetail.presupuesto | currency}}</dd>
+                    <dt>Ganancia </dt>
+                    <dd>{{organizadorDetail.ganancia | currency}}</dd>
+                </dl>
+            </div>
+
+<!--            <p class="h3 p-3">Espectaculos de este organizador: </p>
+        <app-espectaculo-list [espectaculos]="organizadorDetail.espectaculos"></app-espectaculo-list>
+        </div>-->

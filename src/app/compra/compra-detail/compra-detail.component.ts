@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { CompraService } from '../compra.service';
 
 import { CompraDetail } from '../compra-detail';
-import { Compra } from '../compra';
 
 
 @Component({
@@ -14,14 +13,12 @@ import { Compra } from '../compra';
 })
 export class CompraDetailComponent implements OnInit {
 
-    @Input() compraDetail: CompraDetail;
-
     constructor(
         private route: ActivatedRoute,
         private compraService: CompraService 
     ) { }
 
-
+     @Input() compraDetail: CompraDetail;
     compra_id: number;
     
     getCompraDetail(): void {

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Organizador} from '../organizador'
 import {OrganizadorService} from '../organizador.service'
+import {ActivatedRoute} from '@angular/router';
 
 /**
 *Componente para la lista de organizadores
@@ -28,7 +29,7 @@ export class OrganizadorListComponent implements OnInit
     organizadores: Organizador[];
     
     /**
-    * Le pide al cliente que actualize la lista de servicios 
+    * Le pide al organizador que actualize la lista de servicios 
      **/
     getOrganizadores(): void {
         this.organizadorService.getOrganizadores().subscribe(organizadores => this.organizadores= organizadores)
