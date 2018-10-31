@@ -21,6 +21,7 @@ export class EspectaculoListComponent implements OnInit {
   }
 
   ngOnInit() {
+     
       this.getEspectaculos();
   }
 
