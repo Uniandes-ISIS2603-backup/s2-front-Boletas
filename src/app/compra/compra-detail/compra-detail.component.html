@@ -18,13 +18,13 @@
                     <dd>{{compraDetail.direccion}}</dd>
                     <dt>Fecha</dt>
                     <dd>{{compraDetail.fecha| date:'MM/dd/yyyy'}}</dd>
-                    <dt>Direccion</dt>
-                    <dd>{{compraDetail.direccion}}</dd>
+                    <dt>Cliente</dt>
+                    <dd>{{compraDetail.cliente.id}}</dd>
                 </dl>
             </div>
 
         </div>
     </div>
-<!--    <p class="h3 p-3">Boletas De La Compra : </p>
-    <app-boleta-list [boletas]="compraDetail.boletas"></app-boleta-list>-->
+    <p class="h3 p-3">Boletas de la Compra : </p>
+    <app-boleta-list [boletas]="compraDetail.boletas"></app-boleta-list>
 </div>

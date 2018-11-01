@@ -15,6 +15,7 @@ export class CompraListComponent implements OnInit {
     compras: Compra[];
     compra_id: number;
     selectedCompra : Compra;
+    showCreate: boolean;
     
     onSelected(compra_id: number):void {
         this.compra_id = compra_id;
@@ -27,6 +28,14 @@ export class CompraListComponent implements OnInit {
             .subscribe(selectedCompra => {
                 this.selectedCompra = selectedCompra
             });
+    }
+    
+    showHideCreate(): void {
+        if (this.selectedCompra) {
+            this.selectedCompra = undefined;
+            this.compra_id = undefined;
+        }
+        this.showCreate = !this.showCreate;
     }
     
     

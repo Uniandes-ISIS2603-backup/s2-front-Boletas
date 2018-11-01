@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Boleta } from '../boleta';
 import { BoletaService } from '../boleta.service';
 
@@ -9,8 +9,10 @@ import { BoletaService } from '../boleta.service';
 })
 export class BoletaListComponent implements OnInit {
 
+    
+
   constructor(private boletaService: BoletaService) { }
-  boletas: Boleta[];
+ @Input() boletas: Boleta[];
   getBoletas(): void{
       this.boletaService.getBoletas().subscribe(boletas => this.boletas = boletas);
   }
