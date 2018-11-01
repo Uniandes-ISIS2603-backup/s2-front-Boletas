@@ -10,6 +10,7 @@ import { CompraService } from './compra.service';
 
 import { CompraDetailComponent } from './compra-detail/compra-detail.component';
 import { CompraCreateComponent } from './compra-create/compra-create.component';
+import {BoletaModule} from '../boleta/boleta.module';
 
 @NgModule({
     imports: [       
@@ -17,7 +18,8 @@ import { CompraCreateComponent } from './compra-create/compra-create.component';
         HttpClientModule,
         CommonModule,
         RoutingModule,
-        FormsModule
+        FormsModule,
+        BoletaModule
     ],
     declarations: [CompraListComponent, CompraDetailComponent, CompraCreateComponent],
     providers: [CompraService],
