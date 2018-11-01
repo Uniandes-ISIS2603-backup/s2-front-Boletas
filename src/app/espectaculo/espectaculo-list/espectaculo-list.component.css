@@ -1,2 +1,14 @@
 h3{color: red}
 
+#cont{
+    background-color: #A9A9A9;
+}
+
+
+#card{
+    width: 400px;
+}
+
+#title{
+    font-size: 2em;
+}
