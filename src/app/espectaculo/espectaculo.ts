@@ -2,7 +2,7 @@
  * Esta clase define la representacion de un espectaculo.
  * Contiene toda la informacion con respecto a esta.
  */
-export interface Espectaculo {
+export class Espectaculo {
     
     /**
      * El id del espectaculo

@@ -1,31 +1,25 @@
 <div class="container-fluid">
-    <div class="container-responsive">
-        <div class="col-md-2">
-        <div class ="card">
-            <div class="card-body">
-            <h3 class="card-title">Clientes</h3>
+    <div class="row">
+        <div class="col">
             <table class="table table-striped">
                 <thead class="thead-dark">
-                    <tr>
-                        <th>Id</th>
-                        <th> Nombre</th>
-                        <th>Usuario</th>
-                        <th>Cedula</th>
-                        <th>Medio de pago</th>
-                    </tr>
+                        <th class="h4">Nombre del cliente</th>   
                 </thead>
+                <tbody>
                 <tbody>     
-                    <tr *ngFor  ="let cliente of clientes">
-                        <td>{{cliente.id}}</td>
-                        <td>{{cliente.nombre}}</td>
-                        <td>{{cliente.usuario}}</td>
-                        <td>{{cliente.cedula}}</td>
-                        <td>{{cliente.pago}}</td>
+                    <tr *ngFor  ="let cliente of clientes"
+                              (click)="onSelected(cliente.id)">
+                        <td style="cursor: pointer;"> 
+                <dd>{{cliente.nombre}}</dd>
+                    </td>
                 </tr>
                 </tbody>
             </table>
             </div>
+                <div class="col-8">
+            <div *ngIf="selectedCliente">
+                <app-cliente-detail [clienteDetail]="selectedCliente"></app-cliente-detail>
+            </div>
         </div>
         </div>
-    </div>    
-</div>
+        </div>

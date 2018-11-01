@@ -13,7 +13,9 @@ import {ClienteListComponent} from '../app/cliente/cliente-list/cliente-list.com
 import {ClienteDetailComponent} from '../app/cliente/cliente-detail/cliente-detail.component';
 import {ComentarioListComponent} from '../app/comentario/comentario-list/comentario-list.component';
 import {ComentarioDetailComponent} from '../app/comentario/comentario-detail/comentario-detail.component';
-
+import {OrganizadorDetailComponent} from '../app/organizador/organizador-detail/organizador-detail.component';
+import {LugarListComponent} from '../app/lugar/lugar-list/lugar-list.component';
+import {LugarDetailComponent} from '../app/lugar/lugar-detail/lugar-detail.component';
 
 const routes: Routes=[
     {
@@ -61,6 +63,10 @@ const routes: Routes=[
             {
                 path: 'list',
                 component:OrganizadorListComponent
+            },
+            {
+                path:':id',
+                component: OrganizadorDetailComponent
             }
         ]
     },
@@ -88,6 +94,15 @@ const routes: Routes=[
                 path:'id',
                 component:ComentarioDetailComponent
             }
+        ]
+    },
+    {
+        path: 'lugares',
+        children: [
+           {
+               path: 'list',
+               component: LugarListComponent
+           }
         ]
     }
 ]

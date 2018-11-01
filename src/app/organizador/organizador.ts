@@ -2,7 +2,7 @@
 *Esta clase representa la interface de un organizador
 *@author Vilma Tirado Gomez
 **/
-export interface Organizador
+export class Organizador
 {
   /**
   * Identificador del organizador
@@ -12,12 +12,12 @@ export interface Organizador
       /**
     * usuario del organizador 
     **/
-    usuario:String;
+    usuario:string;
     
     /**
     * nombre del organizador 
     **/
-    nombre:String
+    nombre:string;
     
    /**
     * presupuesto del organizador 

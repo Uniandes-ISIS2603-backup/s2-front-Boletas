@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Organizador} from '../organizador'
 import {OrganizadorService} from '../organizador.service'
+import {ActivatedRoute} from '@angular/router';
 
 /**
 *Componente para la lista de organizadores

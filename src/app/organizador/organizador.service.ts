@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from  '@angular/common/http';
 import {Organizador} from './organizador'
 import {Observable} from 'rxjs'
+import {OrganizadorDetail} from './organizador-detail';
 
 import { environment } from '../../environments/environment';
 const API_URL = environment.apiURL;
@@ -21,6 +22,11 @@ export class OrganizadorService
     
     getOrganizadores(): Observable<Organizador[]>{
         return this.http.get<Organizador[]>(API_URL+organizadores);
+    }
+    
+    getOrganizadorDetail(organizadorId : number): Observable<OrganizadorDetail>
+    {
+        return this.http.get<OrganizadorDetail>(API_URL + organizadores + "/" + organizadorId);
     }
 }
     
