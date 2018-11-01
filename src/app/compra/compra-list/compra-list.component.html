@@ -9,7 +9,7 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>Id</th>   
-                        <th>Costo</th>
+                        <th>Costo Total</th>
                         <th>Fecha</th>
                     </tr>
                 </thead>
@@ -38,8 +38,7 @@
             </div>
             <div *ngIf="showCreate">
                 <app-compra-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-compra-create>
-            </div
-            </div>   
+            </div>  
         </div>
     </div>
 </div>
