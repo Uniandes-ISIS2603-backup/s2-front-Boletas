@@ -50,7 +50,7 @@ const routes: Routes=[
                 component: BoletaListComponent
             },
             {
-                path:'id',
+                path:':id',
                 component:BoletaDetailComponent
             }
         ]
@@ -85,7 +85,7 @@ const routes: Routes=[
                 component: ComentarioListComponent
             },
             {
-                path:'id',
+                path:':id',
                 component:ComentarioDetailComponent
             }
         ]
