@@ -1,3 +1,5 @@
+import { Espectaculo } from '../espectaculo/espectaculo';
+import { Compra } from '../compra/compra';
 /* 
  * Esta clase define la representación de una boleta
  */
@@ -22,5 +24,15 @@
         * Indica si la boleta está vendida o no
         */
         vendida: boolean;
+        
+        /**
+         * La compra de la boleta
+         */
+         compra:Compra;
+         
+         /**
+          * El espectaculo de la boleta
+          */
+          espectaculo: Espectaculo;
      }
 
