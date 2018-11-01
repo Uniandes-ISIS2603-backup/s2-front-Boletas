@@ -15,6 +15,10 @@ export class CompraService {
     
     constructor(private http: HttpClient) { }
     
+    createCompra(compra): Observable<boolean> {
+        return this.http.post<boolean>(API_URL + compras, compra);
+    }
+    
     getCompraDetail(compraId: number): Observable<CompraDetail> {
         return this.http.get<CompraDetail>(API_URL + compras + '/' + compraId);
     }
