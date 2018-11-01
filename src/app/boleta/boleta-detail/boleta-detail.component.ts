@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,  NavigationEnd } from '@angular/router';
 
 import { BoletaService } from '../boleta.service';
 
@@ -12,12 +12,14 @@ import { Boleta } from '../boleta';
 })
 export class BoletaDetailComponent implements OnInit {
 
-@Input() boletaDetail: BoletaDetail;
+
 
     constructor(
         private route: ActivatedRoute,
-        private boletaService: BoletaService 
+        private boletaService: BoletaService,
+         
     ) { }
+    @Input() boletaDetail: BoletaDetail;
     boleta_id:number;
     getBoletaDetail(): void {
         this.boletaService.getBoletaDetail(this.boleta_id)

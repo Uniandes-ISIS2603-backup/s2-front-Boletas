@@ -1,18 +1,39 @@
-<div id="alertPanel" style="text-align: center"></div>
 <div class="container-fluid">
-    <div class="col-md-2">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Id</th> 
-                    <th>mensaje</th> 
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let c of comentarios">
-                    <td>{{c.id}}</td>
-                    <td>{{c.mensaje}}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="container-responsive">
+        <div class="row">
+        <div class="col">
+        
+        <div class ="card">
+            <div class="card-body">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Id</th>   
+                        <th>Mensaje</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let c of comentarios" (click)="onSelected(c.id)"> 
+                        <td style="cursor: pointer;">
+                        <dd >{{c.id}}</dd>
+                        </td>
+                        <td style="cursor: pointer;">
+                        <dd>{{c.mensaje}}</dd>
+                       </td>
+                        
+
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+        
+         </div>
+            <div class="col-8">
+            <div *ngIf="selectedComentario">
+                <app-comentario-detail [comentarioDetail]="selectedComentario"></app-comentario-detail>
+            </div> 
+        </div>
     </div>
+</div>
