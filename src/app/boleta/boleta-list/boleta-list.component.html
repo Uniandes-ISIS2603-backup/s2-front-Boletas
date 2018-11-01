@@ -1,22 +1,45 @@
 <div class="container-fluid">
-    <div class="col-md-2">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>precio</th>
-                    <th>fecha</th>
-                    <th>vendida</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let b of boletas">
-                    <td style="cursor: pointer;">
-                        <dd class="figure-caption" routerLink="/boletas/{{b.id}}">{{b.id}}</dd>
-                    </td>
-                    
-                </tr>
-            </tbody>
-        </table>
+    <div class="container-responsive">
+        <div class="row">
+        <div class="col">
+        
+        <div class ="card">
+            <div class="card-body">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Id</th>   
+                        <th>Precio</th>
+                        <th>Fecha</th>
+                        <th>Vendida</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let b of boletas" (click)="onSelected(b.id)"> 
+                        <td style="cursor: pointer;">
+                        <dd >{{b.id}}</dd>
+                        </td>
+                        <td style="cursor: pointer;">
+                        <dd>{{b.precio}}</dd>
+                       </td>
+                        <td style="cursor: pointer;">
+                        <dd >{{b.fecha| date:'MM/dd/yyyy'}}</dd>
+                        </td>
+                        <td style="cursor: pointer;">
+                        <dd >{{b.vendida}}</dd>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+        
+         </div>
+            <div class="col-8">
+            <div *ngIf="selectedBoleta">
+                <app-boleta-detail [boletaDetail]="selectedBoleta"></app-boleta-detail>
+            </div> 
+        </div>
     </div>
 </div>

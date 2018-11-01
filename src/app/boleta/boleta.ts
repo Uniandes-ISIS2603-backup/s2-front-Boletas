@@ -1,7 +1,7 @@
 /* 
  * Esta clase define la representación de una boleta
  */
- export interface Boleta
+ export class Boleta
  {
      /**
      * El id de la boleta

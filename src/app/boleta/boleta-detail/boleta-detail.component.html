@@ -3,17 +3,25 @@
         <p class="h3 p-3">{{boletaDetail.id}}<p> 
         <div class="row">
             <div class="col-md-3">
-            </div>
-            <div class="col">
-                <dl>     
-                    <dt>precio</dt>
+                <dl>
+                    <dt>Precio</dt>
                     <dd>{{boletaDetail.precio}}</dd>
-                    <dt>fecha</dt>
-                    <dd>{{boletaDetail.fecha| date:'MM/dd/yyyy'}}</dd>
-                    <dt>vendida</dt>
+                    <dt>Vendida</dt>
                     <dd>{{boletaDetail.vendida}}</dd>
+                    <dt>Fecha</dt>
+                    <dd>{{boletaDetail.fecha| date:'MM/dd/yyyy'}}</dd>
+                    
                 </dl>
             </div>
+            <div class="col-md-3">
+                <dl>     
+                    <dt>Espectaculo</dt>
+                    <dd>{{boletaDetail.espectaculo.id}}</dd>
+                    
+                    <dt>Cliente</dt>
+                    <dd>{{boletaDetail.compra.id}}</dd>
+                </dl>
+            </div>
+
         </div>
     </div>
-</div>
