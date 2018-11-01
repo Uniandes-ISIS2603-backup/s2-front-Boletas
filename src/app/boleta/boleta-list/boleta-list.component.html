@@ -1,24 +1,22 @@
-<div id="alertPanel" style="text-align: center"></div>
 <div class="container-fluid">
     <div class="col-md-2">
         <table class="table table-striped">
-            <thead class="thead-dark">
+            <thead>
                 <tr>
-                    <th>Id</th> 
-                    <th>precio</th> 
-                    <th>fecha</th> 
-                    <th>vendida</th> 
+                    <th>Id</th>
+                    <th>precio</th>
+                    <th>fecha</th>
+                    <th>vendida</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor = "let b of boletas">
-                    <td style="cursor: pointer;">{{b.id}}</td>
-                    <td style="cursor: pointer;">{{b.precio}}</td>
-                    <td style="cursor: pointer;">{{b.fecha}}</td>
-                    <td style="cursor: pointer;">{{b.vendida}}</td>
-                  
+                    <td style="cursor: pointer;">
+                        <dd class="figure-caption" routerLink="/boletas/{{b.id}}">{{b.id}}</dd>
+                    </td>
+                    
                 </tr>
             </tbody>
         </table>
     </div>
-
+</div>

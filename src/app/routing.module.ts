@@ -53,7 +53,7 @@ const routes: Routes=[
             },
             {
                 path:':id',
-                component:BoletaDetailComponent
+                component: BoletaDetailComponent
             }
         ]
     },
@@ -92,7 +92,7 @@ const routes: Routes=[
             },
             {
                 path:':id',
-                component:ComentarioDetailComponent
+                component: ComentarioDetailComponent
             }
         ]
     },
