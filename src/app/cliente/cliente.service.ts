@@ -32,6 +32,13 @@ export class ClienteService
          return this.http.get<ClienteDetail>(API_URL + clientes+'/'+ clienteId); 
     }
     
-    
+        /**
+    * Crea un nuevo cliente
+    * @param cliente El nuevo cliente
+    * @returns la confirmacion de que el cliente fue creado
+    */
+    createCliente(cliente): Observable<Cliente> {
+        return this.http.post<Cliente>(API_URL + clientes, cliente);
+    }
 
 }
