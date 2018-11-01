@@ -1,5 +1,5 @@
 import { Boleta } from "./boleta";
-export interface BoletaDetail extends Boleta
+export class BoletaDetail extends Boleta
 {
    
 }

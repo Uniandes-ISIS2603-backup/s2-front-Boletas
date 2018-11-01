@@ -52,8 +52,8 @@ const routes: Routes=[
                 component: BoletaListComponent
             },
             {
-                path:'id',
-                component:BoletaDetailComponent
+                path:':id',
+                component: BoletaDetailComponent
             }
         ]
     },
@@ -91,8 +91,8 @@ const routes: Routes=[
                 component: ComentarioListComponent
             },
             {
-                path:'id',
-                component:ComentarioDetailComponent
+                path:':id',
+                component: ComentarioDetailComponent
             }
         ]
     },
