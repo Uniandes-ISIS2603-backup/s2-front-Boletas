@@ -1,3 +1,49 @@
-<p>
-  cliente-create works!
-</p>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br>
+        <h2 class="text-center">Crear una cuenta</h2>
+        <br>
+        <form name="cliente" (ngSubmit)="f.form.valid && createCliente()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="nombreCliente"><b>Nombre</b></label>
+                <input type="text" name="nombreCliente" class="form-control" id="nombreCliente" [(ngModel)]="cliente.nombre"
+                    #nombreCliente="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombreCliente.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el nombre</div>
+                </div>
+            </div>
+ <div class="form-group">
+                <label for="usuarioCliente"><b>Usuario</b></label>
+                <input type="text" name="usuarioCliente" class="form-control" id="usuarioCliente" [(ngModel)]="cliente.usuario"
+                    #usuarioCliente="ngModel" [ngClass]="{ 'is-invalid': f.submitted && usuarioCliente.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el usuario</div>
+                </div>
+            </div>
+ <div class="form-group">
+                <label for="cedulaCliente"><b>Cedula</b></label>
+                <input type="text" name="cedulaCliente" class="form-control" id="cedulaCliente" [(ngModel)]="cliente.cedula"
+                    #cedulaCliente="ngModel" [ngClass]="{ 'is-invalid': f.submitted && cedulaCliente.invalid }" required>
+                <div class="invalid-feedback"> {{cedulaCliente}}
+                    <div>Falta la cedula</div>
+                </div>
+            </div>
+              <div>
+                   <label for="pagoCliente"><b>Forma de pago</b></label>
+ <select id="pagoCliente" [(ngModel)]="pago" name="pagoCliente"
+                    #pagoCliente="ngModel" [ngClass]="{ 'is-invalid': f.submitted && pagoCliente.invalid }" required>
+  <option value="Efectivo">Efectivo</option> 
+  <option value="Tarjeta">Tarjeta</option>
+  
+</select>
+            </div>
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Crear cuenta</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>
