@@ -4,26 +4,21 @@
         <br>
         <h2 class="text-center">Crear Compra</h2>
         <br>
-        <form name="compra" (ngSubmit)="f.form.valid && createCompra()" #f="ngForm" novalidate>
+        <form name="compra" (ngSubmit)="f.form.valid && crearCompra()" #f="ngForm" novalidate>
             <div class="form-group">
                 <label for="compraEnvio"><b>Envio</b></label>
-                <input type="checkbox" name="compraEnvio" class="form-control" id="compraEnvio" [(ngModel)]="compra.envio"
-                    #compraEnvio="ngModel" [ngClass]="{ 'is-invalid': f.submitted && compraEnvio.invalid }" required>
+                <input type="checkbox" name="compraEnvio" class="form-control" id="compraEnvio" [(ngModel)]="compra.envio">
+            </div>
+              
+              <div class="form-group">
+                <label for="compraDireccion"><b>Direccion</b></label>
+                <input type="text" name="compraDireccion" class="form-control" id="compraDireccion" [(ngModel)]="compra.direccion"
+                    #compraDireccion="ngModel" [ngClass]="{ 'is-invalid': f.submitted && compraDireccion.invalid }" *ngIf="checkBoxCompra()" required>
                 <div class="invalid-feedback">
-                    <div>No se ha seleccionado el checkbox</div>
+                    <div>Falta la direccion</div>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="compraDireccion"><b>Direccion</b></label>
-                <textarea name="compraDireccion" class="form-control" id="compraDireccion" [(ngModel)]="compra.direccion"
-                    #compraDireccion="ngModel" [ngClass]="{ 'is-invalid': f.submitted && compraDireccion.invalid }"
-                    required></textarea>
-                    <div class="invalid-feedback">
-                        <div>Falta la direccion</div>
-                    </div>
-               
-            </div>
-
+           
             <div class="row form-inline justify-content-center align-self-center">
                 <button type="submit" class="btn btn-primary">Crear</button>
                 <div class="divider"></div>
