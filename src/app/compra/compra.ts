@@ -1,3 +1,5 @@
+import {Cliente} from "../cliente/cliente";
+
 export class Compra {
 
     id: number;
@@ -6,5 +8,5 @@ export class Compra {
     fecha:Date;
     direccion:string;
     estado:boolean;
-    cliente:number;
+    cliente:Cliente;
 }

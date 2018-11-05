@@ -29,15 +29,15 @@
                     <div>Falta la cedula</div>
                 </div>
             </div>
-              <div>
-                   <label for="pagoCliente"><b>Forma de pago</b></label>
- <select id="pagoCliente" [(ngModel)]="pago" name="pagoCliente"
-                    #pagoCliente="ngModel" [ngClass]="{ 'is-invalid': f.submitted && pagoCliente.invalid }" required>
-  <option value="Efectivo">Efectivo</option> 
-  <option value="Tarjeta">Tarjeta</option>
-  
-</select>
-            </div>
+
+<div class="form-group">
+  <label for="pagoCliente">Pago</label>
+  <select class="form-control"  id="pagoCliente"
+          required
+          [(ngModel)]="cliente.pago" name="pagoCliente">
+    <option *ngFor="let pago of Pago" [value]="pago">{{cliente.pago}}</option>
+  </select>
+</div>
             <div class="row form-inline justify-content-center align-self-center">
                 <button type="submit" class="btn btn-primary">Crear cuenta</button>
                 <div class="divider"></div>
