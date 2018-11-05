@@ -29,5 +29,10 @@ export class EspectaculoService {
       
   }
   
+  crearEspectaculo(espectaculo): Observable<boolean>
+  {
+      return this.http.post<boolean>(API_URL + espectaculos, espectaculo);
+  }
+  
   
 }

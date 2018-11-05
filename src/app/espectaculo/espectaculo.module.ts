@@ -5,6 +5,7 @@ import { EspectaculoDetailComponent } from './espectaculo-detail/espectaculo-det
 import {EspectaculoService} from './espectaculo.service';
 import {RoutingModule} from '../routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { EspectaculoCreateComponent } from './espectaculo-create/espectaculo-create.component';
 
 
 @NgModule({
@@ -13,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
     RoutingModule,
     HttpClientModule
   ],
-  declarations: [EspectaculoListComponent, EspectaculoDetailComponent],
+  declarations: [EspectaculoListComponent, EspectaculoDetailComponent, EspectaculoCreateComponent],
   providers:[EspectaculoService],
   exports:[EspectaculoListComponent]
 })
