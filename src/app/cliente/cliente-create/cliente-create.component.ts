@@ -27,6 +27,11 @@ export class ClienteCreateComponent implements OnInit {
     * El cliente nuevo 
     */
     cliente: Cliente;
+    
+    /**
+     * Contenedora con las opciones para el selector de pago
+     */
+     Pago= ['Tarjeta', 'Efectivo'];
 
     /**
     * The output which tells the parent component
