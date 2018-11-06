@@ -3,6 +3,8 @@ import {CommonModule} from '@angular/common/';
 import { BrowserModule } from '@angular/platform-browser';
 import {OrganizadorListComponent} from './organizador-list/organizador-list.component'
 import {OrganizadorDetailComponent} from './organizador-detail/organizador-detail.component';
+import {OrganizadorCreateComponent} from './organizador-create/organizador-create.component';
+
 import {RoutingModule} from '../routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -14,7 +16,7 @@ import {EspectaculoModule} from '../espectaculo/espectaculo.module';
 
 @NgModule({
     imports : [CommonModule,FormsModule, RoutingModule, HttpClientModule, BrowserModule, EspectaculoModule],
-    declarations:[OrganizadorListComponent, OrganizadorDetailComponent],
+    declarations: [OrganizadorListComponent, OrganizadorDetailComponent, OrganizadorCreateComponent],
     providers: [OrganizadorService],
     exports: [OrganizadorListComponent]
 })
