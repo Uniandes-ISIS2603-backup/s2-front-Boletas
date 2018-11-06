@@ -27,6 +27,11 @@ export class OrganizadorListComponent implements OnInit
     * lista de organizadores de la pagina 
      **/
     organizadores: Organizador[];
+      showCreate:boolean;
+  
+  showHideCreate():void{
+      this.showCreate = !this.showCreate;
+  }
     
     /**
     * Le pide al organizador que actualize la lista de servicios 
@@ -41,6 +46,7 @@ export class OrganizadorListComponent implements OnInit
 **/
 ngOnInit()
 {
+    this.showCreate = false;
     this.getOrganizadores();
 }
 }

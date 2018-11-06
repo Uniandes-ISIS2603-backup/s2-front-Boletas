@@ -17,16 +17,28 @@ const clientes="/clientes";
 })
 export class ClienteService
 {
+            /**
+    * Constructor del servicio
+    * @param http The HttpClient - Se necesita para hacer request 
+    */
     constructor(private http: HttpClient)
     {
         
     }
     
+          /**
+    * Retorna un objeto  Observable que contiene la lista de clientes que vienen del API
+    * @returns La lista de clientes en tiempo real 
+    */
     getClientes(): Observable <Cliente[]>
     {
         return this.http.get<Cliente[]>(API_URL + clientes);
     }
     
+            /**
+    *Retorna un objeto  Observable que contiene el detalle de un cliente que viene del API
+    * @returns  Los detalles del cliente
+    **/
     getClienteDetail(clienteId): Observable <ClienteDetail>{
        
          return this.http.get<ClienteDetail>(API_URL + clientes+'/'+ clienteId); 
