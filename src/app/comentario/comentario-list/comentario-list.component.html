@@ -2,24 +2,32 @@
     <div class="container-responsive">
         <div class="row">
         <div class="col">
-        
+        <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear un comentario</button>
+        </div>
         <div class ="card">
             <div class="card-body">
             <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Id</th>   
-                        <th>Mensaje</th>
+                        <th>Cliente</th>   
+                        <th>Comentario</th>
+                        <th>Espectaculo</th>
+                        
                         
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let c of comentarios" (click)="onSelected(c.id)"> 
                         <td style="cursor: pointer;">
-                        <dd >{{c.id}}</dd>
+                        <dd >{{c.cliente.nombre}}</dd>
                         </td>
                         <td style="cursor: pointer;">
                         <dd>{{c.mensaje}}</dd>
+                       </td>
+                       <td style="cursor: pointer;">
+                        <dd>{{c.espectaculo.nombre}}</dd>
                        </td>
                         
 
@@ -34,6 +42,9 @@
             <div *ngIf="selectedComentario">
                 <app-comentario-detail [comentarioDetail]="selectedComentario"></app-comentario-detail>
             </div> 
+            <div *ngIf="showCreate">
+                <app-comentario-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-comentario-create>
+            </div>
         </div>
     </div>
 </div>

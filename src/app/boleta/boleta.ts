@@ -18,7 +18,7 @@ import { Compra } from '../compra/compra';
       /**
        * Fecha de la boleta
        */
-       fecha:Date;
+       fecha:any;
 
        /**
         * Indica si la boleta está vendida o no
