@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Compra } from '../compra';
 import { CompraService } from '../compra.service';
 import {CompraDetail} from '../compra-detail';
@@ -12,7 +12,7 @@ import {CompraDetail} from '../compra-detail';
 
 export class CompraListComponent implements OnInit {
     constructor(private compraService: CompraService) { } 
-    compras: Compra[];
+    @ Input() compras: Compra[];
     compra_id: number;
     selectedCompra : Compra;
     showCreate: boolean;
