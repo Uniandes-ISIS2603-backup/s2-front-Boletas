@@ -32,10 +32,11 @@
 
 <div class="form-group">
   <label for="pagoCliente">Pago</label>
-  <select class="form-control"  id="pagoCliente"
-          required
-          [(ngModel)]="cliente.pago" name="pagoCliente">
-    <option *ngFor="let pago of Pago" [value]="pago">{{cliente.pago}}</option>
+
+                  <select id="pagoCliente" [(ngModel)] = "cliente.pago" name="clientePago"
+                    #clientePago ="ngModel" [ngClass]="{'is-invalid':f.submitted && clientePago.invalid}" required>
+                    <option value="Tarjeta">Tarjeta</option>
+                <option value="Efectivo">Efectivo</option>
   </select>
 </div>
             <div class="row form-inline justify-content-center align-self-center">
