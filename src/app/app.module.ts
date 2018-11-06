@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 import { HttpErrorInterceptor } from './interceptors/httperrorinterceptor.service';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RoutingModule } from './routing.module';
 
 import { ToastrModule } from 'ngx-toastr';
@@ -32,7 +32,9 @@ import {ComentarioModule} from './comentario/comentario.module';
     BoletaModule,
     LugarModule,
     OrganizadorModule,
-    ComentarioModule
+    ComentarioModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
     
   ],
   providers: [{

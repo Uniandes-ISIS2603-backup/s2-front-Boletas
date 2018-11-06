@@ -1,3 +1,5 @@
+import {Lugar} from '../lugar/lugar';
+
 /**
  * Esta clase define la representacion de un espectaculo.
  * Contiene toda la informacion con respecto a esta.
@@ -17,7 +19,7 @@ export class Espectaculo {
     /**
      * Fecha en la cual se va a realizar el espectaculo
      */
-    fecha: Date;
+    fecha: any;
     
     /*
      * Descripcion del espectaculo
@@ -40,4 +42,9 @@ export class Espectaculo {
      */  
     
      imagen :string;
+     
+     /*
+      * Lugar del espectaculo
+      */
+     lugar:Lugar;
 }
