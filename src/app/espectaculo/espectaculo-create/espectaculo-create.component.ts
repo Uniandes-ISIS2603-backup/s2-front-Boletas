@@ -1,4 +1,5 @@
 import { Component, OnInit ,Output, EventEmitter} from '@angular/core';
+import { DatePipe } from '@angular/common';
 
 import { ToastrService } from 'ngx-toastr';
 
@@ -8,7 +9,8 @@ import {Espectaculo} from '../espectaculo';
 @Component({
   selector: 'app-espectaculo-create',
   templateUrl: './espectaculo-create.component.html',
-  styleUrls: ['./espectaculo-create.component.css']
+  styleUrls: ['./espectaculo-create.component.css'],
+  providers : [DatePipe]
 })
 export class EspectaculoCreateComponent implements OnInit {
 
@@ -17,6 +19,7 @@ export class EspectaculoCreateComponent implements OnInit {
    * @param espectaculoService El servicio de espectaculo
    */
   constructor(
+      private dp: DatePipe,
   private espectaculoService : EspectaculoService,
   private toastrService: ToastrService) { }
 
@@ -40,19 +43,19 @@ export class EspectaculoCreateComponent implements OnInit {
       
   }
   
-  createEspectaculo(): void {
+  createEspectaculo(): Espectaculo {
       
-      var espectaculoC = {
-          
-          nombre: this.espectaculo.nombre,
-          descripcion: this.espectaculo.descripcion,
-          artista: this.espectaculo.artista,
-          fecha: this.espectaculo.fecha,
-          imagen: this.espectaculo.imagen,
-          tipo: this.espectaculo.tipo
-      };
-      this.espectaculoService.crearEspectaculo(espectaculoC).subscribe(() => {this.create.emit();
+      console.log(this.espectaculo);
+        let dateB: Date = new Date(this.espectaculo.fecha.year, this.espectaculo.fecha.month-1, this.espectaculo.fecha.day);
+        this.espectaculo.fecha = this.dp.transform(dateB, 'yyyy-MM-dd');
+        console.log(this.espectaculo);
+      
+      this.espectaculoService.crearEspectaculo(this.espectaculo).subscribe((espectaculo) => {
+          this.espectaculo = espectaculo;
+          this.create.emit();
           this.toastrService.success("El espectaculo fue creado", "Creacion espectaculo")})
+          
+      return this.espectaculo;
   }
   
 

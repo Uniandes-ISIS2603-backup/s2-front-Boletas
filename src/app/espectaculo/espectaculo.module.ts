@@ -6,13 +6,17 @@ import {EspectaculoService} from './espectaculo.service';
 import {RoutingModule} from '../routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { EspectaculoCreateComponent } from './espectaculo-create/espectaculo-create.component';
+import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
   imports: [
     CommonModule,
     RoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    NgbModule
   ],
   declarations: [EspectaculoListComponent, EspectaculoDetailComponent, EspectaculoCreateComponent],
   providers:[EspectaculoService],

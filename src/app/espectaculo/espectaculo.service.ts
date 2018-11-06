@@ -29,9 +29,9 @@ export class EspectaculoService {
       
   }
   
-  crearEspectaculo(espectaculo): Observable<boolean>
+  crearEspectaculo(espectaculo): Observable<Espectaculo>
   {
-      return this.http.post<boolean>(API_URL + espectaculos, espectaculo);
+      return this.http.post<Espectaculo>(API_URL + espectaculos, espectaculo);
   }
   
   

@@ -19,7 +19,7 @@ export class Espectaculo {
     /**
      * Fecha en la cual se va a realizar el espectaculo
      */
-    fecha: Date;
+    fecha: any;
     
     /*
      * Descripcion del espectaculo
