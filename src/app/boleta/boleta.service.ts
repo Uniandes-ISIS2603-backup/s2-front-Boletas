@@ -21,4 +21,8 @@ export class BoletaService {
         return this.http.get<Boleta[]>(API_URL + boletas);
     }
     
+    createBoleta(boleta): Observable<Boleta> {
+        return this.http.post<Boleta>(API_URL + boletas, boleta);
+    }
+    
 }

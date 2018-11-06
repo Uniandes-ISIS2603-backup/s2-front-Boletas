@@ -11,8 +11,9 @@ import { ComentarioDetail } from '../comentario-detail';
 export class ComentarioListComponent implements OnInit {
 
   constructor(private comentarioService: ComentarioService) { }
-  comentario_id:number;
+    comentario_id:number;
     selectedComentario: Comentario;
+    showCreate: boolean;
     @Input() comentarios: Comentario[];
 
         onSelected(comentario_id: number):void {
@@ -20,6 +21,17 @@ export class ComentarioListComponent implements OnInit {
         this.selectedComentario = new ComentarioDetail();
         this.getComentarioDetail();        
     }
+    /**
+    * Shows or hides the create component
+    */
+    showHideCreate(): void {
+        if (this.selectedComentario) {
+            this.selectedComentario = undefined;
+            this.comentario_id = undefined;
+        }
+        this.showCreate = !this.showCreate;
+    }
+    
     getComentarioDetail(): void {
         this.comentarioService.getComentarioDetail(this.comentario_id)
             .subscribe(selectedComentario => {
@@ -32,6 +44,9 @@ export class ComentarioListComponent implements OnInit {
   }
   ngOnInit() {
       this.getComentarios();
+      this.showCreate = false;
+      this.selectedComentario = undefined;
+      this.comentario_id = undefined;
   }
 
 }

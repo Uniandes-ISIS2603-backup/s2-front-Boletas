@@ -9,17 +9,16 @@
                     <dt>Vendida</dt>
                     <dd>{{boletaDetail.vendida}}</dd>
                     <dt>Fecha</dt>
-                    <dd>{{boletaDetail.fecha| date:'MM/dd/yyyy'}}</dd>
+                    <dd>{{boletaDetail.espectaculo.fecha| date:'MM/dd/yyyy'}}</dd>
                     
                 </dl>
             </div>
             <div class="col-md-3">
                 <dl>     
                     <dt>Espectaculo</dt>
-                    <dd>{{boletaDetail.espectaculo.id}}</dd>
+                    <dd>{{boletaDetail.espectaculo.nombre}}</dd>
                     
-                    <dt>Cliente</dt>
-                    <dd>{{boletaDetail.compra.id}}</dd>
+                    
                 </dl>
             </div>
 
