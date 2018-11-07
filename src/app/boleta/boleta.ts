@@ -26,13 +26,13 @@ import { Compra } from '../compra/compra';
         vendida: boolean;
         
         /**
-         * La compra de la boleta
-         */
-         compra:Compra;
+        * La compra de la boleta
+        */
+        compra:Compra;
          
-         /**
-          * El espectaculo de la boleta
-          */
-          espectaculo: Espectaculo;
+        /**
+        * El espectaculo de la boleta
+        */
+        espectaculo: Espectaculo;
      }
 
