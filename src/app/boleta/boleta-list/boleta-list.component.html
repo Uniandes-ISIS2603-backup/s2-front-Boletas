@@ -1,24 +1,53 @@
-<div id="alertPanel" style="text-align: center"></div>
 <div class="container-fluid">
-    <div class="col-md-2">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Id</th> 
-                    <th>precio</th> 
-                    <th>fecha</th> 
-                    <th>vendida</th> 
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let b of boletas">
-                    <td>{{b.id}}</td>
-                    <td>{{b.precio}}</td>
-                    <td>{{b.fecha}}</td>
-                    <td>{{b.vendida}}</td>
-                  
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <div class="container-responsive">
+        <div class="row">
+        <div class="col">
+        <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear una boleta</button>
+        </div>
+        <div class ="card">
+            <div class="card-body">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                           
+                        <th>Precio</th>
+                        <th>Fecha</th>
+                        <th>Vendida</th>
+                        <th>Espectaculo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let b of boletas" (click)="onSelected(b.id)"> 
+                        
+                        <td style="cursor: pointer;">
+                        <dd>${{b.precio}}</dd>
+                       </td>
+                        <td style="cursor: pointer;">
+                        <dd >{{b.espectaculo.fecha| date:'MM/dd/yyyy'}}</dd>
+                        </td>
+                        <td style="cursor: pointer;">
+                        <dd >{{b.vendida}}</dd>
+                        </td>
+                        <td style="cursor: pointer;">
+                        <dd >{{b.espectaculo.nombre}}</dd>
+                        </td>
 
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+        
+         </div>
+            <div class="col-8">
+            <div *ngIf="selectedBoleta">
+                <app-boleta-detail [boletaDetail]="selectedBoleta"></app-boleta-detail>
+            </div> 
+            <div *ngIf="showCreate">
+                <app-boleta-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-boleta-create>
+            </div>
+        </div>
+    </div>
+</div>

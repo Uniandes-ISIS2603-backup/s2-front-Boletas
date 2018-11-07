@@ -14,6 +14,14 @@
                     <dd>{{clienteDetail.pago}}</dd>
                 </dl>
             </div>
-
         </div>
+
     </div>
+              <p class="h3 p-3">Comentarios hechos por este cliente: </p>
+        <app-comentario-list [comentarios]="clienteDetail.comentarios"></app-comentario-list>
+      </div>
+
+
+              <p class="h3 p-3">Compras hechas por este cliente: </p>
+              <app-compra-list [compras]="clienteDetail.compras"></app-compra-list>
+  

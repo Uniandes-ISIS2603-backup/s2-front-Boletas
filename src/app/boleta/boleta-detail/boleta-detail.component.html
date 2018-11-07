@@ -1,3 +1,26 @@
-<p>
-  boleta-detail works!
-</p>
+<div class="panel-body">
+    <div class="border margin">
+        <p class="h3 p-3">{{boletaDetail.id}}<p> 
+        <div class="row">
+            <div class="col-md-3">
+                <dl>
+                    <dt>Precio</dt>
+                    <dd>{{boletaDetail.precio}}</dd>
+                    <dt>Vendida</dt>
+                    <dd>{{boletaDetail.vendida}}</dd>
+                    <dt>Fecha</dt>
+                    <dd>{{boletaDetail.espectaculo.fecha| date:'MM/dd/yyyy'}}</dd>
+                    
+                </dl>
+            </div>
+            <div class="col-md-3">
+                <dl>     
+                    <dt>Espectaculo</dt>
+                    <dd>{{boletaDetail.espectaculo.nombre}}</dd>
+                    
+                    
+                </dl>
+            </div>
+
+        </div>
+    </div>

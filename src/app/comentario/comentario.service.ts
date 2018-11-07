@@ -21,6 +21,10 @@ export class ComentarioService {
         return this.http.get<Comentario[]>(API_URL + comentarios);
     }
     
+    createComentario(comentario): Observable<Comentario> {
+        return this.http.post<Comentario>(API_URL + comentarios, comentario);
+    }
+    
 }
 
 

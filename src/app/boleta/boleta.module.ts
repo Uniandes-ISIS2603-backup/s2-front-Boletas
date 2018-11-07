@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { BoletaDetailComponent } from './boleta-detail/boleta-detail.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
+import { BoletaCreateComponent } from './boleta-create/boleta-create.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,7 @@ import {HttpClientModule} from '@angular/common/http';
         CommonModule,
         FormsModule
   ],
-  declarations: [BoletaListComponent, BoletaDetailComponent],
+  declarations: [BoletaListComponent, BoletaDetailComponent, BoletaCreateComponent],
   providers: [BoletaService],
   exports: [BoletaListComponent]
 })

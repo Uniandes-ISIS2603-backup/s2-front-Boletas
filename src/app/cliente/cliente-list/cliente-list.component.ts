@@ -25,10 +25,23 @@ import{ClienteDetail} from '../cliente-detail';
 *Lista de los clientes de la pagina 
 **/
 clientes: Cliente[];
+    /**
+    * Muestra o oculta el componente crear
+    */
+    showCreate: boolean;
+    
+  /**
+*El id del cliente que se quiere ver
+**/
 cliente_id:number;
+
+    /**
+    * El cliente seleccionado por el usuario
+    */
 selectedCliente: Cliente
 
 onSelected (cliente_id: number ): void{
+    this.showCreate = false;
     this.cliente_id = cliente_id;
     this.selectedCliente= new ClienteDetail();
     this.getClienteDetail();    
@@ -47,6 +60,17 @@ getClientes(): void {
                 this.selectedCliente = selectedCliente
             });
      }
+     
+         /**
+    * Muestra o oculta el componente crear
+    */
+    showHideCreate(): void {
+        if (this.selectedCliente) {
+            this.selectedCliente = undefined;
+            this.cliente_id = undefined;
+        }
+        this.showCreate = !this.showCreate;
+    }
 
 /**
 *Esto inicializa la lista cuando se crea el componente 

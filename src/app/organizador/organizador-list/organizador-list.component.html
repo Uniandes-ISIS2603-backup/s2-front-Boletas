@@ -1,5 +1,17 @@
     <div class="container-fluid">
-        <div class="col-md-2">
+           <div class="row">
+        <div class="col">
+            <br>
+            <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear una cuenta</button>
+            </div>
+            <br>
+            <br>
+                <div class="row">
+            <app-organizador-create (cancel)="showHCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-organizador-create>
+            
+    </div>
             <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
@@ -21,4 +33,6 @@
                 </tbody>
             </table>
         </div>
+
+    </div>
     </div>

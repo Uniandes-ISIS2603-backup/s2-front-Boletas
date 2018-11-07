@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { ComentarioDetailComponent } from './comentario-detail/comentario-detail.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
+import { ComentarioCreateComponent } from './comentario-create/comentario-create.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,7 @@ import {HttpClientModule} from '@angular/common/http';
         CommonModule,
         FormsModule
   ],
-  declarations: [ComentarioListComponent, ComentarioDetailComponent],
+  declarations: [ComentarioListComponent, ComentarioDetailComponent, ComentarioCreateComponent],
   providers: [ComentarioService],
   exports: [ComentarioListComponent]
 })

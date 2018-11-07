@@ -15,13 +15,19 @@ export class EspectaculoListComponent implements OnInit {
 
   @Input() espectaculos: Espectaculo[];
   
+  showCreate:boolean;
+  
+  showHCreate():void{
+      this.showCreate = !this.showCreate;
+  }
+  
   getEspectaculos():void{
       this.espectaculoService.getEspectaculos().subscribe(espectaculos => this.espectaculos = espectaculos);
       
   }
 
   ngOnInit() {
-     
+      this.showCreate = false;
       this.getEspectaculos();
   }
 

@@ -2,7 +2,10 @@
     <div class="container-responsive">
         <div class="row">
         <div class="col">
-        
+        <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear Compra</button>
+            </div>
         <div class ="card">
             <div class="card-body">
             <table class="table table-striped">

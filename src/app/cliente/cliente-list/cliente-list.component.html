@@ -1,6 +1,13 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col">
+            <br>
+            <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear una cuenta</button>
+            </div>
+            <br>
+            <br>
             <table class="table table-striped">
                 <thead class="thead-dark">
                         <th class="h4">Nombre del cliente</th>   
@@ -19,6 +26,9 @@
                 <div class="col-8">
             <div *ngIf="selectedCliente">
                 <app-cliente-detail [clienteDetail]="selectedCliente"></app-cliente-detail>
+            </div>
+                      <div *ngIf="showCreate">
+                <app-cliente-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-cliente-create>
             </div>
         </div>
         </div>
