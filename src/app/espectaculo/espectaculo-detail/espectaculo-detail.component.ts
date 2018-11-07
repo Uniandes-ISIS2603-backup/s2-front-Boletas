@@ -4,7 +4,10 @@ import {EspectaculoService} from '../espectaculo.service';
 import {Espectaculo} from '../espectaculo';
 import {EspectaculoDetail} from '../espectaculo-detail';
 
-
+/**
+ * Componente de detail de un espectaculo
+ * @author Sebastian Rodriguez
+ */
 @Component({
   selector: 'app-espectaculo-detail',
   templateUrl: './espectaculo-detail.component.html',
@@ -12,6 +15,9 @@ import {EspectaculoDetail} from '../espectaculo-detail';
 })
 export class EspectaculoDetailComponent implements OnInit, OnDestroy{
 
+  /**
+   * Constructor del componente
+   */
   constructor(private espectaculoService: EspectaculoService,
   private route: ActivatedRoute,
   private router : Router) { 
@@ -22,10 +28,19 @@ export class EspectaculoDetailComponent implements OnInit, OnDestroy{
         });
   }
 
+  /**
+   * El id del espectaculo que llego de la ruta 
+   */
   espectaculo_id: number;
   
+  /**
+   * El espectaculo que queremos mostrar
+   */
   @Input() espectaculoDetail: EspectaculoDetail;
   
+  /**
+   * Los espectaculos, sin contar al que se esta mostrando
+   */
   otrosEspectaculos : Espectaculo[];
   
   navigationSubscription;
@@ -38,6 +53,11 @@ export class EspectaculoDetailComponent implements OnInit, OnDestroy{
             });
     }
     
+    
+    /**
+     * Al mostrarse el detail de un espectaculo, tambien va  a aparecer los demas 
+     * espectaculo, este metodo define los espectaculos, menos el que se esta mostrando
+     */
     getOtrosEspectaculos(): void
     {
         this.espectaculoService.getEspectaculos()
@@ -47,13 +67,17 @@ export class EspectaculoDetailComponent implements OnInit, OnDestroy{
             });
     }
     
-  ngOnInit() {
+    /**
+     * Metodo que se llama al iniciar el componente 
+     * Se declara el espectaculo detail
+     */
+    ngOnInit() {
       
         this.espectaculo_id = +this.route.snapshot.paramMap.get('id');  
         this.espectaculoDetail = new EspectaculoDetail();            
         this.getEspectaculoDetail();
         this.getOtrosEspectaculos();
-  }
+    }
   
   ngOnDestroy() {
         if (this.navigationSubscription) {

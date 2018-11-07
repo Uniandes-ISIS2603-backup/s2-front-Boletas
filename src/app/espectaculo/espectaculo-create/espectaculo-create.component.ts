@@ -6,6 +6,10 @@ import { ToastrService } from 'ngx-toastr';
 import {EspectaculoService} from '../espectaculo.service';
 import {Espectaculo} from '../espectaculo';
 
+/**
+ * Componente de crear para espectaculo
+ * @author Sebastian Rodriguez
+ */
 @Component({
   selector: 'app-espectaculo-create',
   templateUrl: './espectaculo-create.component.html',
@@ -29,10 +33,20 @@ export class EspectaculoCreateComponent implements OnInit {
    */
   espectaculo : Espectaculo;
   
+  /**
+   * Un output que define que el cliente no quiere hacer el proceso
+   */
   @Output() cancel = new EventEmitter();
   
+  /**
+   * El output dice que el cliente crea el espectaculo
+   */
   @Output() create = new EventEmitter();
   
+  
+  /**
+   * Le dice al padre que no se confirma la creacion del espectaculo
+   */
   cancelCreation(): void {
       
       this.cancel.emit();
@@ -43,6 +57,9 @@ export class EspectaculoCreateComponent implements OnInit {
       
   }
   
+  /**
+   * Crea el espectaculo
+   */
   createEspectaculo(): Espectaculo {
       
       console.log(this.espectaculo);
