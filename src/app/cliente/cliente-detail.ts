@@ -1,5 +1,5 @@
 import {Compra} from '../compra/compra';
-//import {Comentario} from '../comentario/comentario';
+import {Comentario} from '../comentario/comentario';
 import {Cliente} from './cliente'
 
 /**
@@ -15,5 +15,5 @@ compras: Compra[];
 /**
 * Comentarios hechos por el cliente
 **/
-//comentarios: Comentario[]
+comentarios: Comentario[]
 }
