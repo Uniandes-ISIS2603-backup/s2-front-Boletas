@@ -31,12 +31,25 @@ export class SillaListComponent implements OnInit {
           });
   }
   
+  showHideCreate():void
+  {
+       if(this.selectedSilla)
+      {
+          this.selectedSilla = undefined;
+          this.silla_id = undefined;
+      }
+      this.showCreate = !this.showCreate
+  }
+  
   getSillas(): void 
   {
       this.sillaService.getSillas().subscribe(sillas => this.sillas = sillas);
   }
   ngOnInit() {
-      this.getSillas();
+       this.getSillas();
+      this.showCreate = false;
+      this.selectedSilla = undefined;
+      this.silla_id = undefined;
   }
 
 }

@@ -29,4 +29,9 @@ export class SillaService {
   {
       return this.http.get<SillaDetail>(API_URL + sillas + "/" + sillaId)
   }
+  
+  createSilla(silla): Observable<Silla>
+  {
+      return this.http.post<Silla>(API_URL + sillas, silla)
+  }
 }
