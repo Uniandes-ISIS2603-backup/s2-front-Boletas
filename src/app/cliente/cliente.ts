@@ -16,7 +16,7 @@ export class Cliente
     /**
     * usuario  del cliente 
     **/
-  usuario: String 
+  usuario: String;
   
       /**
     * medio de pago  del cliente 
