@@ -1,4 +1,4 @@
-export interface Silla {
+export class Silla {
     /**
      * El id de la silla
      */

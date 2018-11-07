@@ -1,35 +1,49 @@
-<p>
-  lugar-list works!
-</p>
-<div class ="container-fluid">
-    <div class="container-responsive">
-        <div class="card">
-            <div class="card-body">
-                <h3>Lugares Actuales</h3>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear un Lugar</button>
+        </div>
+                
                 <table class="table table-striped table-bordered">
                     <thead class="thead-dark">
                         <tr>
                             <th>Nombre</th>
                             <th>Dirección</th>
-                            <th>Tipo</th>
-                            <th>Número Sillas</th>
+                            <th>id</th>
                         </tr>
                         
                     </thead>
                     <tbody>
-                        <tr *ngFor = "let es of lugares">
-                            <td>{{es.nombre}}</td>
-                            <td>{{es.direccion}}</td>
-                            <td>{{es.ubicacion}}</td>
-                            <td>{{es.numsillas}}</td>
+                        <tr *ngFor="let lu of lugares" (click)="onSelected(lu.id)">
+    
+                            <td style="cursor: pointer;">
+                                <dd>{{lu.nombre}}</dd>
+                            </td>
+                            
+                            <td style="cursor: pointer;">
+                                <dd>{{lu.direccion}}</dd>
+                            </td>
+                            
+                            <td style="cursor: pointer;">
+                                <dd>{{lu.id}}</dd>
+                            </td>
+                        
+                            
                         </tr>
                     </tbody>
                     
                 </table>
-                
+            </div>
+        <div class="col-8">
+            
+                <div *ngIf="selectedLugar">
+                <app-lugar-detail [lugarDetail]="selectedLugar"></app-lugar-detail>
+            </div>
+            <div *ngIf="showCreate">
+                <app-lugar-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-lugar-create>
             </div>
         </div>
-        
-    </div>
-    
-</div>
+        </div>
+        </div>

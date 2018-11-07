@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br>
+        <h2 class="text-center">Crear una cuenta</h2>
+        <br>
+        <form name="silla" (ngSubmit)="f.form.valid && createSilla()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="numeroSilla"><b>Número</b></label>
+                <input type="text" name="numeroSilla" class="form-control" id="numeroSilla" [(ngModel)]="silla.numero"
+                    #numeroSilla="ngModel" [ngClass]="{ 'is-invalid': f.submitted && numeroSilla.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el número</div>
+                </div>
+            </div>
+ <div class="form-group">
+                <label for="sillaDIsponible"><b>Disponibilidad</b></label>
+                <input type="text" name="sillaDIsponible" class="form-control" id="sillaDIsponible" [(ngModel)]="silla.disponible"
+                    #sillaDIsponible="ngModel" [ngClass]="{ 'is-invalid': f.submitted && sillaDIsponible.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta la disponibilidad</div>
+                </div>
+            </div>
+              <div class="form-group">
+                <label for="tipoSilla">Tipo</label>
+
+                  <select id="tipoSilla" [(ngModel)] = "silla.tipo" name="tipoSilla"
+                    #tipoSilla ="ngModel" [ngClass]="{'is-invalid':f.submitted && ubicacionLugar.invalid}" required>
+                    <option value="Teatro">General</option>
+                      <option value="Vip">Vip</option>
+                      <option value="Palcos">Palcos</option>
+                      <option value="Platino">Platino</option>
+                </select>
+                </div>
+
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Crear cuenta</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>

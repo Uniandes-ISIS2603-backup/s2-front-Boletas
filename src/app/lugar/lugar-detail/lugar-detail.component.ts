@@ -18,24 +18,26 @@ export class LugarDetailComponent implements OnInit {
 *@param route
 *@param lugarService servicio del lugar.
 **/
-  constructor(private route: ActivatedRoute, private lugarServie:LugarService) { }
+  constructor(
+  private route: ActivatedRoute, 
+  private lugarService:LugarService) { }
   lugar_id:number;
   
   getLugarDetail():void
   {
-      this.lugarServie.getLugarDetail(this.lugar_id)
+      this.lugarService.getLugarDetail(this.lugar_id)
       .subscribe( lugarDetail => {
           this.lugarDetail = lugarDetail
       });
   }
   
   ngOnInit() {
+      console.log(this.lugar_id);
       this.lugar_id = +this.route.snapshot.paramMap.get('id');
-      if (this.lugar_id)
-      {
+     
           this.lugarDetail = new LugarDetail();
           this.getLugarDetail();
-      }
+      
   }
 
 }
