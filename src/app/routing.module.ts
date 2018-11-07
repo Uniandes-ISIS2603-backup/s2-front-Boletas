@@ -102,6 +102,10 @@ const routes: Routes=[
            {
                path: 'list',
                component: LugarListComponent
+           },
+           {
+               path:':id',
+               component: LugarDetailComponent
            }
         ]
     }

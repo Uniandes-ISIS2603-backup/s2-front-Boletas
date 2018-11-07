@@ -7,12 +7,15 @@ import {FormsModule} from '@angular/forms';
 import { LugarDetailComponent } from './lugar-detail/lugar-detail.component';
 import { LugarCreateComponent } from './lugar-create/lugar-create.component';
 
+import { SillaModule } from '../silla/silla.module';
+
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule, 
+    SillaModule
   ],
-  declarations: [LugarListComponent, LugarDetailComponent, LugarCreateComponent],
+  declarations: [LugarListComponent, LugarDetailComponent],
   providers: [LugarService], 
   exports:[LugarListComponent]
 })
