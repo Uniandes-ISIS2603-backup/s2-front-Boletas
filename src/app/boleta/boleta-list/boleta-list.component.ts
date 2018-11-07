@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewContainerRef } from '@angular/core';
 import { Boleta } from '../boleta';
 import { BoletaService } from '../boleta.service';
 import { BoletaDetail } from '../boleta-detail';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -14,6 +15,7 @@ export class BoletaListComponent implements OnInit {
     
     boleta_id:number;
     selectedBoleta: Boleta;
+    showCreate: boolean;
     constructor(private boletaService: BoletaService) { }
     @Input() boletas: Boleta[];
 
@@ -22,6 +24,18 @@ export class BoletaListComponent implements OnInit {
         this.selectedBoleta = new BoletaDetail();
         this.getBoletaDetail();        
     }
+    
+        /**
+    * Shows or hides the create component
+    */
+    showHideCreate(): void {
+        if (this.selectedBoleta) {
+            this.selectedBoleta = undefined;
+            this.boleta_id = undefined;
+        }
+        this.showCreate = !this.showCreate;
+    }
+    
     getBoletaDetail(): void {
         this.boletaService.getBoletaDetail(this.boleta_id)
             .subscribe(selectedBoleta => {
@@ -33,6 +47,10 @@ export class BoletaListComponent implements OnInit {
   }
   ngOnInit() {
       this.getBoletas();
+      this.showCreate = false;
+      this.selectedBoleta = undefined;
+      this.boleta_id = undefined;
+       
   }
 
 }
