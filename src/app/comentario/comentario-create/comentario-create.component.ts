@@ -21,11 +21,13 @@ export class ComentarioCreateComponent implements OnInit {
 
     /**
     * Constructor for the component
-    * @param authorService The author's services provider
+    * @param comentarioService El proveedor de servicios del comentario
     * @param toastrService The toastr to show messages to the user
+    * @param espectaculoService El proveedor de servicios de espectaculo (necesario para obtener los espectaculos y mostrarlos en un selector)
+    * @param clienteService El proveedor de servicios de cliente (necesario para obtener los clientes y mostrarlos en un selector)
     */
     constructor(
-        private dp : DatePipe,
+        
         private comentarioService: ComentarioService,
         private toastrService: ToastrService,
         private espectaculoService: EspectaculoService,
@@ -72,41 +74,22 @@ export class ComentarioCreateComponent implements OnInit {
     * La funcion que señala que se creó una nueva boleta
     */
     @Output() create = new EventEmitter();
-
-    
-    
-    
-    
-    
+ 
     /**
     * Crea un comentario
     */
-    createComentario(): Comentario {
-        
+    createComentario(): Comentario {  
         console.log(this.espectaculo_id);
-        
-       
-        
-        
-       
         this.comentario.espectaculo = new Espectaculo();
         this.comentario.cliente = new Cliente();
-        
-        
-        this.comentario.espectaculo.id = this.espectaculo_id;
-        
+        this.comentario.espectaculo.id = this.espectaculo_id; 
         this.comentario.cliente.id = this.cliente_id;
-        
-        
-        
-        
         console.log(this.comentario)
         this.comentarioService.createComentario(this.comentario)
             .subscribe((comentario) => {
                 this.comentario = comentario;
                 this.create.emit();
-                this.toastrService.success("El comentario fue creado", "Creacion del comrentario");
-                
+                this.toastrService.success("El comentario fue creado", "Creacion del comrentario");     
             });
             
             return this.comentario;

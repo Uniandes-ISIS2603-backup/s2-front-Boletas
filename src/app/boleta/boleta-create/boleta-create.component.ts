@@ -17,12 +17,13 @@ import { Boleta } from '../boleta';
 export class BoletaCreateComponent implements OnInit {
 
     /**
-    * Constructor for the component
-    * @param authorService The author's services provider
-    * @param toastrService The toastr to show messages to the user
+    * Constructor del componente
+    * @param boletaService El proveedor de servicios de la boleta
+    * @param toastrService El toastr para mostrar los mensajes al usuario
+    * @param espectaculoService El proveedor de servicios de espectaculo (necesario para obtener los espectaculos y mostrarlos en un selector)
     */
     constructor(
-        private dp : DatePipe,
+        
         private boletaService: BoletaService,
         private toastrService: ToastrService,
         private espectaculoService: EspectaculoService
@@ -73,30 +74,20 @@ export class BoletaCreateComponent implements OnInit {
             ;
             
     }
-    
     /**
     * Crea una boleta
     */
     createBoleta(): Boleta {
-        
-       
-        
         this.boleta.espectaculo= new Espectaculo();
         this.boleta.espectaculo.id = this.espectaculo_id;
-        
         this.boleta.vendida = false;
-        
-        
-        
         console.log(this.boleta)
         this.boletaService.createBoleta(this.boleta)
             .subscribe((boleta) => {
                 this.boleta = boleta;
                 this.create.emit();
                 this.toastrService.success("La boleta fue creada", "Creacion de la boleta");
-                
             });
-            
             return this.boleta;
     }
 
