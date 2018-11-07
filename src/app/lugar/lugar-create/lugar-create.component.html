@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-9">
+        <br>   
+        <h2 class="text-center"></h2>
+        <br>
+        
+        <form name="lugar" (ngSubmit) = "f.form.valid && createCliente()" #f="ngForm" novalidate>
+            <div class="form-group"> 
+                <label for="nombreLugar">Nombre Lugar</label>
+                <input type="text" name ="nombreLugar" class="form-control" id="nombreLugar" [(ngModel)]= "lugar.nombre"
+                       #nombreLugar = "ngModel" [ngclass] = "{ 'is-valid':f.submitted && nombreLugar.invalid}" required>
+                <div class="invalid-feedback">
+                    <div>Falta el nombre</div>
+                
+            </div>
+            <div class="form-group"> 
+                <label for="tipoLugar">Tipo Lugar</label>
+                <input type="text" name ="tipoLugar" class="form-control" id="tipoLugar" [(ngModel)]= "lugar.ubicacion"
+                       #tipoLugar = "ngModel" [ngclass] = "{ 'is-valid':f.submitted && tipoLugar.invalid}" required>
+                <div class="invalid-feedback">
+                    <div>Falta el Tipo</div>
+                
+            </div>
+            <div class="form-group"> 
+                <label for="numSillas">Tipo Lugar</label>
+                <input type="text" name ="numSillas" class="form-control" id="numSillas" [(ngModel)]= "lugar.numSillas"
+                       #numSillas = "ngModel" [ngclass] = "{ 'is-valid':f.submitted && numSillas.invalid}" required>
+                <div class="invalid-feedback">
+                    <div>Falta el Número de sillas</div>
+                
+            </div>
+            <div class="form-group"> 
+                <label for="direccion">Tipo Lugar</label>
+                <input type="text" name ="direccion" class="form-control" id="direccion" [(ngModel)]= "lugar.direccion"
+                       #direccion = "ngModel" [ngclass] = "{ 'is-valid':f.submitted && direccion.invalid}" required>
+                <div class="invalid-feedback">
+                    <div>Falta la dirección</div>
+                
+            </div>
+        </form>
+    </div>
+        
+</div>
+</div>
