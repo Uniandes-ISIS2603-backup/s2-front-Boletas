@@ -3,9 +3,14 @@ import {HttpClient} from "@angular/common/http";
 import {Silla} from './silla';
 import {Observable} from 'rxjs';
 
+import {SillaDetail} from './silla-detail';
+
 import {environment} from '../../environments/environment';
-const API_URL = '../../assets/';
-const sillas = 'sillas.json';
+const API_URL = environment.apiURL;
+const sillas = '/sillas';
+
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -18,5 +23,10 @@ export class SillaService {
   getSillas(): Observable<Silla[]>
   {
       return this.http.get<Silla[]>(API_URL + sillas);
+  }
+  
+  getSillaDetail(sillaId):Observable<SillaDetail>
+  {
+      return this.http.get<SillaDetail>(API_URL + sillas + "/" + sillaId)
   }
 }

@@ -16,6 +16,9 @@ import {ComentarioDetailComponent} from '../app/comentario/comentario-detail/com
 import {OrganizadorDetailComponent} from '../app/organizador/organizador-detail/organizador-detail.component';
 import {LugarListComponent} from '../app/lugar/lugar-list/lugar-list.component';
 import {LugarDetailComponent} from '../app/lugar/lugar-detail/lugar-detail.component';
+import {SillaListComponent} from '../app/silla/silla-list/silla-list.component';
+import {SillaDetailComponent} from '../app/silla/silla-detail/silla-detail.component';
+
 
 const routes: Routes=[
     {
@@ -107,6 +110,19 @@ const routes: Routes=[
                path:':id',
                component: LugarDetailComponent
            }
+        ]
+    },
+    {
+        path:'sillas',
+        children: [
+            {
+                path: 'list',
+                component: SillaListComponent
+            },
+            {
+                path: ':id',
+                component: SillaDetailComponent
+            }
         ]
     }
 ]

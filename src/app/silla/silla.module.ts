@@ -5,11 +5,13 @@ import { SillaListComponent } from './silla-list/silla-list.component';
 import { SillaService } from './silla.service';
 import { FormsModule } from '@angular/forms';
 import { SillaDetailComponent } from './silla-detail/silla-detail.component';
+import { BoletaModule } from '../boleta/boleta.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule, 
+    BoletaModule
   ],
   declarations: [SillaListComponent, SillaDetailComponent],
   providers: [SillaService],

@@ -14,6 +14,10 @@ export class LugarCreateComponent implements OnInit {
   private toastrService: ToastrService) { }
   
   lugar: Lugar;
+  /**
+   * Contenedora con las opciones para selección de TIpo
+   */
+  tipo=["Coliseo", "Teatro"];
   @Output() cancel = new EventEmitter();
   @Output() create = new EventEmitter();
   

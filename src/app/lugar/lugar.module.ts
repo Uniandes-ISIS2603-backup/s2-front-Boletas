@@ -15,7 +15,7 @@ import { SillaModule } from '../silla/silla.module';
     FormsModule, 
     SillaModule
   ],
-  declarations: [LugarListComponent, LugarDetailComponent],
+  declarations: [LugarListComponent, LugarDetailComponent, LugarCreateComponent],
   providers: [LugarService], 
   exports:[LugarListComponent]
 })
