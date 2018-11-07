@@ -1,7 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-
-        <div class="card">
+        <div class="card" id="Crear">
             <br>
                 <h2 class="text-center">Crea tu espetaculo</h2>
             <br>
@@ -28,7 +27,7 @@
         <div class="form-group">
             <label for ="espectaculoArtista"><b>Artista</b></label>
             <input type="text" name="espectaculoArtista" class="form-control" id="espectaculoArtista" [(ngModel)]="espectaculo.artista"
-                #espectaculoArtista="ngModel" [ngClass]="{'is-invalid':f.submitted && espectaculoArtista.invalid}" required>
+                #espectaculoArtista="ngModel" [ngClass]="{'is-invalid':f.submitted && espectaculoArtista.invalid}" required placeholder="Ej: Nickelback">
             <div class="invalid-feedback">
                 <div>Falta un artista para el espectaculo</div>
             </div>
@@ -36,7 +35,7 @@
         <div class="form-group">
             <label for ="espectaculoDescripcion"><b>Descripcion</b></label>
             <input type="text" name="espectaculoDescripcion" class="form-control" id="espectaculoDescripcion" [(ngModel)]="espectaculo.descripcion"
-                #espectaculoDescripcion="ngModel" [ngClass]="{'is-invalid':f.submitted && espectaculoDescripcion.invalid}" required>
+                #espectaculoDescripcion="ngModel" [ngClass]="{'is-invalid':f.submitted && espectaculoDescripcion.invalid}" required >
             <div class="invalid-feedback">
                 <div>Falta una descripcion para el espectaculo</div>
             </div>
@@ -50,7 +49,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label for ="espectaculoTipo"><b>Tipo de Espectaculo</b></label>
+            <label for ="espectaculoTipo"><b>Tipo de Espectaculo : </b></label>
             <select id="espectaculoTipo" [(ngModel)] = "espectaculo.tipo" name="espectaculoTipo"
                     #espectaculoTipo ="ngModel" [ngClass]="{'is-invalid':f.submitted && espectaculoTipo.invalid}" required>
                     <option value="Concierto">Concierto</option>
@@ -69,5 +68,6 @@
             </div>
         </form> 
         </div>
+    
     </div>
 </div>

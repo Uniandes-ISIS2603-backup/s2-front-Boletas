@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import {Espectaculo} from '../espectaculo';
 import {EspectaculoService} from '../espectaculo.service';
 import {ActivatedRoute} from '@angular/router';
+import 'rxjs/add/operator/filter';
 
 
 @Component({
@@ -17,6 +18,8 @@ export class EspectaculoListComponent implements OnInit {
   
   showCreate:boolean;
   
+  allEspectaculo: string = 'no';
+  
   showHCreate():void{
       this.showCreate = !this.showCreate;
   }
@@ -27,6 +30,21 @@ export class EspectaculoListComponent implements OnInit {
   }
 
   ngOnInit() {
+      
+      this.route.queryParams
+      .filter(params => params.allEspectaculo)
+      .subscribe(params => {
+        console.log(params); 
+
+        this.allEspectaculo = params.allEspectaculo;
+        console.log(this.allEspectaculo); 
+      });
+      if (this.allEspectaculo == 'yes'){
+          console.log("allEspectaculos");
+      
+       this.getEspectaculos();
+       }
+      
       this.showCreate = false;
       this.getEspectaculos();
   }

@@ -15,7 +15,12 @@
                     <dd>{{espectaculoDetail.descripcion}}</dd>
                 </dl>
             </div>
-             <div class="row">
+            
+            <div class="row border margin">
+                <p class="h3 p-3">Comentarios de este espectaculo</p>
+                <app-comentario-list [comentarios] = "espectaculoDetail.comentarios"></app-comentario-list>
+            </div>   
+             <div class="row border margin">
         <p class="h3 p-3">Otros espectaculos que te pueden interesar</p>
         <app-espectaculo-list [espectaculos]="otrosEspectaculos"></app-espectaculo-list>
     </div>
