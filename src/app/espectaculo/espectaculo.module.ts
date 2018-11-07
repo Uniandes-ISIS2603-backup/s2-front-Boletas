@@ -6,8 +6,10 @@ import {EspectaculoService} from './espectaculo.service';
 import {RoutingModule} from '../routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { EspectaculoCreateComponent } from './espectaculo-create/espectaculo-create.component';
+import { ComentarioModule} from '../comentario/comentario.module';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {BrowserModule} from '@angular/platform-browser';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RoutingModule,
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    BrowserModule,
+    ComentarioModule
   ],
   declarations: [EspectaculoListComponent, EspectaculoDetailComponent, EspectaculoCreateComponent],
   providers:[EspectaculoService],
