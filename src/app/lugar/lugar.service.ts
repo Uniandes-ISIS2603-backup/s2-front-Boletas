@@ -23,4 +23,9 @@ export class LugarService {
   getLugarDetail(lugarId): Observable<LugarDetail> {
       return this.http.get<LugarDetail>(API_URL + lugares + "/"+lugarId);
   }
+  
+  createLugar(lugar):Observable<Lugar>
+  {
+      return this.http.post<Lugar>(API_URL + lugares, lugar);
+  }
 }

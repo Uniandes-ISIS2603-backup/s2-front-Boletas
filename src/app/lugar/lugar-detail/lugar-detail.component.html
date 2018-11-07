@@ -7,11 +7,17 @@
                     <dt>Dirección</dt>
                     <dd>{{lugarDetail.direccion}}</dd>
                     <dt>Número de Sillas</dt>
-                    <dd>{{lugarDetail.numSillas}}</dd>
+                    <dd>{{lugarDetail.numhSillas}}</dd>
                     <dt>Tipo</dt>
                     <dd>{{lugarDetail.ubicacion}}</dd>
                 </dl>
             </div>
         </div>
     </div>
+    
+    <div >
+        <p class="h3 p-3">Sillas del Lugar</p>
+        <app-silla-list [sillas] = "lugarDetail.sillas"></app-silla-list>
+    </div>
+    
 </div>
