@@ -13,20 +13,42 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class BoletaListComponent implements OnInit {
     
-    boleta_id:number;
-    selectedBoleta: Boleta;
-    showCreate: boolean;
+    /**
+    * El constructor del componente
+    */
     constructor(private boletaService: BoletaService) { }
+    
+    /**
+    * El identificador de la boleta que se selecciona para obtener su detail
+    */
+    boleta_id:number;
+    
+    /**
+    * La boleta seleccionada
+    */
+    selectedBoleta: Boleta;
+    
+    /**
+    * Atributo que representa si se muestra el formulario para crear un comentario o no
+    */
+    showCreate: boolean;
+    
+    /**
+     * La lista de boletas a mostrar
+     */
     @Input() boletas: Boleta[];
 
-        onSelected(boleta_id: number):void {
+    /**
+     * Muestra la boleta seleccionada
+     */
+    onSelected(boleta_id: number):void {
         this.boleta_id = boleta_id;
         this.selectedBoleta = new BoletaDetail();
         this.getBoletaDetail();        
     }
     
-        /**
-    * Shows or hides the create component
+    /**
+    * Muestra o esconde el componente de crear
     */
     showHideCreate(): void {
         if (this.selectedBoleta) {
@@ -36,21 +58,32 @@ export class BoletaListComponent implements OnInit {
         this.showCreate = !this.showCreate;
     }
     
+    /**
+     * Pregunta al servicio el detail de la boleta seleccionada
+     */
     getBoletaDetail(): void {
         this.boletaService.getBoletaDetail(this.boleta_id)
             .subscribe(selectedBoleta => {
                 this.selectedBoleta = selectedBoleta
             });
     }
-  getBoletas(): void{
+    /**
+     * Pide al servicio actualizar la lista de boletas
+     */
+    getBoletas(): void{
       this.boletaService.getBoletas().subscribe(boletas => this.boletas = boletas);
-  }
-  ngOnInit() {
+    }
+    
+    /**
+    * Inicializa el componente buscando la lista de boletas en la base de datos
+    * Este método será llamado cuando se inicializa el componente
+    */
+    ngOnInit() {
       this.getBoletas();
       this.showCreate = false;
       this.selectedBoleta = undefined;
       this.boleta_id = undefined;
        
-  }
+    }
 
 }
