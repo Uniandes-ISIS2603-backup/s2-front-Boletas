@@ -29,24 +29,24 @@ export class OrganizadorListComponent implements OnInit
     organizadores: Organizador[];
       showCreate:boolean;
   
-  showHideCreate():void{
-      this.showCreate = !this.showCreate;
-  }
+    showHideCreate():void{
+        this.showCreate = !this.showCreate;
+    }
     
     /**
     * Le pide al organizador que actualize la lista de servicios 
      **/
     getOrganizadores(): void {
-        this.organizadorService.getOrganizadores().subscribe(organizadores => this.organizadores= organizadores)
+        this.organizadorService.getOrganizadores().subscribe(organizadores => this.organizadores = organizadores);
     }
     
     /**
 *Esto inicializa la lista cuando se crea el componente 
 *Este metodo se llama cuando se crea el compoente
 **/
-ngOnInit()
-{
-    this.showCreate = false;
-    this.getOrganizadores();
-}
+    ngOnInit()
+    {
+        this.showCreate = false;
+        this.getOrganizadores();
+    }
 }

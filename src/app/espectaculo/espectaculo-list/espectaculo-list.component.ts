@@ -63,11 +63,10 @@ export class EspectaculoListComponent implements OnInit {
       if (this.allEspectaculo == 'yes'){
           console.log("allEspectaculos");
       
-       this.getEspectaculos();
+        this.getEspectaculos();
        }
       
       this.showCreate = false;
-      this.getEspectaculos();
   }
 
 }
