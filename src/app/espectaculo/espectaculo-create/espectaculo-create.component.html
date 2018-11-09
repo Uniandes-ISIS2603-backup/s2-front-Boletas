@@ -1,9 +1,12 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="card" id="Crear">
+        <div class="card text-center" id="Crear">
+            <div class="card header">
             <br>
                 <h2 class="text-center">Crea tu espetaculo</h2>
             <br>
+        </div>
+        <div class="card body">
         <form name="espectaculo" (ngSubmit)="f.form.valid && createEspectaculo()" #f="ngForm" novalidate>
             <div class="form-group">
             <label form ="espectaculoNombre"><b>Nombre del Espectaculo</b></label>
@@ -68,6 +71,7 @@
             </div>
         </form> 
         </div>
+    </div>
     
     </div>
 </div>

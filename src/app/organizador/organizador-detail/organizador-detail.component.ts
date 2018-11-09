@@ -10,12 +10,27 @@ import {OrganizadorService} from '../organizador.service';
 })
 export class OrganizadorDetailComponent implements OnInit {
 
+  /**
+   * Constructor del componente de organizador Detail, declara el servicio que lo provee y el router
+   */
   constructor(private organizadorService: OrganizadorService, private route:ActivatedRoute) { }
   
+  
+  /**
+   * El id que entra por parametro
+   */
   organizador_id:number;
   
+  
+  /**
+   * El organizador que se eligio
+   */
   @Input() organizadorDetail : OrganizadorDetail;
 
+
+  /**
+   * Dar el organizador que se ha seleccionado
+   */
   getOrganizadorDetail(): void {
       this.organizadorService.getOrganizadorDetail(this.organizador_id)
             .subscribe(organizadorDetail => {
