@@ -19,12 +19,12 @@
             <div class ="card" id="card">
                   <figure class="figure" routerLink = "/espectaculos/{{es.id}}" style="cursor: pointer;" >
                      <div>
-                        <img class=" card-img-top img-thumbnail img-fluid" src='{{es.imagen}}' alt="{{es.nombre}}" />  
+                        <img id="spec_image" class=" card-img-top img-thumbnail img-fluid" src='{{es.imagen}}' alt="{{es.nombre}}" />  
                      </div>
                     </figure>
                 <div class="card-body">
-                     <figcaption class="figure-caption text-center" id="title">{{es.nombre}}</figcaption>
-                     <p class="card-text"><small class="text-muted">{{es.fecha}}</small></p>
+                     <figcaption id="caption_card" class="figure-caption text-center" id="title">{{es.nombre}}</figcaption>
+                     <p id="date_card" class="card-text"><small class="text-muted">{{es.fecha}}</small></p>
                </div>
             </div>
          </div>

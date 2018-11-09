@@ -6,9 +6,29 @@ h3{color: red}
 
 
 #card{
-    width: 390px;
+    height: 45vh;
+    width: 16vw;
+    margin: 1em;
+    border-radius: 1em;
 }
 
 #title{
     font-size: 2em;
+}
+
+#spec_image{
+    height: 22vh;
+    width: 100vw;
+    border-radius: 1em;
+
+}
+
+#caption_card{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#date_card{
+    font-size: 1.2em;
+    text-align: center;
 }
