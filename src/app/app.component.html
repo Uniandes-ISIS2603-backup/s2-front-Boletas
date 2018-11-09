@@ -17,7 +17,7 @@
         <a id = "espectaculosTag" class = "nav-link" [routerLink]="['/espectaculos/list']" [queryParams]="{allEspectaculo: 'yes'}"> Espectaculos</a>
     </li>
     <li class="nav-item">
-        <a id = "comprasTag" class = "nav-link"  routerLink = "/compras/list"> Compras</a>
+        <a id = "comprasTag" class = "nav-link"  [routerLink] = "['/compras/list']" [queryParams]="{allCompra: 'yes'}"> Compras</a>
     </li>
            <li class="nav-item">
         <a id="clientesTag" class="nav-link" routerLink="/clientes/list" >Clientes</a>
