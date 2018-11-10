@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Comentario } from '../comentario';
 import { ComentarioService } from '../comentario.service';
 import { ComentarioDetail } from '../comentario-detail';
+import { ActivatedRoute } from '@angular/router';
+import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'app-comentario-list',
@@ -13,7 +15,7 @@ export class ComentarioListComponent implements OnInit {
     /**
      * El constructor del componente
      */
-    constructor(private comentarioService: ComentarioService) { }
+    constructor(private comentarioService: ComentarioService, private route:ActivatedRoute) { }
     
     /**
     * El identificador del comentario que se selecciona para obtener su detail
@@ -34,6 +36,8 @@ export class ComentarioListComponent implements OnInit {
     * La lista de comentarios a desplegar
     */
     @Input() comentarios: Comentario[];
+
+    allComentario:string = 'no';
     
     /**
     * Muestra el comentario seleccionado
@@ -76,10 +80,22 @@ export class ComentarioListComponent implements OnInit {
     * Este método será llamado cuando se inicializa el componente
     */
     ngOnInit() {
-      this.getComentarios();
-      this.showCreate = false;
-      this.selectedComentario = undefined;
-      this.comentario_id = undefined;
+        this.route.queryParams
+        .filter(params => params.allComentario)
+        .subscribe(params => {
+          console.log(params); 
+  
+          this.allComentario = params.allComentario;
+          console.log(this.allComentario); 
+        });
+        if (this.allComentario == 'yes'){
+            console.log("allComentario");
+        
+            this.getComentarios();
+        }
+        this.showCreate = false;
+        this.selectedComentario = undefined;
+        this.comentario_id = undefined;
     }
 
 }

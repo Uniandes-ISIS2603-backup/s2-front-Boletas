@@ -1,17 +1,25 @@
 
-<p class="h3 p-3">{{organizadorDetail.usuario}}<p> 
-        <div class="row">
-            <div class="col-md-3">
-                <dl>     
+
+            <div class="col-md-10">
+                <div class="card text-center">
+                    <div class="card-header">
+                       <p class="h3 p-3">{{organizadorDetail.usuario}}<p>
+                    </div>
+                <div class="card-body">
+                    <dl>     
                     <dt>Nombre</dt>
                     <dd>{{organizadorDetail.nombre}}</dd>
                     <dt>Presupuesto</dt>
                     <dd>{{organizadorDetail.presupuesto | currency}}</dd>
                     <dt>Ganancia </dt>
                     <dd>{{organizadorDetail.ganancia | currency}}</dd>
-                </dl>
+                    </dl>
+                </div>
+                
             </div>
       </div>
 
+
          <p class="h3 p-3">Espectaculos de este organizador: </p>
+         <br>
         <app-espectaculo-list [espectaculos]="organizadorDetail.espectaculos"></app-espectaculo-list>

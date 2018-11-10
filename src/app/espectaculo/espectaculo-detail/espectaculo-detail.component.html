@@ -1,28 +1,38 @@
-<p class="h3 p-3">{{espectaculoDetail.nombre}}<p> 
-        <div class="row">
-            <div class="col-md-3">
+<div class="panel-body">
+    <div class="border margin">
+        <div class="card text-center">
+            <div class="card-header">
+                <p class="h3 p-3">{{espectaculoDetail.nombre}}<p>
+            </div>
+        <div class="card body">
+            <br>
                 <div class="thumb">
                     <img class="img-fluid" src='{{espectaculoDetail.imagen}}' alt="{{espectaculoDetail.imagen}}" />   
-                </div>
             </div>
-            <div class="col-md-3">
+            <br>
                 <dl>     
-                    <dt>Fecha</dt>
+                    <dt><p class ="h2">Fecha</p></dt>
                     <dd>{{espectaculoDetail.fecha| date:'MM/dd/yyyy'}}</dd>
-                    <dt>Artista</dt>
+                    <dt><p class ="h2">Artista</p></dt>
                     <dd>{{espectaculoDetail.artista}}</dd>
-                    <dt>Descripcion </dt>
-                    <dd>{{espectaculoDetail.descripcion}}</dd>
+                    <dt><p class ="h2">Descripcion </p></dt>
+                    <dd><h2>{{espectaculoDetail.descripcion}}</h2></dd>
                 </dl>
-            </div>
-            
-            <div class="row border margin">
-                <p class="h3 p-3">Comentarios de este espectaculo</p>
-                <app-comentario-list [comentarios] = "espectaculoDetail.comentarios"></app-comentario-list>
+          
+        </div>
+            <br>
+            <p class="h3 p-3">Comentarios de este espectaculo</p>
+            <div class="row border margin  justify-content-center align-self-center">
+                <br>
+                <app-comentario-list [comentarios] = "this.espectaculoDetail.comentarios"></app-comentario-list>
             </div>   
-             <div class="row border margin">
-        <p class="h3 p-3">Otros espectaculos que te pueden interesar</p>
-        <app-espectaculo-list [espectaculos]="otrosEspectaculos"></app-espectaculo-list>
-    </div>
+            <p class="h3 p-3">Otros espectaculos que te pueden interesar</p>
+            <div class="row border margin">
             
+                <app-espectaculo-list [espectaculos]="otrosEspectaculos"></app-espectaculo-list>
+            </div>
+        
+    </div>
+    </div>
+</div>
       

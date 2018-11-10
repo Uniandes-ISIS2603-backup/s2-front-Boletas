@@ -38,7 +38,7 @@ export class OrganizadorService
     **/
     getOrganizadorDetail(organizadorId : number): Observable<OrganizadorDetail>
     {
-        return this.http.get<OrganizadorDetail>(API_URL + organizadores + "/" + organizadorId);
+        return this.http.get<OrganizadorDetail>(API_URL + organizadores + '/' + organizadorId);
     }
     
     
