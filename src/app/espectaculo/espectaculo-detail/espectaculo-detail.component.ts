@@ -50,6 +50,7 @@ export class EspectaculoDetailComponent implements OnInit, OnDestroy{
        this.espectaculoService.getEspectaculoDetail(this.espectaculo_id)
             .subscribe(espectaculoDetail => {
                 this.espectaculoDetail = espectaculoDetail;
+                console.log(this.espectaculoDetail);
             });
     }
     
@@ -75,7 +76,7 @@ export class EspectaculoDetailComponent implements OnInit, OnDestroy{
       
         this.espectaculo_id = +this.route.snapshot.paramMap.get('id');  
         this.espectaculoDetail = new EspectaculoDetail();            
-        this.getEspectaculoDetail();
+        this.getEspectaculoDetail();   
         this.getOtrosEspectaculos();
     }
   
