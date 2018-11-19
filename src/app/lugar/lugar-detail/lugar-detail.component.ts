@@ -12,7 +12,7 @@ import {Lugar} from '../lugar';
   styleUrls: ['./lugar-detail.component.css']
 })
 export class LugarDetailComponent implements OnInit {
-@Input() lugarDetail: LugarDetail;
+    @Input() lugarDetail: LugarDetail;
 /**
 *Constructor que contiene
 *@param route
@@ -27,7 +27,7 @@ export class LugarDetailComponent implements OnInit {
   {
       this.lugarService.getLugarDetail(this.lugar_id)
       .subscribe( lugarDetail => {
-          this.lugarDetail = lugarDetail
+          this.lugarDetail = lugarDetail;
       });
   }
   
@@ -35,8 +35,8 @@ export class LugarDetailComponent implements OnInit {
       console.log(this.lugar_id);
       this.lugar_id = +this.route.snapshot.paramMap.get('id');
      
-          this.lugarDetail = new LugarDetail();
-          this.getLugarDetail();
+      this.lugarDetail = new LugarDetail();
+      this.getLugarDetail();
       
   }
 
