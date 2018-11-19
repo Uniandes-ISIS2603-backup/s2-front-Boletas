@@ -23,6 +23,9 @@ export class LugarDetailComponent implements OnInit {
   private lugarService:LugarService) { }
   lugar_id:number;
   
+  /**
+   * Método que retorna el detail del objeto lugar seleccionado de la lista en el front.
+   */
   getLugarDetail():void
   {
       this.lugarService.getLugarDetail(this.lugar_id)

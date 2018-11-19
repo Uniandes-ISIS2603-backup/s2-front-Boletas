@@ -8,13 +8,17 @@ import {SillaDetail} from '../silla-detail'
   styleUrls: ['./silla-list.component.css']
 })
 export class SillaListComponent implements OnInit {
-
+/**
+ * Método constructor de la clase.
+ */
   constructor(private sillaService: SillaService) { }
   @Input() sillas: Silla[];
   silla_id:number;
   selectedSilla:Silla;
   showCreate:boolean;
-  
+  /**
+   * Método ejecutado cuando se selecciona una silla de la lista.
+   */
   onSelected(silla_id:number):void
   {
       this.showCreate = false;
@@ -22,7 +26,9 @@ export class SillaListComponent implements OnInit {
       this.selectedSilla = new SillaDetail();
       this.getSillaDetail();
   }
-  
+  /**
+   * Método que retorna el detail de la silla actual seleccionada.
+   */
   getSillaDetail():void
   {
       this.sillaService.getSillaDetail(this.silla_id)
@@ -31,6 +37,9 @@ export class SillaListComponent implements OnInit {
           });
   }
   
+  /**
+   * Método que permite que se vea el panel de creación de una silla.
+   */
   showHideCreate():void
   {
        if(this.selectedSilla)
@@ -41,6 +50,9 @@ export class SillaListComponent implements OnInit {
       this.showCreate = !this.showCreate
   }
   
+  /**
+   * Método que retorna la lista de sillas.
+   */
   getSillas(): void 
   {
       this.sillaService.getSillas().subscribe(sillas => this.sillas = sillas);

@@ -9,10 +9,16 @@ import {Lugar} from '../lugar';
 })
 export class LugarCreateComponent implements OnInit {
 
+/**
+ * Constructor del componente.
+ */
   constructor(
   private lugarService: LugarService,
   private toastrService: ToastrService) { }
   
+  /**
+   * Atributo designado al objeto por medio del cuál se envía el nuevo lugar creado al back.
+   */
   lugar: Lugar;
   /**
    * Contenedora con las opciones para selección de TIpo
@@ -21,6 +27,9 @@ export class LugarCreateComponent implements OnInit {
   @Output() cancel = new EventEmitter();
   @Output() create = new EventEmitter();
   
+  /**
+   * Método que crea un nuevo lugar
+   */
   createLugar(): Lugar{
       console.log(this.lugar);
       this.lugarService.createLugar(this.lugar)
@@ -32,8 +41,10 @@ export class LugarCreateComponent implements OnInit {
       });
       return this.lugar;
   }
-  
-   cancelCreatio():void{
+  /**
+   * Método correspondiente a cuando se cancela la acción de crear un nuevo lugar.
+   */
+   cancelCreation():void{
        this.cancel.emit();
    }
  
