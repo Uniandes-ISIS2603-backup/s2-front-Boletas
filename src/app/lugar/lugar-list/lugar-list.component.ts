@@ -9,6 +9,9 @@ import { LugarDetail } from "../lugar-detail";
 })
 export class LugarListComponent implements OnInit {
 
+/**
+ * Constructor del componente.
+ */
   constructor(private lugarService: LugarService) { }
   @Input() lugares: Lugar[];
   lugar_id: number;
@@ -21,6 +24,10 @@ export class LugarListComponent implements OnInit {
       this.selectedLugar = new LugarDetail();
       this.getLugarDetail();
   }
+  
+  /**
+   * Método por el que se muestura el panel de crear lugar.
+   */
   showHideCreate():void
   {
       if(this.selectedLugar)
@@ -30,11 +37,17 @@ export class LugarListComponent implements OnInit {
       }
       this.showCreate = !this.showCreate
   }
+  /**
+   * Retorna la lista de lugares del back.
+   */
   getLugares():void
   {
       this.lugarService.getLugares().subscribe(lugares => this.lugares = lugares);
   }
   
+  /**
+   * Retorna el detail del recurso getFFR
+   */
   getLugarDetail():void
   {
       this.lugarService.getLugarDetail(this.lugar_id)

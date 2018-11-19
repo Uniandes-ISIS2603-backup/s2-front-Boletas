@@ -8,13 +8,21 @@ import {Silla} from '../silla';
   templateUrl: './silla-detail.component.html',
   styleUrls: ['./silla-detail.component.css']
 })
-export class SillaDetailComponent implements OnInit {
+export class SillaDetailComponent implements OnInit 
+    /**
+     * Atributo correspondiente a la silla seleccionadaa actualmente de la lista de sillas de un lugar.
+     */{
 @Input() sillaDetail: SillaDetail;
+/**
+ * Método constructor de la clase.
+ */
   constructor(
   private route: ActivatedRoute,
   private sillaService:SillaService) { }
   silla_id : number;
-
+/**
+ * Método que retorna el detail de la silla.
+ */
 getSillaDetail():void
 {
     this.sillaService.getSillaDetail(this.silla_id)
