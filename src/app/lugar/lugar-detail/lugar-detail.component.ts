@@ -35,9 +35,9 @@ export class LugarDetailComponent implements OnInit {
   }
   
   ngOnInit() {
-      console.log(this.lugar_id);
+      
       this.lugar_id = +this.route.snapshot.paramMap.get('id');
-     
+      console.log(this.lugar_id);
       this.lugarDetail = new LugarDetail();
       this.getLugarDetail();
       
