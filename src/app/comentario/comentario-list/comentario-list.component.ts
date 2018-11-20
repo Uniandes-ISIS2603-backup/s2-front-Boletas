@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Comentario } from '../comentario';
 import { ComentarioService } from '../comentario.service';
 import { ComentarioDetail } from '../comentario-detail';
+import {EspectaculoService} from 'src/app/espectaculo/espectaculo.service';
+import {EspectaculoDetail} from 'src/app/espectaculo/espectaculo-detail';
 import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/filter';
 
@@ -32,12 +34,14 @@ export class ComentarioListComponent implements OnInit {
     */
     showCreate: boolean;
     
+    
     /**
     * La lista de comentarios a desplegar
     */
     @Input() comentarios: Comentario[];
 
     allComentario:string = 'no';
+    espectaculo: number;
     
     /**
     * Muestra el comentario seleccionado
@@ -68,6 +72,9 @@ export class ComentarioListComponent implements OnInit {
             });
     }
   
+    getEspectaculo():number{
+        return this.espectaculo;
+    }
     /**
      * Pide al servicio actualizar la lista de comentarios
      */
@@ -84,14 +91,22 @@ export class ComentarioListComponent implements OnInit {
         .filter(params => params.allComentario)
         .subscribe(params => {
           console.log(params); 
-  
+          
           this.allComentario = params.allComentario;
           console.log(this.allComentario); 
         });
+        
         if (this.allComentario == 'yes'){
             console.log("allComentario");
         
             this.getComentarios();
+        }
+        else
+        {
+            console.log(this.route.snapshot.params.id);
+            this.espectaculo = this.route.snapshot.params.id;
+            console.log(this.espectaculo);
+            
         }
         this.showCreate = false;
         this.selectedComentario = undefined;

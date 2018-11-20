@@ -1,51 +1,42 @@
-<div class="container-fluid">
-    <div class="container-responsive">
-        <div class="row">
-        <div class="col">
-        <div class="row justify-content-center align-self-center">
-                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                    (click)="showHideCreate()">Crear un comentario</button>
-        </div>
-        <br>
-        <div class ="card">
-            <div class="card-body">
-            <table class="table table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Cliente</th>   
-                        <th>Comentario</th>
-                        <th>Espectaculo</th>
-                        
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let c of comentarios" (click)="onSelected(c.id)"> 
-                        <td style="cursor: pointer;">
-                        <dd >{{c.cliente.nombre}}</dd>
-                        </td>
-                        <td style="cursor: pointer;">
-                        <dd>{{c.mensaje}}</dd>
-                       </td>
-                       <td style="cursor: pointer;">
-                        <dd>{{c.espectaculo.nombre}}</dd>
-                       </td>
-                        
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-                    </tr>
-                </tbody>
-            </table>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1" id="logout">
+        <div class="page-header">
+            <div class="logout">             
             </div>
         </div>
-        
-         </div>
-            <div class="col-8">
-            <div *ngIf="selectedComentario">
-                <app-comentario-detail [comentarioDetail]="selectedComentario"></app-comentario-detail>
-            </div> 
-            <div *ngIf="showCreate">
-                <app-comentario-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-comentario-create>
+        <div class="comment-tabs">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="active"><a role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Comentarios</h4></a></li>   
+            </ul>            
+            <div class="tab-content">
+                <div class="tab-pane active" id="comments-logout">
+                    <app-comentario-create ></app-comentario-create>
+                    <ul class="media-list" *ngFor="let c of comentarios" (click)="onSelected(c.id)">
+                      <li class="media">
+                            
+                        <a class="pull-left">
+                          <img class="media-object img-circle" src="https://openclipart.org/download/247319/abstract-user-flat-3.svg" alt="profile">
+                        </a>
+                        <div class="media-body">
+                          <div class="well well-lg" >
+                              <h4 class="media-heading text-uppercase reviews">{{c.cliente.nombre}} </h4>
+                              <p class="media-comment">
+                                {{c.mensaje}}
+                              </p>
+                          </div>              
+                        </div>
+                      </li>
+                    </ul> 
+                </div>
             </div>
         </div>
-    </div>
-</div>
+	</div>
+  </div>
+  
+ 
