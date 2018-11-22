@@ -42,7 +42,18 @@
 </nav>
 <div class="list">
     <router-outlet></router-outlet>
+    <br>
 </div>
+<br>
+<footer class="footer bg-light" id="footer">
+        <div class="container">
+            <p class="navbar-text text-center">
+                <img src="../assets/uniandes.png" alt="logo" width="8%" /><span id="footer-text">© Proyecto de Boletas para DSW</span>
+                <br>
+                <a [routerLink]="['/espectaculos/list']" [queryParams]="{allEspectaculo: 'yes'}"> Boletas</a>
+            </p>
+        </div>
+    </footer>
 
 
 

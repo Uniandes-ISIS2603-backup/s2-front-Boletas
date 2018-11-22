@@ -35,7 +35,7 @@ export class OrganizadorEditComponent implements OnInit {
 
   cancelarEdicion(): void {
     this.toastrService.warning('El organizador no se edito');
-    this.router.navigate(['/organizadores/list']);
+    this.router.navigate(['/organizadores/'+ this.organizador_id]);
   }
   
 
