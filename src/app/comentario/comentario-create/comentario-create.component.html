@@ -1,45 +1,32 @@
-<div class="row">
-    <div class="col-3"></div>
-    <div class="col-6">
-        <br>
-        <h2 class="text-center">Crear un comentario</h2>
-        <br>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<ul class="media-list" >
+<li class="media">                         
+    <a class="pull-left">
+        <img class="media-object img-circle" src="https://openclipart.org/download/247319/abstract-user-flat-3.svg" alt="profile">
+    </a>
+    <div class="media-body">
         <form name="comentario" (ngSubmit)="f.form.valid && createComentario()" #f="ngForm" novalidate>
+            <h4 class="media-heading reviews">Diganos como le parecio el espectaculo </h4>
+            
             <div class="form-group">
-                <label for="comentarioMensaje"><b>Mensaje del comentario</b></label>
-                <input type="text" name="comentarioMensaje" class="form-control" id="comentarioMensaje" [(ngModel)]="comentario.mensaje"
-                    #comentarioMensaje="ngModel" [ngClass]="{ 'is-invalid': f.submitted && comentarioMensaje.invalid }" required>
-                <div class="invalid-feedback">
+            
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="comentarioMensaje" name="addComment" id="addComment" rows="5" [(ngModel)]="comentario.mensaje"
+                      #comentarioMensaje="ngModel" [ngClass]="{ 'is-invalid': f.submitted && comentarioMensaje.invalid }" required>></textarea>
+                    <div class="invalid-feedback">
                     <div>Falta el mensaje del comentario</div>
                 </div>
-            </div>
-           
-            <div class="form-group"  >
-            <label for ="espectaculo"><b>Espectaculo del comentario</b></label>
-            <select class ="form-control" id="espectaculo" [(ngModel)] = "espectaculo_id" name="espectaculo" 
-                  #espectaculo ="ngModel" [ngClass]="{'is-invalid':f.submitted && espectaculo.invalid}" required>
-                <option *ngFor = "let es of espectaculos" value='{{es.id}}'>{{es.nombre}}</option>
-                </select>
-                <div class="invalid-feedback">
-                    <div>Falta el espectaculo del comentario</div>
                 </div>
             </div>
-             <div class="form-group"  >
-            <label for ="cliente"><b>Cliente del comentario</b></label>
-            <select class ="form-control" id="cliente" [(ngModel)] = "cliente_id" name="cliente" 
-                  #cliente ="ngModel" [ngClass]="{'is-invalid':f.submitted && cliente.invalid}" required>
-                <option *ngFor = "let c of clientes" value='{{c.id}}'>{{c.nombre}}</option>
-                </select>
-                <div class="invalid-feedback">
-                    <div>Falta el cliente del comentario</div>
+            
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">                    
+                    <button class="btn btn-success btn-circle text-uppercase" type="submit" id="submitComment"><span class="glyphicon glyphicon-send"></span> Comentar</button>
                 </div>
-            </div>
-            <div class="row form-inline justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary">Create</button>
-                <div class="divider"></div>
-                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
-            </div>
+            </div> 
         </form>
     </div>
-    <div class="col-3"></div>
-</div>
+</li>
+</ul>

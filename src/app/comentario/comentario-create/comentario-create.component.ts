@@ -10,6 +10,8 @@ import {Cliente} from 'src/app/cliente/cliente';
 import {ClienteService} from 'src/app/cliente/cliente.service';
 import {ClienteDetail} from 'src/app/cliente/cliente-detail';
 import { Comentario } from '../comentario';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
     selector: 'app-comentario-create',
@@ -31,7 +33,8 @@ export class ComentarioCreateComponent implements OnInit {
         private comentarioService: ComentarioService,
         private toastrService: ToastrService,
         private espectaculoService: EspectaculoService,
-        private clienteService: ClienteService
+        private clienteService: ClienteService,
+        private route:ActivatedRoute
         
     ) { }
 
@@ -50,6 +53,7 @@ export class ComentarioCreateComponent implements OnInit {
        * El identificador del cliente
        */
        cliente_id: number;
+       
        
      
        
@@ -80,10 +84,12 @@ export class ComentarioCreateComponent implements OnInit {
     */
     createComentario(): Comentario {  
         console.log(this.espectaculo_id);
+        
         this.comentario.espectaculo = new Espectaculo();
         this.comentario.cliente = new Cliente();
-        this.comentario.espectaculo.id = this.espectaculo_id; 
-        this.comentario.cliente.id = this.cliente_id;
+        this.comentario.espectaculo.id = this.route.snapshot.params.id;
+        console.log(this.comentario.espectaculo.id); 
+        this.comentario.cliente.id = 100;
         console.log(this.comentario)
         this.comentarioService.createComentario(this.comentario)
             .subscribe((comentario) => {
