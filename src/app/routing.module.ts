@@ -18,6 +18,7 @@ import {LugarListComponent} from '../app/lugar/lugar-list/lugar-list.component';
 import {LugarDetailComponent} from '../app/lugar/lugar-detail/lugar-detail.component';
 import {SillaListComponent} from '../app/silla/silla-list/silla-list.component';
 import {SillaDetailComponent} from '../app/silla/silla-detail/silla-detail.component';
+import {OrganizadorEditComponent} from '../app/organizador/organizador-edit/organizador-edit.component';
 
 
 const routes: Routes=[
@@ -66,6 +67,10 @@ const routes: Routes=[
             {
                 path: 'list',
                 component:OrganizadorListComponent
+            },
+            {
+                path: ':id/edit',
+                component:OrganizadorEditComponent
             },
             {
                 path:':id',

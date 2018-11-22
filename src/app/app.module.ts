@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpErrorInterceptor } from './interceptors/httperrorinterceptor.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RoutingModule } from './routing.module';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 import { ToastrModule } from 'ngx-toastr';
 
@@ -36,7 +37,8 @@ import {ComentarioModule} from './comentario/comentario.module';
     OrganizadorModule,
     ComentarioModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgxPermissionsModule.forRoot()
     
   ],
   providers: [{

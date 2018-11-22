@@ -38,8 +38,10 @@ export class LugarDetailComponent implements OnInit {
       
       this.lugar_id = +this.route.snapshot.paramMap.get('id');
       console.log(this.lugar_id);
-      this.lugarDetail = new LugarDetail();
-      this.getLugarDetail();
+      if (this.lugar_id){
+        this.lugarDetail = new LugarDetail();
+        this.getLugarDetail();
+        }
       
   }
 

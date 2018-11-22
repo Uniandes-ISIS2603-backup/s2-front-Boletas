@@ -28,6 +28,9 @@ export class OrganizadorDetailComponent implements OnInit {
   @Input() organizadorDetail : OrganizadorDetail;
 
 
+  showEdit:boolean;
+
+
   /**
    * Dar el organizador que se ha seleccionado
    */
@@ -43,6 +46,7 @@ export class OrganizadorDetailComponent implements OnInit {
         this.organizador_id = +this.route.snapshot.paramMap.get('id');  
         this.organizadorDetail = new OrganizadorDetail();            
         this.getOrganizadorDetail();
+        this.showEdit = true;
   }
 
 }

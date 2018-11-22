@@ -30,7 +30,7 @@ export class LugarService {
    * Método que retorna el detail de lugar
    */
   getLugarDetail(lugarId): Observable<LugarDetail> {
-      return this.http.get<LugarDetail>(API_URL + lugares + "/"+lugarId);
+      return this.http.get<LugarDetail>(API_URL + lugares + '/'+lugarId);
   }
   /**
    * Método que crea un lugar.

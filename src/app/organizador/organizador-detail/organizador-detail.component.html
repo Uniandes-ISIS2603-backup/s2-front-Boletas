@@ -3,7 +3,16 @@
             <div class="col-md-10">
                 <div class="card text-center">
                     <div class="card-header">
-                       <p class="h3 p-3">{{organizadorDetail.usuario}}<p>
+                        <div class="row">
+                            <div class="col">
+                                <p class="h3 p-3">{{organizadorDetail.usuario}}<p>
+                                        <div class="divider"></div>
+                                        <div *ngIf="showEdit">
+                                                <button class="btn btn-primary text-center" routerLink="/organizadores/{{organizadorDetail.id}}/edit">Editar</button>                        
+                                        </div>       
+                            </div>
+                            
+                        </div> 
                     </div>
                 <div class="card-body">
                     <dl>     
