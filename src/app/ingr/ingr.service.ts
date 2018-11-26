@@ -43,10 +43,20 @@ export class IngrService {
     login (role): void {
         if (role === 'Organizador') {
             this.setAdministratorRole();
+            this.router.navigateByUrl('/organizadores/list');
+        } else {
+            this.setClientRole();
+            this.router.navigateByUrl('/clientes/list');
+        }
+        
+    }
+
+    registrarse(role):void{
+        if (role === 'Organizador') {
+            this.setAdministratorRole();
         } else {
             this.setClientRole()
         }
-        this.router.navigateByUrl('/espectaculos/list');
     }
 
     logout (): void {

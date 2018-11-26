@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {RoutingModule} from '../routing.module';
 import {IngrService} from './ingr.service';
 import { BrowserModule } from '@angular/platform-browser';
+import { IngrSignUpComponent } from './ingr-sign-up/ingr-sign-up.component';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { BrowserModule } from '@angular/platform-browser';
     NgbModule,
     RoutingModule
   ],
-  declarations: [IngrLoginComponent],
+  declarations: [IngrLoginComponent, IngrSignUpComponent],
   providers:[IngrService],
   bootstrap: [IngrLoginComponent]
 })
