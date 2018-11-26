@@ -1,0 +1,55 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <br>
+            <h2 class="text-center">Editar Organizador</h2>
+            <br>
+            <form name="organizador" (ngSubmit)="f.form.valid && updateOrganizador()" #f="ngForm" novalidate>
+                <div class="form-group">
+                    <label for="nombreOrganizador"><b>Nombre</b></label>
+                    <input type="text" name="nombreOrganizador" class="form-control" id="nombreOrganizador" [(ngModel)]="organizador.nombre"
+                        #nombreOrganizador="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombreOrganizador.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Falta el nombre</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="usuarioOrganizador"><b>Usuario</b></label>
+                    <input type="text" name="usuarioOrganizador" class="form-control" id="usuarioOrganizador" [(ngModel)]="organizador.usuario"
+                        #usuarioOrganizador="ngModel" [ngClass]="{ 'is-invalid': f.submitted && usuarioOrganizador.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Falta el usuario</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="presupuestoOrganizador"><b>Presupuesto</b></label>
+                    <input type="text" name="presupuestoOrganizador" class="form-control" id="presupuestoOrganizador" [(ngModel)]="organizador.presupuesto"
+                        #presupuestoOrganizador="ngModel" [ngClass]="{ 'is-invalid': f.submitted && presupuestoOrganizador.invalid }" required>
+                    <div class="invalid-feedback"> 
+                        <div>Falta la presupuesto</div>
+                    </div>
+                </div>
+                  
+                   <div class="form-group">
+                    <label for="gananciaOrganizador"><b>ganancia</b></label>
+                    <input type="text" name="gananciaOrganizador" class="form-control" id="gananciaOrganizador" [(ngModel)]="organizador.ganancia"
+                        #gananciaOrganizador="ngModel" [ngClass]="{ 'is-invalid': f.submitted && gananciaOrganizador.invalid }" required>
+                    <div class="invalid-feedback"> 
+                        <div>Falta la ganancia</div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary" (click)="updateOrganizador()">Guardar Cambios</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelarEdicion()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -3,7 +3,8 @@
     Welcome to {{ title }}!
   </h1>
   <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">-->
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navv">
   <a class="navbar-brand" style="color: #fff;">Boletas</a>
    <div class="collapse navbar-collapse">
     <ul class="navbar-nav mr-auto">
@@ -17,7 +18,7 @@
         <a id = "espectaculosTag" class = "nav-link" [routerLink]="['/espectaculos/list']" [queryParams]="{allEspectaculo: 'yes'}"> Espectaculos</a>
     </li>
     <li class="nav-item">
-        <a id = "comprasTag" class = "nav-link"  [routerLink] = "['/compras/list']" [queryParams]="{allCompra: 'yes'}"> Compras</a>
+        <a id = "comprasTag" class = "nav-link"  [routerLink] = "['/compras/list']" [queryParams]="{allCompra: 'yes'}" *ngxPermissionsOnly="['ORGZ']"> Compras</a>
     </li>
            <li class="nav-item">
         <a id="clientesTag" class="nav-link" routerLink="/clientes/list" >Clientes</a>
@@ -34,15 +35,40 @@
     <li>
   <form class="form-inline">
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
   </form>
+    </li>
+    <li>
+        <div class="navbar-nav ml-auto flex-column">
+            <div class="flex-row" *ngxPermissionsOnly="['GUEST']">
+                <div class="form-inline">
+                    <li><a id="login-navbar-item" routerLink="/ingr/login"><span class="fa fa-sign-in"></span>Login</a></li>
+                </div>
+            </div>
+        </div>
+        <div class="flex-row" *ngxPermissionsOnly="['CLIENT', 'ORGZ']">
+                <div class="form-inline">
+                    <li><a id="logout-navbar-item" (click)="logout()" href="#"><span class="fa fa-sign-out"></span>Logout</a></li>
+                </div>
+            </div>
     </li>
   </ul>
   </div>
 </nav>
 <div class="list">
     <router-outlet></router-outlet>
+    <br>
 </div>
+<br>
+<footer class="footer bg-light" id="footer">
+        <div class="container">
+            <p class="navbar-text text-center">
+                <img src="../assets/uniandes.png" alt="logo" width="8%" /><span id="footer-text">© Proyecto de Boletas para DSW</span>
+                <br>
+                <a [routerLink]="['/espectaculos/list']" [queryParams]="{allEspectaculo: 'yes'}"> Boletas</a>
+            </p>
+        </div>
+    </footer>
 
 
 
