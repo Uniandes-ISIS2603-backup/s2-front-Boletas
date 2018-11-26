@@ -21,6 +21,9 @@ import {SillaListComponent} from '../app/silla/silla-list/silla-list.component';
 import {SillaDetailComponent} from '../app/silla/silla-detail/silla-detail.component';
 import {OrganizadorEditComponent} from '../app/organizador/organizador-edit/organizador-edit.component';
 import {IngrLoginComponent} from '../app/ingr/ingr-login/ingr-login.component';
+import {IngrSignUpComponent} from '../app/ingr/ingr-sign-up/ingr-sign-up.component';
+import {OrganizadorCreateComponent} from '../app/organizador/organizador-create/organizador-create.component';
+import {ClienteCreateComponent} from '../app/cliente/cliente-create/cliente-create.component';
 
 
 const routes: Routes=[
@@ -75,6 +78,16 @@ const routes: Routes=[
                         only: ['GUEST']
                     }
                 }
+            },
+            {
+                path:'sign-up',
+                component: IngrSignUpComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['GUEST']
+                    }
+                }
             }
         ]
     },
@@ -84,6 +97,10 @@ const routes: Routes=[
             {
                 path: 'list',
                 component:OrganizadorListComponent
+            },
+            {
+                path:'create',
+                component:OrganizadorCreateComponent
             },
             {
                 path: ':id/edit',
@@ -109,9 +126,14 @@ const routes: Routes=[
                 component: ClienteListComponent
             },
             {
+                path:'create',
+                component: ClienteCreateComponent
+            },
+            {
             path: ':id',
              component: ClienteDetailComponent
              }
+             
         ]
     },
     {

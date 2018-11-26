@@ -46,7 +46,7 @@ export class IngrService {
         } else {
             this.setClientRole()
         }
-        this.router.navigateByUrl('/espectaculos/list');
+        this.router.navigateByUrl('/organizadores/list');
     }
 
     logout (): void {

@@ -1,6 +1,7 @@
 import { Component , OnInit} from '@angular/core';
 import {IngrService} from '../app/ingr/ingr.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

@@ -42,12 +42,15 @@
         <div class="navbar-nav ml-auto flex-column">
             <div class="flex-row" *ngxPermissionsOnly="['GUEST']">
                 <div class="form-inline">
-                    <li><a id="login-navbar-item" routerLink="/ingr/login"><span class="fa fa-sign-in"></span>Login</a></li>
+                        <li class="right-space"><a id="signup-navbar-item" routerLink="/ingr/sign-up"><font color="white"><span class="fas fa-user"></span>
+                            Sign Up</font></a></li>
+                    <li><a id="login-navbar-item" routerLink="/ingr/login"><font color="white"><span class="fa fa-sign-in"></span>Login</font></a></li>
                 </div>
             </div>
         </div>
         <div class="flex-row" *ngxPermissionsOnly="['CLIENT', 'ORGZ']">
                 <div class="form-inline">
+                    
                     <li><a id="logout-navbar-item" (click)="logout()" href="#"><span class="fa fa-sign-out"></span>Logout</a></li>
                 </div>
             </div>

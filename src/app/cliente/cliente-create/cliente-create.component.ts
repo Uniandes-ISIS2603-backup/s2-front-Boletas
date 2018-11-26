@@ -6,6 +6,8 @@ import { ClienteService } from '../cliente.service';
 
 import { Cliente } from '../cliente';
 
+import {Router} from '@angular/router';
+
 @Component({
     selector: 'app-cliente-create',
     templateUrl: './cliente-create.component.html',
@@ -20,7 +22,7 @@ export class ClienteCreateComponent implements OnInit {
     */
     constructor(
         private clienteService: ClienteService,
-        private toastrService: ToastrService
+        private toastrService: ToastrService, private router:Router
     ) { }
 
     /**
@@ -66,6 +68,7 @@ export class ClienteCreateComponent implements OnInit {
     */
     cancelCreation(): void {
         this.cancel.emit();
+        this.router.navigate(['/clientes/list']);
     }
 
     /**

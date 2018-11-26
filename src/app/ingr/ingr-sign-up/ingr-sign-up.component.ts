@@ -1,4 +1,5 @@
 import { Component, OnInit , ViewContainerRef} from '@angular/core';
+import { Router} from '@angular/router';
 import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 
 import {User} from '../user';
@@ -7,33 +8,34 @@ import {IngrService} from '../ingr.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-ingr-login',
-  templateUrl: './ingr-login.component.html',
-  styleUrls: ['./ingr-login.component.css']
+  selector: 'app-ingr-sign-up',
+  templateUrl: './ingr-sign-up.component.html',
+  styleUrls: ['./ingr-sign-up.component.css']
 })
-export class IngrLoginComponent implements OnInit {
+export class IngrSignUpComponent implements OnInit {
 
-  constructor(private toastrService:ToastrService, private ingrService:IngrService, private modalDialog:ModalDialogService,private viewRef: ViewContainerRef) { }
+  constructor(private toastrService:ToastrService, private ingrService:IngrService, private modalDialog:ModalDialogService,private viewRef: ViewContainerRef, private router:Router) { }
 
-  user:User;
-
+  user : User;
   roles: String[];
 
-  login(): void {
-    this.ingrService.login(this.user.role);
-    this.toastrService.success('Logged in')
-  }
+  rolT: boolean;
 
   ngOnInit() {
     this.user = new User();
     this.roles = ['Organizador', 'Client'];
     this.abrirDialogo();
+    this.tipo();
+  }
 
+  tipo():void{
+    if(this.user.role == 'Organizador'){this.rolT= true}
+    else {this.rolT = false;}
   }
 
   abrirDialogo(): void {
     this.modalDialog.openDialog(this.viewRef, {
-        title: 'Usuario',
+        title: 'Registrarse',
         childComponent: SimpleModalComponent,
         data: {text: 'Elija su tipo de usuario'},
         actionButtons: [
@@ -42,17 +44,18 @@ export class IngrLoginComponent implements OnInit {
                 buttonClass: 'btn btn-dark',
                 onAction: () => {
                   this.user.role = 'Organizador';
+                  this.router.navigate(['/organizadores/create']);
                   return true;
                 }
             },
             {text: 'Cliente', buttonClass: 'btn btn-info',
             onAction: () => {
               this.user.role = 'Client';
+              this.router.navigate(['/clientes/create']);
               return true;
             }}
         ]
     });
 }
-
 
 }
