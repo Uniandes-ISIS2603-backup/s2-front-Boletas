@@ -25,7 +25,8 @@ export class IngrLoginComponent implements OnInit {
 
   ngOnInit() {
     this.user = new User();
-    this.roles = ['Administrator', 'Client'];
+    this.roles = ['Organizador', 'Client'];
   }
+
 
 }

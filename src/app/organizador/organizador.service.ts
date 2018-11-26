@@ -59,6 +59,10 @@ export class OrganizadorService
     {
         return this.http.put<OrganizadorDetail>(API_URL + organizadores + '/' + organizador.id, organizador);
     }
+
+    deleteOrganizador(organizadorId):Observable<OrganizadorDetail>{
+        return this.http.delete<OrganizadorDetail>(API_URL + organizadores +'/' + organizadorId);
+    }
 }
     
 

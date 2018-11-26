@@ -6,6 +6,9 @@ import { HttpErrorInterceptor } from './interceptors/httperrorinterceptor.servic
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RoutingModule } from './routing.module';
 import {NgxPermissionsModule} from 'ngx-permissions';
+import {NgxPaginationModule} from 'ngx-pagination';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ModalDialogModule } from 'ngx-modal-dialog';
 
 import { ToastrModule } from 'ngx-toastr';
 
@@ -18,6 +21,7 @@ import {BoletaModule} from './boleta/boleta.module';
 import {LugarModule} from './lugar/lugar.module';
 import {OrganizadorModule} from './organizador/organizador.module'
 import {ComentarioModule} from './comentario/comentario.module';
+import {IngrModule} from './ingr/ingr.module';
 
 @NgModule({
   declarations: [
@@ -37,6 +41,10 @@ import {ComentarioModule} from './comentario/comentario.module';
     OrganizadorModule,
     ComentarioModule,
     BrowserAnimationsModule,
+    NgxPaginationModule,
+    NgbModule,
+    ModalDialogModule.forRoot(),
+    IngrModule,
     ToastrModule.forRoot(),
     NgxPermissionsModule.forRoot()
     

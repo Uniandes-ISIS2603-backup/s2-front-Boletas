@@ -6,12 +6,13 @@
                         <div class="row">
                             <div class="col">
                                 <p class="h3 p-3">{{organizadorDetail.usuario}}<p>
-                                        <div class="divider"></div>
-                                        <div *ngIf="showEdit">
-                                                <button class="btn btn-primary text-center" routerLink="/organizadores/{{organizadorDetail.id}}/edit">Editar</button>                        
-                                        </div>       
+                                        <div class="row justify-content-center align-self-center" *ngxPermissionsOnly="['CLIENT']">
+                                                <button class="btn btn-primary text-center" routerLink="/organizadores/{{organizadorDetail.id}}/edit">Editar</button>
+                                                <div class="divider"></div>
+                                                <button class="btn btn-danger text-center" (click)="deleteOrganizador()"><span class="fa fa-trash"></span></button>
+                                        </div>     
                             </div>
-                            
+                                
                         </div> 
                     </div>
                 <div class="card-body">

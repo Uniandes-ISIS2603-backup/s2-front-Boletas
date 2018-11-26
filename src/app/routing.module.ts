@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
+import {NgxPermissionsGuard} from 'ngx-permissions';
 
 import {EspectaculoListComponent} from '../app/espectaculo/espectaculo-list/espectaculo-list.component';
 import {EspectaculoDetailComponent} from '../app/espectaculo/espectaculo-detail/espectaculo-detail.component';
@@ -19,6 +20,7 @@ import {LugarDetailComponent} from '../app/lugar/lugar-detail/lugar-detail.compo
 import {SillaListComponent} from '../app/silla/silla-list/silla-list.component';
 import {SillaDetailComponent} from '../app/silla/silla-detail/silla-detail.component';
 import {OrganizadorEditComponent} from '../app/organizador/organizador-edit/organizador-edit.component';
+import {IngrLoginComponent} from '../app/ingr/ingr-login/ingr-login.component';
 
 
 const routes: Routes=[
@@ -62,6 +64,21 @@ const routes: Routes=[
         ]
     },
     {
+        path: 'ingr',
+        children:[
+            {
+                path:'login',
+                component: IngrLoginComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['GUEST']
+                    }
+                }
+            }
+        ]
+    },
+    {
         path: 'organizadores',
         children: [
             {
@@ -70,7 +87,13 @@ const routes: Routes=[
             },
             {
                 path: ':id/edit',
-                component:OrganizadorEditComponent
+                component:OrganizadorEditComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['ORGZ']
+                    }
+                }
             },
             {
                 path:':id',

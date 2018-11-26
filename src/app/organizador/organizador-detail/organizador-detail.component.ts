@@ -1,7 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import {OrganizadorDetail} from '../organizador-detail';
 import {OrganizadorService} from '../organizador.service';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-organizador-detail',
@@ -13,7 +15,10 @@ export class OrganizadorDetailComponent implements OnInit {
   /**
    * Constructor del componente de organizador Detail, declara el servicio que lo provee y el router
    */
-  constructor(private organizadorService: OrganizadorService, private route:ActivatedRoute) { }
+  constructor(private organizadorService: OrganizadorService, 
+    private route:ActivatedRoute, private modalDialog: ModalDialogService, 
+    private viewRef: ViewContainerRef,
+    private router: Router, private toastrService:ToastrService) { }
   
   
   /**
@@ -48,5 +53,29 @@ export class OrganizadorDetailComponent implements OnInit {
         this.getOrganizadorDetail();
         this.showEdit = true;
   }
+
+  deleteOrganizador(): void {
+    this.modalDialog.openDialog(this.viewRef, {
+        title: 'Cancelar Suscripcion',
+        childComponent: SimpleModalComponent,
+        data: {text: 'Esta seguro de borrar su cuenta?'},
+        actionButtons: [
+            {
+                text: 'Yes',
+                buttonClass: 'btn btn-danger',
+                onAction: () => {
+                    this.organizadorService.deleteOrganizador(this.organizador_id).subscribe(organizador => {
+                        this.router.navigate(['organizadores/list']);
+                    }, err => {
+                        this.toastrService.error(err, "Error");
+                    });
+                    return true;
+                }
+            },
+            {text: 'No', onAction: () => true}
+        ]
+    });
+}
+
 
 }
