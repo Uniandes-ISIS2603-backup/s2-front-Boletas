@@ -49,6 +49,14 @@ export class IngrService {
         this.router.navigateByUrl('/organizadores/list');
     }
 
+    registrarse(role):void{
+        if (role === 'Organizador') {
+            this.setAdministratorRole();
+        } else {
+            this.setClientRole()
+        }
+    }
+
     logout (): void {
         this.roleService.flushRoles();
         this.setGuestRole();

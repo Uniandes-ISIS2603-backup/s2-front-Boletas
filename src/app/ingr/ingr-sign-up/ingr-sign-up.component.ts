@@ -26,6 +26,7 @@ export class IngrSignUpComponent implements OnInit {
     this.roles = ['Organizador', 'Client'];
     this.abrirDialogo();
     this.tipo();
+    this.ingrService.registrarse(this.user.role);
   }
 
   tipo():void{

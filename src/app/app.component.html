@@ -1,3 +1,7 @@
+<ng-template #rt let-r="result" let-t="term">
+        <ngb-highlight [result]="r.nombre" [term]="t"></ngb-highlight>
+    </ng-template>
+
 <!--<div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
@@ -32,18 +36,24 @@
     <li>
         <a id="sillasTag" class="nav-link" routerLink="/sillas/list"></a>
     </li>
-    <li>
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-  </form>
-    </li>
-    <li>
+</ul>
+            <form class="form-inline my-2 my-lg-0">
+                    <input id="typeahead" placeholder="Espectaculos, organizadores, etc.." 
+                    type="text" class="form-control" [(ngModel)]="model" [ngModelOptions]="{standalone: true}" [ngbTypeahead]="search" 
+                    (focus)="focus$.next($event.target.value)" (click)="click$.next($event.target.value)" #instance="ngbTypeahead"
+                    [resultTemplate]="rt"[inputFormatter]="formatter" />
+                    
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="busqueda()">Buscar</button>
+              </form>
+    
+    
+       <div class="my-2">
         <div class="navbar-nav ml-auto flex-column">
             <div class="flex-row" *ngxPermissionsOnly="['GUEST']">
                 <div class="form-inline">
                         <li class="right-space"><a id="signup-navbar-item" routerLink="/ingr/sign-up"><font color="white"><span class="fas fa-user"></span>
                             Sign Up</font></a></li>
+                            <div class="divider"></div>
                     <li><a id="login-navbar-item" routerLink="/ingr/login"><font color="white"><span class="fa fa-sign-in"></span>Login</font></a></li>
                 </div>
             </div>
@@ -51,11 +61,12 @@
         <div class="flex-row" *ngxPermissionsOnly="['CLIENT', 'ORGZ']">
                 <div class="form-inline">
                     
-                    <li><a id="logout-navbar-item" (click)="logout()" href="#"><span class="fa fa-sign-out"></span>Logout</a></li>
+                    <li><a id="logout-navbar-item" (click)="logout()" href="#"><font color= "white"> <span class="fa fa-sign-out"></span>Logout</font></a></li>
                 </div>
             </div>
-    </li>
-  </ul>
+        </div>
+    
+  
   </div>
 </nav>
 <div class="list">
@@ -72,6 +83,3 @@
             </p>
         </div>
     </footer>
-
-
-
