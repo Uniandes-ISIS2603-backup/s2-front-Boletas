@@ -24,6 +24,7 @@ import {IngrLoginComponent} from '../app/ingr/ingr-login/ingr-login.component';
 import {IngrSignUpComponent} from '../app/ingr/ingr-sign-up/ingr-sign-up.component';
 import {OrganizadorCreateComponent} from '../app/organizador/organizador-create/organizador-create.component';
 import {ClienteCreateComponent} from '../app/cliente/cliente-create/cliente-create.component';
+import {ClienteEditComponent} from '../app/cliente/cliente-edit/cliente-edit.component';
 
 
 const routes: Routes=[
@@ -103,6 +104,10 @@ const routes: Routes=[
                 component:OrganizadorCreateComponent
             },
             {
+                path:':id',
+                component: OrganizadorDetailComponent
+            },
+            {
                 path: ':id/edit',
                 component:OrganizadorEditComponent,
                 canActivate: [NgxPermissionsGuard],
@@ -111,10 +116,6 @@ const routes: Routes=[
                         only: ['ORGZ']
                     }
                 }
-            },
-            {
-                path:':id',
-                component: OrganizadorDetailComponent
             }
         ]
     },
@@ -130,9 +131,19 @@ const routes: Routes=[
                 component: ClienteCreateComponent
             },
             {
-            path: ':id',
-             component: ClienteDetailComponent
-             }
+                path: ':id',
+                component: ClienteDetailComponent
+            },
+            {
+                path:':id/edit',
+                component:ClienteEditComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['CLIENT']
+                    }
+                }
+            }
              
         ]
     },

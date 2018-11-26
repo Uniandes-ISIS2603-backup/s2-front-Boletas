@@ -1,10 +1,17 @@
  n<div class="panel-body">
     <div class="border margin">
-        <p class="h3 p-3">{{clienteDetail.name}}<p> 
+            <div class="card-head">
+                    <p class="h3 p-3">{{clienteDetail.nombre}}<p> 
+                            <div class="row justify-content-center align-self-center" *ngxPermissionsOnly="['CLIENT']">
+                                    <button class="btn btn-primary text-center" routerLink="/clientes/{{clienteDetail.id}}/edit">Editar</button>
+                                    <div class="divider"></div>
+                                    <button class="btn btn-danger text-center" (click)="deleteCliente()"><span class="fa fa-trash"></span></button>
+                            </div>     
+                
         <div class="row">
-            <div class="col-md-3">
-            </div>
             <div class="col">
+                </div> 
+                <div class="card-body">
                 <dl>     
                     <dt>Id</dt>
                     <dd>{{clienteDetail.id}}</dd>
@@ -13,15 +20,15 @@
                     <dt>Forma de pago</dt>
                     <dd>{{clienteDetail.pago}}</dd>
                 </dl>
+
+            </div>
             </div>
         </div>
 
     </div>
-              <p class="h3 p-3">Comentarios hechos por este cliente: </p>
+      <p class="h3 p-3">Comentarios hechos por este cliente: </p>
         <app-comentario-list [comentarios]="clienteDetail.comentarios"></app-comentario-list>
       </div>
-
-
-              <p class="h3 p-3">Compras hechas por este cliente: </p>
-              <app-compra-list [compras]="clienteDetail.compras"></app-compra-list>
+      <p class="h3 p-3">Compras hechas por este cliente: </p>
+          <app-compra-list [compras]="clienteDetail.compras"></app-compra-list>
   

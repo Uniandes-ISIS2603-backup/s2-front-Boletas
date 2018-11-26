@@ -43,10 +43,12 @@ export class IngrService {
     login (role): void {
         if (role === 'Organizador') {
             this.setAdministratorRole();
+            this.router.navigateByUrl('/organizadores/list');
         } else {
-            this.setClientRole()
+            this.setClientRole();
+            this.router.navigateByUrl('/clientes/list');
         }
-        this.router.navigateByUrl('/organizadores/list');
+        
     }
 
     registrarse(role):void{
