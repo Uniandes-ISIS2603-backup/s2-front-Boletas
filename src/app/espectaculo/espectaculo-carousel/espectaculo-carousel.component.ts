@@ -37,15 +37,10 @@ export class EspectaculoCarouselComponent implements OnInit {
   /**
    * Añade las imagenes del espectaculo
    */
-setImages():void{
-    for (let index=0; index< this.espectaculos.length; index ++ )
-    {
-        this.imagenes[index] = this.espectaculos[index].imagen;
-    }
-}
+
   ngOnInit() {
       this.getEspectaculos();
-      this.setImages();
+ 
       
   }
 
