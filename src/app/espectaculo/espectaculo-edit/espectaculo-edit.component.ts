@@ -2,6 +2,8 @@ import { Component, OnInit, OnChanges, Input,Output, EventEmitter } from '@angul
 
 import { DatePipe } from '@angular/common';
 
+import {Router, ActivatedRoute} from '@angular/router';
+
 import { ToastrService } from 'ngx-toastr';
 
 import {EspectaculoService} from '../espectaculo.service';
@@ -22,9 +24,13 @@ export class EspectaculoEditComponent implements OnInit, OnChanges {
   constructor(
        private dp: DatePipe,
         private espectaculoService: EspectaculoService,
-        private toastrService: ToastrService) { }
+        private toastrService: ToastrService,
+        private router: Router, 
+        private route: ActivatedRoute) { }
         
-        @Input() espectaculo: EspectaculoDetail
+       @Input() espectaculo: EspectaculoDetail;
+
+        espectaculo_id: number;
         
      /**
     * El output que le dice al componente papa 
@@ -45,6 +51,7 @@ editEspectaculo():void{
     let dateB: Date = new Date(this.espectaculo.fecha.year, this.espectaculo.fecha.month - 1, this.espectaculo.fecha.day);
     this.espectaculo.fecha = this.dp.transform(dateB, 'yyyy-MM-dd');
     this.espectaculoService.updateEspectaculo(this.espectaculo).subscribe(()=>{
+                this.router.navigate(['/espectaculos/' + this.espectaculo.id]);
                 this.toastrService.success("La informacion del espectaculo fue actualizada ", "Espectaculo edition");
             })
     this.update.emit();
@@ -60,15 +67,19 @@ cancelEdition():void{
     *Inicializa el componente
     */
     ngOnInit() {
+        this.espectaculo_id = +this.route.snapshot.paramMap.get('id'); 
+        this.espectaculo= new EspectaculoDetail();
+        this.getEspectaculo();
         if (this.espectaculo && this.espectaculo.fecha) {
-            this.espectaculo.fecha = this.espectaculo.fecha.substring(0, 10);
-            var date = {
-                day: + this.espectaculo.fecha.split('-')[2],
-                month: + this.espectaculo.fecha.split('-')[1],
-                year: + this.espectaculo.fecha.split('-')[0]
-            };
-            this.espectaculo.fecha = date;
-        }
+        this.espectaculo.fecha = this.espectaculo.fecha.substring(0, 10);
+        var date = {
+            day: + this.espectaculo.fecha.split('-')[2],
+            month: + this.espectaculo.fecha.split('-')[1],
+            year: + this.espectaculo.fecha.split('-')[0]
+        };
+    }
+        this.espectaculo.fecha = date;
+        console.log(this.espectaculo.nombre);
     }
   
       /**
@@ -76,6 +87,11 @@ cancelEdition():void{
     */
   ngOnChanges(){
       this.ngOnInit();
+  }
+
+  getEspectaculo():void{
+        this.espectaculoService.getEspectaculoDetail(this.espectaculo_id).subscribe( espectaculo =>{this.espectaculo = espectaculo;}
+    );
   }
 
 }

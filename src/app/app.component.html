@@ -13,25 +13,25 @@
    <div class="collapse navbar-collapse">
     <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-        <a id="boletasTag" class="nav-link" routerLink="/boletas/list" >Boletas</a>
+        <a id="boletasTag" class="nav-link" routerLink="/boletas/list" style="color: #fff;" >Boletas</a>
     </li>
     <li class="nav-item">
-        <a id="comentariosTag" class="nav-link" [routerLink]="['/comentarios/list']" [queryParams]="{allComentario: 'yes'}">Comentarios</a>
+        <a id="comentariosTag" class="nav-link" [routerLink]="['/comentarios/list']" [queryParams]="{allComentario: 'yes'}" style="color: #fff;">Comentarios</a>
     </li>
     <li class="nav-item">
-        <a id = "espectaculosTag" class = "nav-link" [routerLink]="['/espectaculos/list']" [queryParams]="{allEspectaculo: 'yes'}"> Espectaculos</a>
+        <a id = "espectaculosTag" class = "nav-link" [routerLink]="['/espectaculos/list']" [queryParams]="{allEspectaculo: 'yes'}" style="color: #fff;"> Espectaculos</a>
     </li>
     <li class="nav-item">
-        <a id = "comprasTag" class = "nav-link"  [routerLink] = "['/compras/list']" [queryParams]="{allCompra: 'yes'}" *ngxPermissionsOnly="['ORGZ']"> Compras</a>
+        <a id = "comprasTag" class = "nav-link"  [routerLink] = "['/compras/list']" [queryParams]="{allCompra: 'yes'}" *ngxPermissionsOnly="['ORGZ']" style="color: #fff;"> Compras</a>
     </li>
            <li class="nav-item">
-        <a id="clientesTag" class="nav-link" routerLink="/clientes/list" >Clientes</a>
+        <a id="clientesTag" class="nav-link" routerLink="/clientes/list" style="color: #fff;" >Clientes</a>
     </li>
         <li class="nav-item">
-        <a id="organizadoresTag" class="nav-link" routerLink="/organizadores/list" >Organizadores</a>
+        <a id="organizadoresTag" class="nav-link" routerLink="/organizadores/list" style="color: #fff;">Organizadores</a>
     </li>
     <li>
-        <a id="lugaresTag" class="nav-link" routerLink="/lugares/list">Lugares</a>
+        <a id="lugaresTag" class="nav-link" routerLink="/lugares/list" style="color: #fff;">Lugares</a>
     </li>
     <li>
         <a id="sillasTag" class="nav-link" routerLink="/sillas/list"></a>
@@ -68,21 +68,23 @@
     
   </div>
 </nav>
+<<<<<<< HEAD
   <div>
 
   </div>
 <div class="list">
+=======
+<div class="list" id="todo">
+>>>>>>> 3bd3bad68122167f8334193c9d81341a5283d34d
     <router-outlet></router-outlet>
     <br>
 </div>
 <br>
-<footer class="footer bg-light" id="footer">
+<footer class="footer bg-dark" id="footer">
         <div class="container">
             <p class="navbar-text text-center">
-                                                <app-espectaculo-carousel></app-espectaculo-carousel>
-                <img src="../assets/uniandes.png" alt="logo" width="8%" /><span id="footer-text">© Proyecto de Boletas para DSW</span>
                 <br>
                 <a [routerLink]="['/espectaculos/list']" [queryParams]="{allEspectaculo: 'yes'}"> Boletas</a>
             </p>
         </div>
-    </footer>
+</footer>

@@ -45,7 +45,7 @@ showEdit: boolean;
       this.showCreate = !this.showCreate;
   }
   
- showHEdit(espectaculo_id: number):void{
+ showHEdit():void{
         if (!this.showEdit) {
             this.showCreate = false;
             this.showEdit = true;

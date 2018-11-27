@@ -128,7 +128,11 @@ const routes: Routes=[
         children: [
             {
                 path: 'list',
-                component: ClienteListComponent
+                component: ClienteListComponent,
+                children:[{
+                    path: ':id',
+                    component:ClienteDetailComponent
+                }]
             },
             {
                 path:'create',
