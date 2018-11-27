@@ -3,7 +3,7 @@
         <div class="card text-center" id="Crear">
             <div class="card header">
             <br>
-                <h2 class="text-center">Modifica el espectaculo {{espectaculo.id}}</h2>
+                <h2 class="text-center">Crea tu espectáculo</h2>
             <br>
             </div>
         <div class="card body">
@@ -14,7 +14,7 @@
                 #espectaculoNombre ="ngModel" [ngClass]="{'is-invalid':f.submitted && espectaculoNombre.invalid}" required placeholder="Ej: EspectaculoDesarrollo">
                 <div class="invalid-feedback">
                     <div>Falta el nombre del espectaculo</div>
-                </div>   
+                </div>    
             </div>
           <div class="form-group">
               <label for="espectaculoFecha"><b>Fecha del Espectaculo</b></label>
@@ -64,17 +64,11 @@
                 <div>Falta la imagen del espectaculo</div>
             </div>
         </div>
-<div class="row">
-    <div class="col-12">
         <div class="row form-inline justify-content-center align-self-center">
-            <i  style="padding-right: 1em;"class="fa fa-save " (click)="editEspectaculo()"></i>
-          
-            <i class="fa fa-ban"  [routerLink]="['/espectaculos/list']" [queryParams]="{allEspectaculo: 'yes'}"></i>
-        </div>
-    </div>
-</div>
-<br>
-<br>
+                <button type="submit" class="btn btn-primary">Editar</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelEdition()" [routerLink]="['/espectaculos/list']" [queryParams]="{allEspectaculo: 'yes'}" style="color: #fff;">Cancelar</button>
+            </div>
         </form> 
         </div>
     </div>
