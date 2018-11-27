@@ -29,7 +29,7 @@ export class EspectaculoListComponent implements OnInit {
 /**
  * Lista de espectaculos 
  */
- @Input() espectaculos: Espectaculo[];
+ @Input()  espectaculos: Espectaculo[];
 
 /**
  * Muestra o ocultra el crear de un espectaculo
