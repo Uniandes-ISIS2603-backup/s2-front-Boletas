@@ -1,0 +1,83 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="card text-center" id="Crear">
+            <div class="card header">
+            <br>
+                <h2 class="text-center">Modifica el espectaculo {{espectaculo.id}}</h2>
+            <br>
+            </div>
+        <div class="card body">
+        <form name="espectaculo" (ngSubmit)="f.form.valid && editEspectaculo()" #f="ngForm" novalidate>
+            <div class="form-group">
+            <label form ="espectaculoNombre"><b>Nombre del Espectaculo</b></label>
+            <input type="text" id="espectaculoNombre" name ="espectaculoNombre" class="form-control"  [(ngModel)]="espectaculo.nombre"
+                #espectaculoNombre ="ngModel" [ngClass]="{'is-invalid':f.submitted && espectaculoNombre.invalid}" required placeholder="Ej: EspectaculoDesarrollo">
+                <div class="invalid-feedback">
+                    <div>Falta el nombre del espectaculo</div>
+                </div>   
+            </div>
+          <div class="form-group">
+              <label for="espectaculoFecha"><b>Fecha del Espectaculo</b></label>
+              <div [ngClass]="{ 'is-invalid': f.submitted && espectaculoFecha.invalid }">
+                    <input class="form-control" id="espectaculoFecha" name="espectaculoFecha" [(ngModel)]="espectaculo.fecha"
+                        ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" #espectaculoFecha="ngModel" [ngClass]="{'is-invalid': f.submitted && (espectaculoFecha.untouched || espectaculoFecha.invalid) }"
+                        required>
+                    <div class="invalid-feedback">
+                        <div>Falta por diligenciar la fecha</div>
+                    </div>
+              </div>
+        </div>
+        <div class="form-group">
+            <label for ="espectaculoArtista"><b>Artista</b></label>
+            <input type="text" name="espectaculoArtista" class="form-control" id="espectaculoArtista" [(ngModel)]="espectaculo.artista"
+                #espectaculoArtista="ngModel" [ngClass]="{'is-invalid':f.submitted && espectaculoArtista.invalid}" required placeholder="Ej: Nickelback">
+            <div class="invalid-feedback">
+                <div>Falta un artista para el espectaculo</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for ="espectaculoDescripcion"><b>Descripcion</b></label>
+            <input type="text" name="espectaculoDescripcion" class="form-control" id="espectaculoDescripcion" [(ngModel)]="espectaculo.descripcion"
+                #espectaculoDescripcion="ngModel" [ngClass]="{'is-invalid':f.submitted && espectaculoDescripcion.invalid}" required >
+            <div class="invalid-feedback">
+                <div>Falta una descripcion para el espectaculo</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for ="espectaculoImagen"><b>URL de la imagen</b></label>
+            <input type="text" name="espectaculoImagen" class="form-control" id="espectaculoImagen" [(ngModel)]="espectaculo.imagen"
+                #espectaculoImagen="ngModel" [ngClass]="{'is-invalid':f.submitted && espectaculoImagen.invalid}" required>
+            <div class="invalid-feedback">
+                <div>Falta la imagen del espectaculo</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for ="espectaculoTipo"><b>Tipo de Espectaculo : </b></label>
+            <select id="espectaculoTipo" [(ngModel)] = "espectaculo.tipo" name="espectaculoTipo"
+                    #espectaculoTipo ="ngModel" [ngClass]="{'is-invalid':f.submitted && espectaculoTipo.invalid}" required>
+                    <option value="Concierto">Concierto</option>
+                <option value="Circo">Circo</option>
+                <option value="Teatro">Teatro</option>
+                <option value="Deporte">Deporte</option>
+            </select>
+            <div class="invalid-feedback">
+                <div>Falta la imagen del espectaculo</div>
+            </div>
+        </div>
+<div class="row">
+    <div class="col-12">
+        <div class="row form-inline justify-content-center align-self-center">
+            <i  style="padding-right: 1em;"class="fa fa-save " (click)="editEspectaculo()"></i>
+          
+            <i class="fa fa-ban"  [routerLink]="['/espectaculos/list']" [queryParams]="{allEspectaculo: 'yes'}"></i>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+        </form> 
+        </div>
+    </div>
+    
+    </div>
+</div>
