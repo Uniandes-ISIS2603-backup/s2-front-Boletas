@@ -6,7 +6,7 @@ import 'rxjs/add/operator/filter';
 
 /**
  * El componente de la lista de espectaculos
- * @author Sebastian Rodriguez
+ * @author Sebastian Rodriguez y Vilma Tirado
  */
 @Component({
   selector: 'app-espectaculo-list',
@@ -25,9 +25,17 @@ export class EspectaculoListComponent implements OnInit {
  * Lista de espectaculos 
  */
 @Input() espectaculos: Espectaculo[];
-  
+
+/**
+ * Muestra o ocultra el crear de un espectaculo
+ */  
   showCreate:boolean;
   
+  /**
+*Muestra o ocultra el editar de un espectaculo 
+*/
+showEdit: boolean;
+
   allEspectaculo: string = 'no';
   
   /**
@@ -37,6 +45,15 @@ export class EspectaculoListComponent implements OnInit {
       this.showCreate = !this.showCreate;
   }
   
+ showHEdit(espectaculo_id: number):void{
+        if (!this.showEdit) {
+            this.showCreate = false;
+            this.showEdit = true;
+        }
+        else { 
+            this.showEdit = false;
+        }
+ }
   /**
    * Llama al servicio, invocando su funcion de getEspectaculos() pidiendo los espectaculos
    */
@@ -44,6 +61,10 @@ export class EspectaculoListComponent implements OnInit {
       this.espectaculoService.getEspectaculos().subscribe(espectaculos => this.espectaculos = espectaculos);
       
   }
+  
+      updateAuthor(): void{
+        this.showEdit = false;
+    }
 
 
     /**

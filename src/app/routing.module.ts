@@ -25,7 +25,7 @@ import {IngrSignUpComponent} from '../app/ingr/ingr-sign-up/ingr-sign-up.compone
 import {OrganizadorCreateComponent} from '../app/organizador/organizador-create/organizador-create.component';
 import {ClienteCreateComponent} from '../app/cliente/cliente-create/cliente-create.component';
 import {ClienteEditComponent} from '../app/cliente/cliente-edit/cliente-edit.component';
-
+import {EspectaculoEditComponent} from '../app/espectaculo/espectaculo-edit/espectaculo-edit.component';
 
 const routes: Routes=[
     {
@@ -38,6 +38,10 @@ const routes: Routes=[
             {
                 path:':id',
                 component : EspectaculoDetailComponent
+            },
+            {
+                 path:':id/edit',
+                component:EspectaculoEditComponent
             }
         ]
     },
