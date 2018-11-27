@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <div class="container-responsive">
+        <div class="row">
+        <div class="col">
+        <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear Devolucion</button>
+            </div>
+        <div class ="card">
+            <div class="card-body">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Id</th>   
+                        <th>Compra</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let com of devoluciones" (click)="onSelected(com.id)"> 
+                        <td style="cursor: pointer;">
+                        <dd >{{com.id}}</dd>
+                        </td>
+                        <td style="cursor: pointer;">
+                        <dd>{{com.compra.id}}</dd>
+                       </td>
+
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+        
+         </div>
+            <div class="col-8">
+            <div *ngIf="selectedDevolucion">
+                <app-devolucion-detail [devolucion]="selectedDevolucion"></app-devolucion-detail>
+            </div>
+            <div *ngIf="showCreate">
+                <app-devolucion-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-devolucion-create>
+            </div>  
+        </div>
+    </div>
+</div>

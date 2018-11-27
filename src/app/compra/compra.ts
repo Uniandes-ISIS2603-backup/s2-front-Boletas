@@ -1,5 +1,5 @@
 import {Cliente} from "../cliente/cliente";
-
+import {Devolucion} from "../devolucion/devolucion";
 export class Compra {
 
     id: number;
@@ -9,4 +9,5 @@ export class Compra {
     direccion:string;
     estado:boolean;
     cliente:Cliente;
+//    devolucion: Devolucion;
 }
