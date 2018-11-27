@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, ViewContainerRef, Input} from '@angular/core';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
+import {ToastrService} from 'ngx-toastr';
 import {Espectaculo} from '../espectaculo';
 import {EspectaculoService} from '../espectaculo.service';
 import {ActivatedRoute} from '@angular/router';
@@ -19,12 +21,15 @@ export class EspectaculoListComponent implements OnInit {
  * Constructor del componente de listar espectaculos
  * @param EspectaculoService el proveedor de servicios de espectaculo
  */
-  constructor(private espectaculoService: EspectaculoService ,private route: ActivatedRoute) { }
+  constructor(private espectaculoService: EspectaculoService ,private route: ActivatedRoute,  
+   private modalDialogService: ModalDialogService,
+        private viewRef: ViewContainerRef,
+        private toastrService: ToastrService) { }
 
 /**
  * Lista de espectaculos 
  */
-@Input() espectaculos: Espectaculo[];
+ @Input() espectaculos: Espectaculo[];
 
 /**
  * Muestra o ocultra el crear de un espectaculo
@@ -61,10 +66,33 @@ showEdit: boolean;
       this.espectaculoService.getEspectaculos().subscribe(espectaculos => this.espectaculos = espectaculos);
       
   }
-  
-      updateAuthor(): void{
-        this.showEdit = false;
+      /**
+    * Borra un espectaculo
+    */
+    deleteEspectaculo(espectaculoId): void {
+        this.modalDialogService.openDialog(this.viewRef, {
+            title: 'Borrar un espectaculo',
+            childComponent: SimpleModalComponent,
+            data: {text: 'Esta seguro que quiere eliminar este espectaculo?'},
+            actionButtons: [
+                {
+                    text: 'Yes',
+                    buttonClass: 'btn btn-danger',
+                    onAction: () => {
+                        this.espectaculoService.deleteEspectaculo(espectaculoId).subscribe(() => {
+                            this.toastrService.error("The espectaculo was successfully deleted", "espectaculo deleted");
+                            this.ngOnInit();
+                        }, err => {
+                            this.toastrService.error(err, "Error");
+                        });
+                        return true;
+                    }
+                },
+                {text: 'No', onAction: () => true}
+            ]
+        });
     }
+    
 
 
     /**
