@@ -21,63 +21,63 @@ import{ClienteDetail} from '../cliente-detail';
      constructor (private clienteService: ClienteService ){}
  
  
- /**
-*Lista de los clientes de la pagina 
-**/
-clientes: Cliente[];
+    /**
+    *Lista de los clientes de la pagina 
+    **/
+    clientes: Cliente[];
     /**
     * Muestra o oculta el componente crear
     */
     showCreate: boolean;
     
-  /**
-*El id del cliente que se quiere ver
-**/
-cliente_id:number;
+    /**
+    *El id del cliente que se quiere ver
+    **/
+    cliente_id:number;
 
     /**
     * El cliente seleccionado por el usuario
     */
-selectedCliente: Cliente
+    selectedCliente: Cliente
 
-onSelected (cliente_id: number ): void{
-    this.showCreate = false;
-    this.cliente_id = cliente_id;
-    this.selectedCliente= new ClienteDetail();
-    this.getClienteDetail();    
-}
+    onSelected (cliente_id: number): void{
+        this.showCreate = false;
+        this.cliente_id = cliente_id;
+        this.selectedCliente= new ClienteDetail();
+        this.getClienteDetail();    
+    }
 
-/**    
-*Le pide al servicio que actualice la lista de clientes 
-**/
-getClientes(): void {
-    this.clienteService.getClientes().subscribe(clientes => this.clientes= clientes)
-}
+    /**    
+    *Le pide al servicio que actualice la lista de clientes 
+    **/
+    getClientes(): void {
+        this.clienteService.getClientes().subscribe(clientes => {this.clientes= clientes;});
+    }
 
-     getClienteDetail(): void {
+    getClienteDetail(): void {
         this.clienteService.getClienteDetail(this.cliente_id)
             .subscribe(selectedCliente => {
                 this.selectedCliente = selectedCliente
             });
-     }
+    }
      
-         /**
+    /**
     * Muestra o oculta el componente crear
     */
     showHideCreate(): void {
-        if (this.selectedCliente) {
-            this.selectedCliente = undefined;
-            this.cliente_id = undefined;
-        }
+        
         this.showCreate = !this.showCreate;
     }
 
-/**
-*Esto inicializa la lista cuando se crea el componente 
-*Este metodo se llama cuando se crea el compoente
-**/
-ngOnInit()
-{
-    this.getClientes();
-}
+    /**
+    *Esto inicializa la lista cuando se crea el componente 
+    *Este metodo se llama cuando se crea el compoente
+    **/
+    ngOnInit()
+    {
+        this.showCreate = false;
+        this.selectedCliente = undefined;
+        this.cliente_id= undefined;
+        this.getClientes();
+    }
 }
