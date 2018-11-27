@@ -55,5 +55,14 @@ export class EspectaculoService {
       return this.http.post<Espectaculo>(API_URL + espectaculos, espectaculo);
   }
   
+  /**
+*Retorna un objeto Observable de tipo Espectaculo, haciendo uso del servicio put del api
+*Actualiza un espectaculo
+**/
+updateEspectaculo(espectaculo): Observable<Espectaculo>
+{
+    return this.http.put<Espectaculo>(API_URL + espectaculos, espectaculo)
+}
+  
   
 }
