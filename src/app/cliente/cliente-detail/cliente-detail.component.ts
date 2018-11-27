@@ -3,9 +3,11 @@ import { ActivatedRoute, Router , NavigationEnd} from '@angular/router';
 import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 import {ToastrService} from 'ngx-toastr';
 
-import {ClienteService} from '../cliente.service'
-import {ClienteDetail} from '../cliente-detail'
-import {Cliente} from '../cliente'
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+import {ClienteService} from '../cliente.service';
+import {ClienteDetail} from '../cliente-detail';
+import {Cliente} from '../cliente';
 /**
 *Componente del detail de cliente
 *@author Vilma Tirado Gomez
@@ -70,7 +72,7 @@ export class ClienteDetailComponent implements OnInit{
                     buttonClass: 'btn btn-danger',
                     onAction: () => {
                         this.clienteService.deleteCliente(cliente_id).subscribe(cliente => {
-                            this.router.navigate(['/clientes/list']);
+                            this.goBack();
                         }, err => {
                             this.toastrService.error(err, "Error");
                         });
@@ -81,7 +83,9 @@ export class ClienteDetailComponent implements OnInit{
             ]
         });
     }
-    
+    goBack(): void {
+        this.router.navigate(['/espectaculos']);
+      }
     
     
 }

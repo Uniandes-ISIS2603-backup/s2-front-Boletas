@@ -1,12 +1,17 @@
+<body>
 <div class="row">
     <div class="col-6 offset-3">
+        <div class="card">
+        <div class="card-header">
         <br>
         <h2 class="text-center">Login</h2>
         <br>
+    </div>
+    <div class="card-body">
         <form name="login" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
             <div class="form-group">
-                <label for="username"><b>Nombre</b></label>
-                <input type="text" name="username" class="form-control" id="username" [(ngModel)]="user.name" required>
+                <label for="username"><b>Usuario</b></label>
+                <input type="text" placeholder="Ej. s.rodriguez"name="username" class="form-control" id="username" [(ngModel)]="user.name" required>
             </div>
             <div class="form-group">
                 <label for="password"><b>Contraseña</b></label>
@@ -24,3 +29,6 @@
               </div>
     </div>
 </div>
+</div>
+</div>
+</body>

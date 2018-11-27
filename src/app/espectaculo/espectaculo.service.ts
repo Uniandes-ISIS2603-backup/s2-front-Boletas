@@ -61,7 +61,7 @@ export class EspectaculoService {
 **/
 updateEspectaculo(espectaculo): Observable<Espectaculo>
 {
-    return this.http.put<Espectaculo>(API_URL + espectaculos, espectaculo)
+    return this.http.put<Espectaculo>(API_URL + espectaculos +'/'+ espectaculo.id, espectaculo)
 }
   
   

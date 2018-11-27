@@ -2,6 +2,7 @@ import { Component, OnInit , Input, Output, OnChanges, EventEmitter} from '@angu
 import {Router, ActivatedRoute, NavigationEnd} from '@angular/router';
 import {Observable} from 'rxjs';
 import {ToastrService} from 'ngx-toastr';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {ClienteService} from '../cliente.service';
 import {ClienteDetail} from '../cliente-detail';
@@ -45,7 +46,6 @@ export class ClienteEditComponent implements OnInit, OnChanges {
   cancelarEdicion(): void {
     this.toastrService.warning('No se edito el cliente');
     this.cancel.emit();
-    this.router.navigate(['/clientes/'+ this.cliente_id]);
   }
   
 
