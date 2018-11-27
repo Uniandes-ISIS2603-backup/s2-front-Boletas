@@ -17,7 +17,7 @@
                     <tr *ngFor  ="let cliente of clientes"
                               (click)="onSelected(cliente.id)">
                         <td style="cursor: pointer;"> 
-                <dd>{{cliente.nombre}}</dd>
+                    <dd>{{cliente.nombre}}</dd>
                     </td>
                 </tr>
                 </tbody>
@@ -27,7 +27,7 @@
             <div *ngIf="selectedCliente">
                 <app-cliente-detail [clienteDetail]="selectedCliente"></app-cliente-detail>
             </div>
-                      <div *ngIf="showCreate">
+            <div *ngIf="showCreate">
                 <app-cliente-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-cliente-create>
             </div>
         </div>

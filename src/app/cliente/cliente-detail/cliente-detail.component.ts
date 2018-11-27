@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ViewContainerRef} from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router , NavigationEnd} from '@angular/router';
 import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 import {ToastrService} from 'ngx-toastr';
 
@@ -28,14 +28,22 @@ export class ClienteDetailComponent implements OnInit{
     constructor(
     private route: ActivatedRoute, private viewRef: ViewContainerRef,
     private clienteService: ClienteService, private router:Router, private modalDialog: ModalDialogService,
-    private toastrService:ToastrService){}
+    private toastrService:ToastrService){
+        this.navigationSubscription = this.router.events.subscribe((e: any) => {
+            if (e instanceof NavigationEnd) {
+                this.ngOnInit();
+            }
+        });
+    }
+
+    navigationSubscription;
     
     cliente_id:number;
     
     getClienteDetail(): void {
         this.clienteService.getClienteDetail(this.cliente_id)
         .subscribe(clienteDetail => {
-            this.clienteDetail = clienteDetail
+            this.clienteDetail = clienteDetail;
         });
     }
     
@@ -46,23 +54,23 @@ export class ClienteDetailComponent implements OnInit{
     ngOnInit() {
         this.cliente_id = +this.route.snapshot.paramMap.get('id');
         if (this.cliente_id){
-        this.clienteDetail = new ClienteDetail();
-        this.getClienteDetail();
+            this.clienteDetail = new ClienteDetail();
+            this.getClienteDetail();
         }
     }
 
-    deleteCliente(): void {
+    deleteCliente(cliente_id:number): void {
         this.modalDialog.openDialog(this.viewRef, {
             title: 'Cerrar Cuenta',
             childComponent: SimpleModalComponent,
-            data: {text: 'Esta seguro de borrar su cuenta?'},
+            data: {text: '¿Esta seguro de borrar su cuenta?'},
             actionButtons: [
                 {
                     text: 'Yes',
                     buttonClass: 'btn btn-danger',
                     onAction: () => {
-                        this.clienteService.deleteCliente(this.cliente_id).subscribe(cliente => {
-                            this.router.navigate(['clientes/list']);
+                        this.clienteService.deleteCliente(cliente_id).subscribe(cliente => {
+                            this.router.navigate(['/clientes/list']);
                         }, err => {
                             this.toastrService.error(err, "Error");
                         });
