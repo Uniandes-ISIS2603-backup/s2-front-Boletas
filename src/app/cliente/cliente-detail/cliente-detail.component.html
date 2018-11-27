@@ -5,7 +5,7 @@
                             <div class="row justify-content-center align-self-center" *ngxPermissionsOnly="['CLIENT']">
                                     <button class="btn btn-primary text-center" routerLink="/clientes/{{clienteDetail.id}}/edit">Editar</button>
                                     <div class="divider"></div>
-                                    <button class="btn btn-danger text-center" (click)="deleteCliente()"><span class="fa fa-trash"></span></button>
+                                    <button class="btn btn-danger text-center" (click)="deleteCliente(clienteDetail.id)" ><span class="fa fa-trash"></span></button>
                             </div>     
                 
         <div class="row">

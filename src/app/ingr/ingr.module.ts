@@ -8,6 +8,7 @@ import {RoutingModule} from '../routing.module';
 import {IngrService} from './ingr.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { IngrSignUpComponent } from './ingr-sign-up/ingr-sign-up.component';
+import {OrganizadorModule} from '../organizador/organizador.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { IngrSignUpComponent } from './ingr-sign-up/ingr-sign-up.component';
     HttpClientModule,
     FormsModule,
     NgbModule,
-    RoutingModule
+    RoutingModule,
+    OrganizadorModule
   ],
   declarations: [IngrLoginComponent, IngrSignUpComponent],
   providers:[IngrService],
