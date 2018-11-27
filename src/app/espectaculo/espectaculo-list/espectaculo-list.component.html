@@ -27,6 +27,7 @@
                      <p id="date_card" class="card-text"><small class="text-muted">{{es.fecha}}</small></p>
                      <div>
                          <a class="fa fa-pencil"   (click)="showHEdit(es.id)" routerLink="/espectaculos/{{es.id}}/edit"></a>
+                         <a class="fa fa-ban" (click)="deleteEspectaculo(es.id)"></a>
                          </div>
                      <div>
                          
