@@ -8,11 +8,14 @@ import { SillaDetailComponent } from './silla-detail/silla-detail.component';
 import { BoletaModule } from '../boleta/boleta.module';
 import { SillaCreateComponent } from './silla-create/silla-create.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule, 
-    BoletaModule
+    BoletaModule,
+    HttpClientModule
   ],
   declarations: [SillaListComponent, SillaDetailComponent, SillaCreateComponent],
   providers: [SillaService],

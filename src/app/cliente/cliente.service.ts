@@ -53,4 +53,12 @@ export class ClienteService
         return this.http.post<Cliente>(API_URL + clientes, cliente);
     }
 
+    updateCliente(cliente):Observable<ClienteDetail>{
+        return this.http.put<ClienteDetail>(API_URL+clientes + '/'+cliente.id,cliente);
+    }
+
+    deleteCliente(clienteId):Observable<ClienteDetail>{
+        return this.http.delete<ClienteDetail>(API_URL+clientes+ '/' + clienteId);
+    }
+
 }

@@ -57,10 +57,11 @@ export class LugarListComponent implements OnInit {
   }
   
   ngOnInit() {
-      this.getLugares();
+      
       this.showCreate = false;
       this.selectedLugar = undefined;
       this.lugar_id = undefined;
+      this.getLugares();
   }
   
   

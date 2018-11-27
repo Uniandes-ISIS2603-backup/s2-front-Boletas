@@ -50,6 +50,19 @@ export class OrganizadorService
     createOrganizador(organizador): Observable<Organizador> {
         return this.http.post<Organizador>(API_URL + organizadores, organizador);
     }
+
+    /**
+     * Metodo para modificar un organizador con la informacion que se le pasa por parametro
+     * 
+     */
+    updateOrganizador(organizador) : Observable<OrganizadorDetail>
+    {
+        return this.http.put<OrganizadorDetail>(API_URL + organizadores + '/' + organizador.id, organizador);
+    }
+
+    deleteOrganizador(organizadorId):Observable<OrganizadorDetail>{
+        return this.http.delete<OrganizadorDetail>(API_URL + organizadores +'/' + organizadorId);
+    }
 }
     
 
