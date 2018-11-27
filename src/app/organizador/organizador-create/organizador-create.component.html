@@ -23,7 +23,7 @@
             </div>
  <div class="form-group">
                 <label for="presupuestoOrganizador"><b>Presupuesto</b></label>
-                <input type="text" name="presupuestoOrganizador" class="form-control" id="presupuestoOrganizador" [(ngModel)]="organizador.presupuesto"
+                <input type="number" min="0"name="presupuestoOrganizador" class="form-control" id="presupuestoOrganizador" [(ngModel)]="organizador.presupuesto"
                     #presupuestoOrganizador="ngModel" [ngClass]="{ 'is-invalid': f.submitted && presupuestoOrganizador.invalid }" required>
                 <div class="invalid-feedback"> 
                     <div>Falta la presupuesto</div>
@@ -32,7 +32,7 @@
               
                <div class="form-group">
                 <label for="gananciaOrganizador"><b>ganancia</b></label>
-                <input type="text" name="gananciaOrganizador" class="form-control" id="gananciaOrganizador" [(ngModel)]="organizador.ganancia"
+                <input type="number" name="gananciaOrganizador" class="form-control" id="gananciaOrganizador" [(ngModel)]="organizador.ganancia"
                     #gananciaOrganizador="ngModel" [ngClass]="{ 'is-invalid': f.submitted && gananciaOrganizador.invalid }" required>
                 <div class="invalid-feedback"> 
                     <div>Falta la ganancia</div>

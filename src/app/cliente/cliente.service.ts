@@ -17,7 +17,7 @@ const clientes="/clientes";
 })
 export class ClienteService
 {
-            /**
+    /**
     * Constructor del servicio
     * @param http The HttpClient - Se necesita para hacer request 
     */
@@ -26,7 +26,7 @@ export class ClienteService
         
     }
     
-          /**
+    /**
     * Retorna un objeto  Observable que contiene la lista de clientes que vienen del API
     * @returns La lista de clientes en tiempo real 
     */
@@ -35,7 +35,7 @@ export class ClienteService
         return this.http.get<Cliente[]>(API_URL + clientes);
     }
     
-            /**
+    /**
     *Retorna un objeto  Observable que contiene el detalle de un cliente que viene del API
     * @returns  Los detalles del cliente
     **/
@@ -44,13 +44,21 @@ export class ClienteService
          return this.http.get<ClienteDetail>(API_URL + clientes+'/'+ clienteId); 
     }
     
-        /**
+    /**
     * Crea un nuevo cliente
     * @param cliente El nuevo cliente
     * @returns la confirmacion de que el cliente fue creado
     */
     createCliente(cliente): Observable<Cliente> {
         return this.http.post<Cliente>(API_URL + clientes, cliente);
+    }
+
+    updateCliente(cliente):Observable<ClienteDetail>{
+        return this.http.put<ClienteDetail>(API_URL+clientes + '/'+cliente.id,cliente);
+    }
+
+    deleteCliente(clienteId):Observable<ClienteDetail>{
+        return this.http.delete<ClienteDetail>(API_URL+clientes+ '/' + clienteId);
     }
 
 }

@@ -1,0 +1,23 @@
+#navv {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    z-index:2;
+}
+
+
+
+#typeahead{
+    width: 300px;
+  padding: 3px 0;
+  border-bottom: 1px solid #ccc;
+    z-index: 2;
+}
+
+
+
+#dropdown-menu{
+    z-index:9999;
+}

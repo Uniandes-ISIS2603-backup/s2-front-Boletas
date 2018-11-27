@@ -10,6 +10,8 @@ import { ComentarioModule} from '../comentario/comentario.module';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {BrowserModule} from '@angular/platform-browser';
+import { EspectaculoCarouselComponent } from './espectaculo-carousel/espectaculo-carousel.component';
+import { EspectaculoEditComponent } from './espectaculo-edit/espectaculo-edit.component';
 
 
 @NgModule({
@@ -22,8 +24,8 @@ import {BrowserModule} from '@angular/platform-browser';
     BrowserModule,
     ComentarioModule
   ],
-  declarations: [EspectaculoListComponent, EspectaculoDetailComponent, EspectaculoCreateComponent],
+  declarations: [EspectaculoListComponent, EspectaculoDetailComponent, EspectaculoCreateComponent, EspectaculoCarouselComponent, EspectaculoEditComponent],
   providers:[EspectaculoService],
-  exports:[EspectaculoListComponent]
+  exports:[EspectaculoListComponent, EspectaculoCarouselComponent]
 })
 export class EspectaculoModule { }

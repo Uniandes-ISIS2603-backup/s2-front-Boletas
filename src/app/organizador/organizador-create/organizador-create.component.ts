@@ -52,7 +52,7 @@ export class OrganizadorCreateComponent implements OnInit {
           this.organizador = organizador;
           this.create.emit();
           this.toastrService.success("El organizador fue creado", "Creacion organizador")})
-          
+            
       return this.organizador;
   }
 

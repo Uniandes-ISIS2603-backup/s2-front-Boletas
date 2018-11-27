@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
+import {NgxPermissionsGuard} from 'ngx-permissions';
 
 import {EspectaculoListComponent} from '../app/espectaculo/espectaculo-list/espectaculo-list.component';
 import {EspectaculoDetailComponent} from '../app/espectaculo/espectaculo-detail/espectaculo-detail.component';
@@ -18,7 +19,13 @@ import {LugarListComponent} from '../app/lugar/lugar-list/lugar-list.component';
 import {LugarDetailComponent} from '../app/lugar/lugar-detail/lugar-detail.component';
 import {SillaListComponent} from '../app/silla/silla-list/silla-list.component';
 import {SillaDetailComponent} from '../app/silla/silla-detail/silla-detail.component';
-
+import {OrganizadorEditComponent} from '../app/organizador/organizador-edit/organizador-edit.component';
+import {IngrLoginComponent} from '../app/ingr/ingr-login/ingr-login.component';
+import {IngrSignUpComponent} from '../app/ingr/ingr-sign-up/ingr-sign-up.component';
+import {OrganizadorCreateComponent} from '../app/organizador/organizador-create/organizador-create.component';
+import {ClienteCreateComponent} from '../app/cliente/cliente-create/cliente-create.component';
+import {ClienteEditComponent} from '../app/cliente/cliente-edit/cliente-edit.component';
+import {EspectaculoEditComponent} from '../app/espectaculo/espectaculo-edit/espectaculo-edit.component';
 
 const routes: Routes=[
     {
@@ -31,6 +38,10 @@ const routes: Routes=[
             {
                 path:':id',
                 component : EspectaculoDetailComponent
+            },
+            {
+                 path:':id/edit',
+                component:EspectaculoEditComponent
             }
         ]
     },
@@ -61,6 +72,31 @@ const routes: Routes=[
         ]
     },
     {
+        path: 'ingr',
+        children:[
+            {
+                path:'login',
+                component: IngrLoginComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['GUEST']
+                    }
+                }
+            },
+            {
+                path:'sign-up',
+                component: IngrSignUpComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['GUEST']
+                    }
+                }
+            }
+        ]
+    },
+    {
         path: 'organizadores',
         children: [
             {
@@ -68,8 +104,22 @@ const routes: Routes=[
                 component:OrganizadorListComponent
             },
             {
+                path:'create',
+                component:OrganizadorCreateComponent
+            },
+            {
                 path:':id',
                 component: OrganizadorDetailComponent
+            },
+            {
+                path: ':id/edit',
+                component:OrganizadorEditComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['ORGZ']
+                    }
+                }
             }
         ]
     },
@@ -78,12 +128,31 @@ const routes: Routes=[
         children: [
             {
                 path: 'list',
-                component: ClienteListComponent
+                component: ClienteListComponent,
+                children:[{
+                    path: ':id',
+                    component:ClienteDetailComponent
+                }]
             },
             {
-            path: ':id',
-             component: ClienteDetailComponent
-             }
+                path:'create',
+                component: ClienteCreateComponent
+            },
+            {
+                path: ':id',
+                component: ClienteDetailComponent
+            },
+            {
+                path:':id/edit',
+                component:ClienteEditComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['CLIENT']
+                    }
+                }
+            }
+             
         ]
     },
     {

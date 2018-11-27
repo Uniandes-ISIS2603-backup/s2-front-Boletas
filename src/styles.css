@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+#ngb-typeahead-0.dropdown-menu{
+    z-index:9999;
+}
+
+#ngb-typeahead-0{
+    z-index:9999;
+}
+
+#dropdown-menu{
+    z-index:9999;
+}
+
+
+#ngb-typeahead-0.dropdown-menu.show{
+    z-index:9999;
+}
+
+#todo{
+    margin-top: 50px;
+    z-index: -1;
+}

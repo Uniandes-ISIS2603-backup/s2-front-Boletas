@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br>
+        <h2 class="text-center">Editar la cuenta</h2>
+        <br>
+        <form name="cliente" (ngSubmit)="f.form.valid && createCliente()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="nombreCliente"><b>Nombre</b></label>
+                <input type="text" name="nombreCliente" class="form-control" id="nombreCliente" [(ngModel)]="clienteDetail.nombre"
+                    #nombreCliente="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombreCliente.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el nombre</div>
+                </div>
+            </div>
+ <div class="form-group">
+                <label for="usuarioCliente"><b>Usuario</b></label>
+                <input type="text" name="usuarioCliente" class="form-control" id="usuarioCliente" [(ngModel)]="clienteDetail.usuario"
+                    #usuarioCliente="ngModel" [ngClass]="{ 'is-invalid': f.submitted && usuarioCliente.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el usuario</div>
+                </div>
+            </div>
+ <div class="form-group">
+                <label for="cedulaCliente"><b>Cedula</b></label>
+                <input type="text" name="cedulaCliente" class="form-control" id="cedulaCliente" [(ngModel)]="clienteDetail.cedula"
+                    #cedulaCliente="ngModel" [ngClass]="{ 'is-invalid': f.submitted && cedulaCliente.invalid }" required>
+                <div class="invalid-feedback"> {{cedulaCliente}}
+                    <div>Falta la cedula</div>
+                </div>
+            </div>
+
+<div class="form-group">
+  <label for="pagoCliente">Pago</label>
+
+                  <select id="pagoCliente" [(ngModel)] = "clienteDetail.pago" name="clientePago"
+                    #clientePago ="ngModel" [ngClass]="{'is-invalid':f.submitted && clientePago.invalid}" required>
+                    <option value="Tarjeta">Tarjeta</option>
+                <option value="Efectivo">Efectivo</option>
+  </select>
+</div>
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="button" class="btn btn-primary" (click)="updateCliente()">Confirmar Cambios</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelarEdicion()">Cancelar edicion</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>
