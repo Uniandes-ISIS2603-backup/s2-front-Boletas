@@ -65,9 +65,9 @@
             </div>
         </div>
         <div class="row form-inline justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary">Crear</button>
+                <button type="submit" class="btn btn-primary">Editar</button>
                 <div class="divider"></div>
-                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
+                <button type="button" class="btn btn-danger" (click)="cancelEdition()" [routerLink]="['/espectaculos/list']" [queryParams]="{allEspectaculo: 'yes'}" style="color: #fff;">Cancelar</button>
             </div>
         </form> 
         </div>
