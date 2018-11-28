@@ -76,7 +76,7 @@ showEdit: boolean;
             data: {text: 'Esta seguro que quiere eliminar este espectaculo?'},
             actionButtons: [
                 {
-                    text: 'Yes',
+                    text: 'Si',
                     buttonClass: 'btn btn-danger',
                     onAction: () => {
                         this.espectaculoService.deleteEspectaculo(espectaculoId).subscribe(() => {
@@ -84,6 +84,10 @@ showEdit: boolean;
                             this.ngOnInit();
                         }, err => {
                             this.toastrService.error(err, "Error");
+                                    this.modalDialogService.openDialog(this.viewRef, {
+            title: 'No se puede borrar el espectaculo',
+            childComponent: SimpleModalComponent,
+            data: {text: 'No se puede borrar el espectaculo pues este ya tiene comentarios asociados'}});
                         });
                         return true;
                     }
