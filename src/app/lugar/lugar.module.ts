@@ -6,11 +6,15 @@ import {LugarService} from './lugar.service';
 import {FormsModule} from '@angular/forms';
 import { LugarDetailComponent } from './lugar-detail/lugar-detail.component';
 import { LugarCreateComponent } from './lugar-create/lugar-create.component';
+import { BrowserModule } from '@angular/platform-browser';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 import { HttpClientModule } from '@angular/common/http';
 
 import { SillaModule } from '../silla/silla.module';
 import {RoutingModule} from '../routing.module';
+import {EspectaculoModule} from '../espectaculo/espectaculo.module';
 
 @NgModule({
   imports: [
@@ -18,7 +22,11 @@ import {RoutingModule} from '../routing.module';
     FormsModule, 
     SillaModule,
     HttpClientModule,
-    RoutingModule
+    RoutingModule,
+    EspectaculoModule,
+    BrowserModule,
+    NgbModule,
+    NgxPermissionsModule
   ],
   declarations: [LugarListComponent, LugarDetailComponent, LugarCreateComponent],
   providers: [LugarService], 

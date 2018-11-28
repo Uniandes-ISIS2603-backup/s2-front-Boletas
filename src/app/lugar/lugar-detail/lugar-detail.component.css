@@ -1,0 +1,23 @@
+.p3{
+    font-size: 1.2em;
+    color:black;
+}
+
+.left-side,
+.right-side {
+  margin: 0;
+  float: left;
+  width: 50%;
+}
+
+.split-items .list-group-item.left-side{
+  border-top-right-radius:0px;
+  border-bottom-right-radius:0px;
+}
+
+.split-items .list-group-item.right-side{
+  border-top-left-radius:0px;
+  border-bottom-left-radius:0px;
+  border-bottom-right-radius:0px;
+  border-top-right-radius:4px;
+}
