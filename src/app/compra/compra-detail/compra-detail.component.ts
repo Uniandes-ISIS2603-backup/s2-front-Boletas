@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router , NavigationEnd } from '@angular/router';
 
 import { CompraService } from '../compra.service';
 
 import { CompraDetail } from '../compra-detail';
+import {ToastrService} from 'ngx-toastr';
 
 
 @Component({
@@ -15,7 +16,8 @@ export class CompraDetailComponent implements OnInit {
 
     constructor(
         private route: ActivatedRoute,
-        private compraService: CompraService 
+        private compraService: CompraService,
+        private router:Router 
     ) { }
 
      @Input() compraDetail: CompraDetail;
@@ -31,7 +33,11 @@ export class CompraDetailComponent implements OnInit {
     ngOnInit() {
         console.log(this.compra_id);
         this.compra_id = +this.route.snapshot.paramMap.get('id');
-        this.getCompraDetail();
+        if (this.compra_id){
+            this.compraDetail = new CompraDetail();
+            this.getCompraDetail();
+        }
+     
             }
 }
 
