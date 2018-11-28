@@ -13,7 +13,13 @@ export class SillaListComponent implements OnInit {
  */
   constructor(private sillaService: SillaService) { }
   @Input() sillas: Silla[];
+
+  @Input() espectaculo_id: number;
+
+  @Input() lugar_id:number;
+
   silla_id:number;
+
   selectedSilla:Silla;
   showCreate:boolean;
   /**
@@ -62,6 +68,7 @@ export class SillaListComponent implements OnInit {
       this.showCreate = false;
       this.selectedSilla = undefined;
       this.silla_id = undefined;
+      
   }
 
 }

@@ -52,6 +52,7 @@ export class OrganizadorDetailComponent implements OnInit {
         this.organizadorDetail = new OrganizadorDetail();            
         this.getOrganizadorDetail();
         this.showEdit = true;
+        console.log(this.organizadorDetail);
   }
 
   deleteOrganizador(): void {
