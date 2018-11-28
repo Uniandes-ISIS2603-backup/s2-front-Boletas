@@ -37,9 +37,9 @@
         <a id="sillasTag" class="nav-link" routerLink="/sillas/list"></a>
     </li>
 </ul>
-       <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+       
         
-            <form class="navbar-form navbar-left" role="search" >
+            <form class="navbar-form navbar-nav " role="search" >
                 <div class="form-group">
                     <input id="typeahead" placeholder="Espectaculos, organizadores, etc.." 
                     type="text" class="form-control" [(ngModel)]="model" [ngModelOptions]="{standalone: true}" [ngbTypeahead]="search" 
@@ -51,26 +51,26 @@
               </form>
 
        
-    <ul class="nav navbar-nav navbar-right">
+    
        <div class="my-2" >
         <div class="navbar-nav ml-auto flex-column" >
-            <div  *ngxPermissionsOnly="['GUEST']">
+            <div class="flex-row" *ngxPermissionsOnly="['GUEST']">
                 <div class="form-inline">
-                        <li class="right-space"><a id="signup-navbar-item" routerLink="/ingr/sign-up"><font color="white" size="4"><span class="fas fa-user"></span>
+                        <li class="right-space"><a id="signup-navbar-item" routerLink="/ingr/sign-up"><font color="white"><span class="fas fa-user"></span>
                             Sign Up</font></a></li>
                             <div class="divider"></div>
-                    <li><a id="login-navbar-item" routerLink="/ingr/login"><font color="white" size="4"><span class="fa fa-sign-in"></span>Login</font></a></li>
+                    <li><a id="login-navbar-item" routerLink="/ingr/login"><font color="white" ><span class="fa fa-sign-in"></span>Login</font></a></li>
                 </div>
             </div>
         </div>
-        <div  *ngxPermissionsOnly="['CLIENT', 'ORGZ']">
+        <div class="flex-row" *ngxPermissionsOnly="['CLIENT', 'ORGZ']">
                 <div class="form-inline">
                     
-                    <li><a id="logout-navbar-item" (click)="logout()" href="#"><font color= "white" size="4"> <span class="fa fa-sign-out" ></span>Logout</font></a></li>
+                    <li><a id="logout-navbar-item" (click)="logout()" href="#"><font color= "white" > <span class="fa fa-sign-out" ></span>Logout</font></a></li>
                 </div>
             </div>
         </div>
-    </ul>
+    
     
     
   </div>
