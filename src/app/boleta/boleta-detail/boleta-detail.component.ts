@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute,  NavigationEnd } from '@angular/router';
+import { ActivatedRoute, Router , NavigationEnd } from '@angular/router';
 
 import { BoletaService } from '../boleta.service';
 
@@ -28,6 +28,7 @@ export class BoletaDetailComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private boletaService: BoletaService,
+        private router:Router
          
     ) { }
     
