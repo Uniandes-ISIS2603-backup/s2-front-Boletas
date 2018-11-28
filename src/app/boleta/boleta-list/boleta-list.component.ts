@@ -2,7 +2,7 @@ import { Component, OnInit, Input, ViewContainerRef } from '@angular/core';
 import { Boleta } from '../boleta';
 import { BoletaService } from '../boleta.service';
 import { BoletaDetail } from '../boleta-detail';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router , NavigationEnd } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 
@@ -16,7 +16,7 @@ export class BoletaListComponent implements OnInit {
     /**
     * El constructor del componente
     */
-    constructor(private boletaService: BoletaService) { }
+    constructor(private boletaService: BoletaService, private router:Router) { }
     
     /**
     * El identificador de la boleta que se selecciona para obtener su detail
@@ -32,6 +32,9 @@ export class BoletaListComponent implements OnInit {
     * Atributo que representa si se muestra el formulario para crear un comentario o no
     */
     showCreate: boolean;
+    
+    showEdit: boolean;
+    boleta_edit_id: number;
     
     /**
      * La lista de boletas a mostrar
@@ -50,14 +53,27 @@ export class BoletaListComponent implements OnInit {
     /**
     * Muestra o esconde el componente de crear
     */
-    showHideCreate(): void {
+    showHideCreate(boleta_id: number): void {
+        if (!this.showEdit || (this.showEdit && boleta_id != this.boleta_edit_id)) {
+            this.showCreate = false;
+            this.showEdit = true;
+            this.boleta_edit_id = boleta_id;
+        }
+        else {
+            this.showEdit = false;
+        }
+    }
+    
+     showHideEdit(): void {
         if (this.selectedBoleta) {
             this.selectedBoleta = undefined;
             this.boleta_id = undefined;
         }
-        this.showCreate = !this.showCreate;
+        this.showEdit = !this.showEdit;
     }
-    
+     updateBoleta(): void {
+        this.showEdit = false;
+    }
     /**
      * Pregunta al servicio el detail de la boleta seleccionada
      */
@@ -83,6 +99,7 @@ export class BoletaListComponent implements OnInit {
       this.showCreate = false;
       this.selectedBoleta = undefined;
       this.boleta_id = undefined;
+      this.showEdit = false;
        
     }
 
