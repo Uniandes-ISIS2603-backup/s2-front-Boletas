@@ -64,5 +64,13 @@ updateEspectaculo(espectaculo): Observable<Espectaculo>
     return this.http.put<Espectaculo>(API_URL + espectaculos +'/'+ espectaculo.id, espectaculo)
 }
   
+    /**
+    * Borra uno de los espectaculos
+    * @param espectaculoId El id del espectaculo
+    * @returns La confirmacion de que el espectaculo fue borrado
+    */
+    deleteEspectaculo(espectaculoId): Observable<boolean> {
+        return this.http.delete<boolean>(API_URL + espectaculos + '/' + espectaculoId);
+    }
   
 }

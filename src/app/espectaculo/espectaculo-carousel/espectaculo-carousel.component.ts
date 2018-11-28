@@ -25,7 +25,7 @@ export class EspectaculoCarouselComponent implements OnInit {
    /**
     * Lista con las imagenes de los espectaculos 
     */
-    imagenes: string[];
+    conciertos: string[];
   
     /**
    * Llama al servicio, invocando su funcion de getEspectaculos() pidiendo los espectaculos
@@ -37,15 +37,21 @@ export class EspectaculoCarouselComponent implements OnInit {
   /**
    * Añade las imagenes del espectaculo
    */
-setImages():void{
-    for (let index=0; index< this.espectaculos.length; index ++ )
-    {
-        this.imagenes[index] = this.espectaculos[index].imagen;
-    }
-}
+   getConciertos():void{
+       for (let index = 0; index < this.espectaculos.length; index++)
+   { let con=0;
+           if (this.espectaculos[index].tipo="Concierto")
+           {
+               this.conciertos[con] = this.espectaculos[index].imagen;
+               con++;
+           }
+   }
+   }
+
   ngOnInit() {
       this.getEspectaculos();
-      this.setImages();
+      this.getConciertos()
+ 
       
   }
 

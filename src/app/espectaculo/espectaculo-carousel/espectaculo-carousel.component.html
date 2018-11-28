@@ -1,11 +1,20 @@
-<p>
- </p>
-<app-espectaculo-carousel *ngFor="let es of espectaculos">funciona
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src={{es.imagen}} alt={{es.nombre}}>
+
+<ngb-carousel >
+      <ng-template ngbSlide>
+    <img src="https://i.ebayimg.com/images/g/2DcAAOSwwNtbe0zU/s-l600.jpg"  alt="Random first slide" style="width:1500px;height:400px;">
+    <div class="carousel-caption">
+      <h3>Second slide label</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
-      </div>
-        </div>
-</app-espectaculo-carousel>
+  </ng-template>
+  <ng-template ngbSlide *ngFor="let es of espectaculos">
+      <img src="{{es.imagen}}" alt="Random second slide" routerLink = "/espectaculos/{{es.id}}" style="cursor: pointer; width:1500px;height:400px;"  >
+    <div class="carousel-caption">
+      <h3>{{es.nombre}}</h3>
+      <p>Comprar boletas</p>
+    </div>
+  </ng-template>
+    </ngb-carousel>
+<br>
+<h1> --------------------------------------Proximos espectaculos--------------------------------------</h1>
+

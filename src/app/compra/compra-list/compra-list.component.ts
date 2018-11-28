@@ -2,8 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Compra } from '../compra';
 import { CompraService } from '../compra.service';
 import {CompraDetail} from '../compra-detail';
-import {ActivatedRoute} from '@angular/router';
-import 'rxjs/add/operator/filter';
+
 
 
 @Component({
@@ -13,14 +12,14 @@ import 'rxjs/add/operator/filter';
 })
 
 export class CompraListComponent implements OnInit {
-    constructor(private compraService: CompraService, private route:ActivatedRoute) { } 
+    constructor(private compraService: CompraService) { } 
     @ Input() compras: Compra[];
     compra_id: number;
     selectedCompra : Compra;
     showCreate: boolean;
-    allCompra:string= 'no';
     
     onSelected(compra_id: number):void {
+        this.showCreate = false;
         this.compra_id = compra_id;
         this.selectedCompra = new CompraDetail();
         this.getCompraDetail();        
@@ -47,20 +46,9 @@ export class CompraListComponent implements OnInit {
     }
 
     ngOnInit() {
-
-        this.route.queryParams
-      .filter(params => params.allCompra)
-      .subscribe(params => {
-        console.log(params); 
-
-        this.allCompra = params.allCompra;
-        console.log(this.allCompra); 
-      });
-      if (this.allCompra == 'yes'){
-          console.log("allCompra");
-      
-          this.getCompras();
-       }
-        
+        this.showCreate = false;
+        this.selectedCompra = undefined;
+        this.compra_id= undefined;
+        this.getCompras();   
     }
 }

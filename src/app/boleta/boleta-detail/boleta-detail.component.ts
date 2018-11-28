@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute,  NavigationEnd } from '@angular/router';
+import { ActivatedRoute, Router , NavigationEnd } from '@angular/router';
 
 import { BoletaService } from '../boleta.service';
 
@@ -28,6 +28,7 @@ export class BoletaDetailComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private boletaService: BoletaService,
+        private router:Router
          
     ) { }
     
@@ -52,7 +53,10 @@ export class BoletaDetailComponent implements OnInit {
     ngOnInit() {
       console.log(this.boleta_id);
         this.boleta_id = +this.route.snapshot.paramMap.get('id');
-        this.getBoletaDetail();
+        if (this.boleta_id){
+            this.boletaDetail = new BoletaDetail();
+            this.getBoletaDetail();
+        }
   }
 
 }

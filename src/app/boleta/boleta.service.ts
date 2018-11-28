@@ -45,4 +45,11 @@ export class BoletaService {
         return this.http.post<Boleta>(API_URL + boletas, boleta);
     }
     
+    /**
+     * Actualiza una boleta con la informacion recibida
+     * @param boleta La boleta a editar
+     */
+    updateBoleta(boleta):Observable<BoletaDetail>{
+        return this.http.put<BoletaDetail>(API_URL+boletas + '/'+boleta.id,boleta);
+    }
 }
