@@ -26,6 +26,7 @@ import {OrganizadorCreateComponent} from '../app/organizador/organizador-create/
 import {ClienteCreateComponent} from '../app/cliente/cliente-create/cliente-create.component';
 import {ClienteEditComponent} from '../app/cliente/cliente-edit/cliente-edit.component';
 import {EspectaculoEditComponent} from '../app/espectaculo/espectaculo-edit/espectaculo-edit.component';
+import {EspectaculoCarouselComponent} from '../app/espectaculo/espectaculo-carousel/espectaculo-carousel.component';
 
 const routes: Routes=[
     {
@@ -180,6 +181,14 @@ const routes: Routes=[
                component: LugarDetailComponent
            }
         ]
+    },
+    {
+        path: 'home',
+        component:EspectaculoCarouselComponent
+    },
+    {
+        path: '**',
+        redirectTo: 'home'
     },
     {
         path:'sillas',
