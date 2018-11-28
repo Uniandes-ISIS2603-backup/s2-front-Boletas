@@ -64,11 +64,18 @@ export class SillaListComponent implements OnInit {
       this.sillaService.getSillas().subscribe(sillas => this.sillas = sillas);
   }
   ngOnInit() {
-       this.getSillas();
+      this.getSillas();
       this.showCreate = false;
       this.selectedSilla = undefined;
       this.silla_id = undefined;
-      
+  }
+
+  sillaLugar(sillaid):boolean
+  {
+      if(sillaid === this.espectaculo_id)
+      {
+          return true;
+      }
   }
 
 }

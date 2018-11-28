@@ -12,7 +12,7 @@
             </p>
         
         <div class="tab-content">
-            <div class="row-fluid">
+            <div class="row">
                 <div class="col">
                 <div class="span5">
                         <div id="venue-map" class="" data-anchor-target="#tickets-info">
@@ -60,12 +60,14 @@
                         </thead>
                         <tbody>
                             <tr *ngFor = "let silla of sillas" (click)="onSelected(silla.id)">
+                                <div *ngIf="sillaLugar(silla.lugar?.id)">
                                 <td style="cursor: pointer;"> 
                                 <dd>{{silla.id}}</dd>
                                 </td>
                                 <td style= "cursor: pointer;">
                                 <dd>{{silla.numero}}</dd>
                                 </td>
+                            </div>
                             </tr>
                         </tbody>
                     </table>                 
