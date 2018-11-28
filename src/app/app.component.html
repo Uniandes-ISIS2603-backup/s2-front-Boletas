@@ -40,7 +40,7 @@
        
         
             <form class="navbar-form navbar-nav " role="search" >
-                <div class="form-group">
+                <div class="form-inline">
                     <input id="typeahead" placeholder="Espectaculos, organizadores, etc.." 
                     type="text" class="form-control" [(ngModel)]="model" [ngModelOptions]="{standalone: true}" [ngbTypeahead]="search" 
                     (focus)="focus$.next($event.target.value)" (click)="click$.next($event.target.value)" #instance="ngbTypeahead"
