@@ -15,14 +15,17 @@ export class LugarListComponent implements OnInit {
   constructor(private lugarService: LugarService) { }
   @Input() lugares: Lugar[];
   lugar_id: number;
-  selectedLugar:Lugar;
+  selectedLugar:LugarDetail;
   showCreate:boolean;
   onSelected(lugar_id:number):void
   {
       this.showCreate = false;
       this.lugar_id = lugar_id;
+      console.log(this.lugar_id);
       this.selectedLugar = new LugarDetail();
       this.getLugarDetail();
+      this.selectedLugar.id = this.lugar_id;
+      console.log(this.selectedLugar.id);
   }
   
   /**
@@ -32,8 +35,8 @@ export class LugarListComponent implements OnInit {
   {
       if(this.selectedLugar)
       {
-          this.selectedLugar = undefined;
-          this.lugar_id = undefined;
+       //   this.selectedLugar = undefined;
+         // this.lugar_id = undefined;
       }
       this.showCreate = !this.showCreate
   }
@@ -51,8 +54,8 @@ export class LugarListComponent implements OnInit {
   getLugarDetail():void
   {
       this.lugarService.getLugarDetail(this.lugar_id)
-          .subscribe(selectedLugar => {
-          this.selectedLugar = selectedLugar
+          .subscribe(lugar => {
+          this.selectedLugar = lugar
           });
   }
   

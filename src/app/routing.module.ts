@@ -183,14 +183,6 @@ const routes: Routes=[
         ]
     },
     {
-        path: 'home',
-        component:EspectaculoCarouselComponent
-    },
-    {
-        path: '**',
-        redirectTo: 'home'
-    },
-    {
         path:'sillas',
         children: [
             {
@@ -202,7 +194,16 @@ const routes: Routes=[
                 component: SillaDetailComponent
             }
         ]
+    },
+    {
+        path: 'home',
+        component:EspectaculoCarouselComponent
+    },
+    {
+        path: '**',
+        redirectTo: 'home'
     }
+    
 ]
 
 @NgModule({

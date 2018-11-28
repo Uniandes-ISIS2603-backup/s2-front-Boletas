@@ -1,3 +1,4 @@
+
 export class Silla {
     /**
      * El id de la silla
@@ -15,5 +16,7 @@ export class Silla {
      * La disponibilidad de la silla
      */
     disponible: boolean;
+
+    
 
 }

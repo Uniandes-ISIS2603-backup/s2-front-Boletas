@@ -1,23 +1,47 @@
 <div class="panel-body">
     <div class="border-margin">
-        <p class="p3 p-3">{{lugarDetail.nombre}}</p>
-        <div class="row">
-            <div class="col-md-12">
-                <dl>
-                    <dt>Dirección</dt>
-                    <dd>{{lugarDetail.direccion}}</dd>
-                    <dt>Número de Sillas</dt>
-                    <dd>{{lugarDetail.numhSillas}}</dd>
+            <div class="card bg-dark text-white">
+                    <img class="card-img" src="https://www.allworld.com/wp-content/uploads/2018/04/movie-theaters-abroad.jpg" alt="Card image">
+                    <div class="card-img-overlay">
+                      <h5 class="card-title">{{lugarDetail.nombre}}</h5>
+                      <dl>
+                      <dt>Dirección</dt>
+                        <dd>{{lugarDetail.direccion}}</dd>
+                        <dt>Número de Sillas</dt>
+                    <dd>{{lugarDetail.numSillas}}</dd>
                     <dt>Tipo</dt>
                     <dd>{{lugarDetail.ubicacion}}</dd>
-                </dl>
-            </div>
-        </div>
+                    
+                    </dl>
+                    </div>
+                  </div>
     </div>
-    
-    <div >
+    <br>
+    <h2>Proximos espectaculos en este lugar:</h2>
+    <br>
+    <div class="panel-group list-group">
+        <div class="list-group">
+            <div  *ngFor="let es of espectaculos">
+            <div class="list-group-item row" *ngIf="esta(es.lugar?.id)">
+              <div class="list-group col-md-3">    
+                {{es.fecha}}
+              </div>
+              <div class="item col-md-3">
+                {{es.nombre}}
+              </div>
+              <div class="list-group col-md-3" >
+                    <button class="btn btn-primary text-center" [routerLink]="['/sillas/list']" [queryParams]="{lugar_id:lugarDetail.id, espectaculo_id:es.id}" >Ver boletas</button>
+              </div>
+              
+            </div>
+            </div>
+            
+        </div>
+          
+        </div>
+ <!--   <div >
         <p class="h3 p-3">Sillas del Lugar</p>
         <app-silla-list [sillas] = "lugarDetail.sillas"></app-silla-list>
-    </div>
+    </div>-->
     
 </div>

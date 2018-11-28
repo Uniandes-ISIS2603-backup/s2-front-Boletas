@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { LugarService } from "../lugar.service";
 import {LugarDetail} from '../lugar-detail';
 import {Lugar} from '../lugar';
+import {EspectaculoService} from '../../espectaculo/espectaculo.service';
+import {Espectaculo} from '../../espectaculo/espectaculo';
 
 
 
@@ -20,9 +22,12 @@ export class LugarDetailComponent implements OnInit {
 **/
   constructor(
   private route: ActivatedRoute, 
-  private lugarService:LugarService) { }
+  private lugarService:LugarService,
+  private espectaculoService:EspectaculoService) { }
   lugar_id:number;
   
+
+  @Input() espectaculos: Espectaculo[];
   /**
    * Método que retorna el detail del objeto lugar seleccionado de la lista en el front.
    */
@@ -36,13 +41,31 @@ export class LugarDetailComponent implements OnInit {
   
   ngOnInit() {
       
-      this.lugar_id = +this.route.snapshot.paramMap.get('id');
+     // this.lugar_id = +this.route.snapshot.paramMap.get('id');
+      //console.log(this.lugarDetail.id);
+      this.espectaculos = new Array();
+      this.lugar_id = this.lugarDetail.id;
       console.log(this.lugar_id);
-      if (this.lugar_id){
-        this.lugarDetail = new LugarDetail();
-        this.getLugarDetail();
-        }
-      
+      if (this.lugarDetail){
+            this.lugarDetail = new LugarDetail();
+            this.getLugarDetail();
+            this.getEspectaculosLugar();
+        }  
+        
+  }
+
+
+  getEspectaculosLugar():void{
+    this.espectaculoService.getEspectaculos().subscribe(espectaculos => this.espectaculos = espectaculos);
+  }
+
+  esta(espectaculoid):boolean
+  {
+      if((espectaculoid) === this.lugarDetail.id)
+      {
+        return true;
+      }
+      return false;
   }
 
 }

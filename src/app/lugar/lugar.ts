@@ -15,7 +15,7 @@ export class Lugar {
     /**
      * La cantidad de sillas en el lugar
      */
-    numsillas:number;
+    numSillas:number;
     /**
      * El tipo de lugar ('coliseo'|'teatro')
      */
