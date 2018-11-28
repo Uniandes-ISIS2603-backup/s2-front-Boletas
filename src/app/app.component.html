@@ -37,34 +37,41 @@
         <a id="sillasTag" class="nav-link" routerLink="/sillas/list"></a>
     </li>
 </ul>
-            <form class="form-inline my-2 my-lg-0">
+       <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        
+            <form class="navbar-form navbar-left" role="search" >
+                <div class="form-group">
                     <input id="typeahead" placeholder="Espectaculos, organizadores, etc.." 
                     type="text" class="form-control" [(ngModel)]="model" [ngModelOptions]="{standalone: true}" [ngbTypeahead]="search" 
                     (focus)="focus$.next($event.target.value)" (click)="click$.next($event.target.value)" #instance="ngbTypeahead"
                     [resultTemplate]="rt"[inputFormatter]="formatter" />
+                </div>
                     
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="busqueda()">Buscar</button>
               </form>
 
-    
-       <div class="my-2">
-        <div class="navbar-nav ml-auto flex-column">
-            <div class="flex-row" *ngxPermissionsOnly="['GUEST']">
+       
+    <ul class="nav navbar-nav navbar-right">
+       <div class="my-2" >
+        <div class="navbar-nav ml-auto flex-column" >
+            <div  *ngxPermissionsOnly="['GUEST']">
                 <div class="form-inline">
-                        <li class="right-space"><a id="signup-navbar-item" routerLink="/ingr/sign-up"><font color="white"><span class="fas fa-user"></span>
+                        <li class="right-space"><a id="signup-navbar-item" routerLink="/ingr/sign-up"><font color="white" size="4"><span class="fas fa-user"></span>
                             Sign Up</font></a></li>
                             <div class="divider"></div>
-                    <li><a id="login-navbar-item" routerLink="/ingr/login"><font color="white"><span class="fa fa-sign-in"></span>Login</font></a></li>
+                    <li><a id="login-navbar-item" routerLink="/ingr/login"><font color="white" size="4"><span class="fa fa-sign-in"></span>Login</font></a></li>
                 </div>
             </div>
         </div>
-        <div class="flex-row" *ngxPermissionsOnly="['CLIENT', 'ORGZ']">
+        <div  *ngxPermissionsOnly="['CLIENT', 'ORGZ']">
                 <div class="form-inline">
                     
-                    <li><a id="logout-navbar-item" (click)="logout()" href="#"><font color= "white"> <span class="fa fa-sign-out"></span>Logout</font></a></li>
+                    <li><a id="logout-navbar-item" (click)="logout()" href="#"><font color= "white" size="4"> <span class="fa fa-sign-out" ></span>Logout</font></a></li>
                 </div>
             </div>
         </div>
+    </ul>
+    
     
   </div>
 </nav>
@@ -73,6 +80,8 @@
   </div>
 <div class="list">
 <div class="list" id="todo">
+    
+    <app-espectaculo-carousel></app-espectaculo-carousel>
     <router-outlet></router-outlet>
     <br>
 </div>

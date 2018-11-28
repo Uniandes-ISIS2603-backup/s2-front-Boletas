@@ -52,7 +52,10 @@ export class BoletaDetailComponent implements OnInit {
     ngOnInit() {
       console.log(this.boleta_id);
         this.boleta_id = +this.route.snapshot.paramMap.get('id');
-        this.getBoletaDetail();
+        if (this.boleta_id){
+            this.boletaDetail = new BoletaDetail();
+            this.getBoletaDetail();
+        }
   }
 
 }
