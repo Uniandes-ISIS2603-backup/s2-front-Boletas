@@ -66,6 +66,8 @@ export class CompraEditComponent implements OnInit {
     }
 
   ngOnInit() {
+      this.compra = new CompraDetail();
+        this.getCompra();
   }
 
 }

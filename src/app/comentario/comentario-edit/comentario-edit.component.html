@@ -1,0 +1,34 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<ul class="media-list" >
+<li class="media">                         
+    
+    <div class="media-body">
+        <form name="comentario" (ngSubmit)="f.form.valid && updateComentario()" #f="ngForm" novalidate>
+            <h4 class="media-heading reviews">Editar comentario</h4>
+            
+            <div class="form-group">
+            
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="comentarioMensaje" name="addComment" id="addComment" rows="5" [(ngModel)]="comentario.mensaje"
+                      #comentarioMensaje="ngModel" [ngClass]="{ 'is-invalid': f.submitted && comentarioMensaje.invalid }" required>></textarea>
+                    <div class="invalid-feedback">
+                    <div>Falta el mensaje del comentario</div>
+                </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">                    
+                    <button class="btn btn-success btn-circle text-uppercase" type="submit" id="submitComment"><span class="glyphicon glyphicon-send"></span> Editar</button>
+                                     
+                    <button class="btn btn-danger btn-circle text-uppercase" (click)="cancelEdition()"><span class="glyphicon glyphicon-alert"></span> Cancelar</button>
+                </div>
+                
+                
+            </div> 
+        </form>
+    </div>
+</li>
+</ul>
