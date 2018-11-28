@@ -26,6 +26,12 @@ export class EspectaculoCarouselComponent implements OnInit {
     * Lista con las imagenes de los espectaculos 
     */
     conciertos: string[];
+    
+     circo: string[];
+     
+      teatro: string[];
+      
+       deporte: string[];
   
     /**
    * Llama al servicio, invocando su funcion de getEspectaculos() pidiendo los espectaculos
@@ -37,12 +43,45 @@ export class EspectaculoCarouselComponent implements OnInit {
   /**
    * Añade las imagenes del espectaculo
    */
-   getConciertos():void{
+   getConciertos(list: Espectaculo[]):void{
+       for (let index = 0; index < list.length; index++)
+   { let con=0;
+           if (list[index].tipo="Concierto")
+           {
+               this.conciertos[con] = list[index].imagen;
+               con++;
+           }
+   }
+   }
+      
+      getCirco():void{
        for (let index = 0; index < this.espectaculos.length; index++)
    { let con=0;
-           if (this.espectaculos[index].tipo="Concierto")
+           if (this.espectaculos[index].tipo="Circo")
            {
-               this.conciertos[con] = this.espectaculos[index].imagen;
+               this.circo[con] = this.espectaculos[index].imagen;
+               con++;
+           }
+   }
+   }
+   
+         getTeatro():void{
+       for (let index = 0; index < this.espectaculos.length; index++)
+   { let con=0;
+           if (this.espectaculos[index].tipo="Teatro")
+           {
+               this.teatro[con] = this.espectaculos[index].imagen;
+               con++;
+           }
+   }
+   }
+   
+            getDeporte():void{
+       for (let index = 0; index < this.espectaculos.length; index++)
+   { let con=0;
+           if (this.espectaculos[index].tipo="Deporte")
+           {
+               this.deporte[con] = this.espectaculos[index].imagen;
                con++;
            }
    }
@@ -50,9 +89,10 @@ export class EspectaculoCarouselComponent implements OnInit {
 
   ngOnInit() {
       this.getEspectaculos();
-      this.getConciertos()
+      this.getConciertos(this.espectaculos);
+      this.getCirco();
+      this.getTeatro();
+      this.getDeporte();
  
-      
-  }
-
+}
 }

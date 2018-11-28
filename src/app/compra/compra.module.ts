@@ -11,11 +11,11 @@ import { CompraService } from './compra.service';
 import { CompraDetailComponent } from './compra-detail/compra-detail.component';
 import { CompraCreateComponent } from './compra-create/compra-create.component';
 import {BoletaModule} from '../boleta/boleta.module';
-<<<<<<< HEAD
+
 import { CompraBoletasComponent } from './compra-boletas/compra-boletas.component';
-=======
+
 import { CompraEditComponent } from './compra-edit/compra-edit.component';
->>>>>>> origin/master
+
 
 @NgModule({
     imports: [       
@@ -26,11 +26,9 @@ import { CompraEditComponent } from './compra-edit/compra-edit.component';
         FormsModule,
         BoletaModule
     ],
-<<<<<<< HEAD
-    declarations: [CompraListComponent, CompraDetailComponent, CompraCreateComponent, CompraBoletasComponent],
-=======
-    declarations: [CompraListComponent, CompraDetailComponent, CompraCreateComponent, CompraEditComponent],
->>>>>>> origin/master
+
+    declarations: [CompraListComponent, CompraDetailComponent, CompraCreateComponent, CompraBoletasComponent, CompraEditComponent],
+
     providers: [CompraService],
     exports:[CompraListComponent]
 })
