@@ -28,8 +28,9 @@
                             <td style="cursor: pointer;">
                                 <dd>{{lu.id}}</dd>
                             </td>
-                        
-                            
+                            <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" 
+             [ngClass]="{ 'btn-primary': (!showEdit || lugar_edit_id != lugar.id), 'btn-danger': (showEdit && lugar_edit_id == lugar.id) }"
+              type="button" class="btn" (click)="showHideEdit(lugar.id)" data-title="Edit" data-toggle="modal"  ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
                         </tr>
                     </tbody>
                     
@@ -39,6 +40,9 @@
             
             <div *ngIf="selectedLugar">
                 <app-lugar-detail [lugarDetail]="selectedLugar"></app-lugar-detail>
+            </div>
+            <div *ngIf="showEdit">
+                <app-lugar-edit [lugar_id]="lugar_edit_id" (cancel)="showHideEdit(lugar_edit_id)" (update)="updateLugar()"></app-lugar-edit>
             </div>
             <div *ngIf="showCreate">
                 <app-lugar-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-lugar-create>

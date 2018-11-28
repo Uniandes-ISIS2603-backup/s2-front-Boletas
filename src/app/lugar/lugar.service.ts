@@ -39,4 +39,9 @@ export class LugarService {
   {
       return this.http.post<Lugar>(API_URL + lugares, lugar);
   }
+  
+  updateLugar(lugar):Observable<LugarDetail>
+  {
+      return this.http.put<LugarDetail>(API_URL + lugares + "/" + lugar.id, lugar );
+  }
 }

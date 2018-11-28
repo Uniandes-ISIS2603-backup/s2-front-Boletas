@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br>
+        <h2 class="text-center">Editar el lugar</h2>
+        <br>
+        <form name="lugar" (ngSubmit) = "f.form.valid && createLugar()" #f="ngForm" novalidate> 
+            <div class="form-group">
+                <label for="nombreLugar"><b>Nombre</b></label>
+                <input type="text" name="nombreLugar" class="form-control" id="nombreLugar" [(ngModel)]="lugarDetail.nombre"
+                    #nombreLugar="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombreLugar.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el nombre</div>
+                </div>
+            </div>
+              
+              
+        </form>
+    </div>
+</div>

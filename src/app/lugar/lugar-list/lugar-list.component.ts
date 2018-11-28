@@ -17,6 +17,9 @@ export class LugarListComponent implements OnInit {
   lugar_id: number;
   selectedLugar:Lugar;
   showCreate:boolean;
+  
+  showEdit:boolean;
+  lugar_edit_id:number;
   onSelected(lugar_id:number):void
   {
       this.showCreate = false;
@@ -28,15 +31,31 @@ export class LugarListComponent implements OnInit {
   /**
    * Método por el que se muestura el panel de crear lugar.
    */
-  showHideCreate():void
+  showHideCreate(lugar_id: number):void
   {
-      if(this.selectedLugar)
-      {
-          this.selectedLugar = undefined;
-          this.lugar_id = undefined;
-      }
-      this.showCreate = !this.showCreate
+      if (!this.showEdit || (this.showEdit && lugar_id != this.lugar_edit_id)) {
+            this.showCreate = false;
+            this.showEdit = true;
+            this.lugar_edit_id = lugar_id;
+        }
+        else {
+            this.showEdit = false;
+        }
   }
+  
+  showHideEdit()
+  {
+      if (this.selectedLugar) {
+            this.selectedLugar = undefined;
+            this.lugar_id = undefined;
+        }
+        this.showEdit = !this.showEdit;
+  }
+  updateLugar():void
+  {
+      this.showEdit = false;
+  }
+  
   /**
    * Retorna la lista de lugares del back.
    */
@@ -57,11 +76,12 @@ export class LugarListComponent implements OnInit {
   }
   
   ngOnInit() {
-      
+      this.getLugares();
       this.showCreate = false;
       this.selectedLugar = undefined;
       this.lugar_id = undefined;
-      this.getLugares();
+      this.showEdit = false;
+      
   }
   
   
