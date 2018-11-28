@@ -25,10 +25,13 @@ export class SillaListComponent implements OnInit {
 
   lugar: LugarDetail;
 
+  sillasS: Silla[];
+
   silla_id:number;
 
   selectedSilla:SillaDetail;
   showCreate:boolean;
+  tipo:boolean;
   /**
    * Método ejecutado cuando se selecciona una silla de la lista.
    */
@@ -92,6 +95,7 @@ export class SillaListComponent implements OnInit {
       this.showCreate = false;
       this.selectedSilla = undefined;
       this.silla_id = undefined;
+      this.sillasS = new Array();
   }
 
   sillaLugar(sillaid):boolean
@@ -104,4 +108,17 @@ export class SillaListComponent implements OnInit {
     }
   }
 
+  agregarCarro(silla):void{
+    this.sillasS.push(silla);
+    console.log(this.sillasS.length);
+  }
+  
+  eliminarCarrito(silla):void{
+      var i:number =this.sillasS.indexOf(silla);
+      this.sillasS.splice(i,1);
+  }
+
+  comprar():void{
+
+  }
 }
