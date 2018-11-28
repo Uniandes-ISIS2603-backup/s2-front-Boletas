@@ -37,18 +37,23 @@
         <a id="sillasTag" class="nav-link" routerLink="/sillas/list"></a>
     </li>
 </ul>
-            <form class="form-inline my-2 my-lg-0">
+       <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        
+            <form class="navbar-form navbar-left" role="search" >
+                <div class="form-group">
                     <input id="typeahead" placeholder="Espectaculos, organizadores, etc.." 
                     type="text" class="form-control" [(ngModel)]="model" [ngModelOptions]="{standalone: true}" [ngbTypeahead]="search" 
                     (focus)="focus$.next($event.target.value)" (click)="click$.next($event.target.value)" #instance="ngbTypeahead"
                     [resultTemplate]="rt"[inputFormatter]="formatter" />
+                </div>
                     
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="busqueda()">Buscar</button>
               </form>
 
-    
-       <div class="my-2">
-        <div class="navbar-nav ml-auto flex-column">
+       
+    <ul class="nav navbar-nav navbar-right">
+       <div class="my-2" >
+        <div class="navbar-nav ml-auto flex-column" >
             <div class="flex-row" *ngxPermissionsOnly="['GUEST']">
                 <div class="form-inline">
                         <li class="right-space"><a id="signup-navbar-item" routerLink="/ingr/sign-up"><font color="white"><span class="fas fa-user"></span>
@@ -65,10 +70,12 @@
                 </div>
             </div>
         </div>
+    </ul>
+    
     
   </div>
 </nav>
-<<<<<<< HEAD
+
   <div>
 
   </div>
