@@ -56,16 +56,13 @@ export class LugarListComponent implements OnInit {
   }
   updateLugar():void
   {
-<<<<<<< HEAD
-      this.showEdit = false;
-=======
+
       if(this.selectedLugar)
       {
        //   this.selectedLugar = undefined;
          // this.lugar_id = undefined;
       }
       this.showCreate = !this.showCreate
->>>>>>> 39c8a36fcd8af43bf5de921fc0f97c5e3214d7db
   }
   
   /**
