@@ -50,7 +50,7 @@ export class LugarEditComponent implements OnInit, OnChanges {
   }
   
 
-  updateCliente():void {
+  updateLugar():void {
     this.lugarService.updateLugar(this.lugarDetail).subscribe(
       () => {this.router.navigate(['/lugares/list']);
       this.toastrService.success('El lugar se a modificado correctamente');

@@ -19,7 +19,27 @@ and open the template in the editor.
                     <div>Falta el nombre</div>
                 </div>
             </div>
-              
+            <div class="form-group">
+                <label for="numSillasLugar"><b>Número de Sillas</b></label>
+                <input type="text" name="numSillasLugar" class="form-control" id="numSillasLugar" [(ngModel)]="lugarDetail.numSillas"
+                    #numSillasLugar="ngModel" [ngClass]="{ 'is-invalid': f.submitted && numSillasLugar.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el numero de sillas</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="direccionLugar"><b>Dirección</b></label>
+                <input type="text" name="direccionLugar" class="form-control" id="direccionLugar" [(ngModel)]="lugarDetail.direccion"
+                    #direccionLugar="ngModel" [ngClass]="{ 'is-invalid': f.submitted && direccionLugar.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el numero de sillas</div>
+                </div>
+            </div>
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary" [routerLink] = "['/lugar/list']" >Editar</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelarEdicion()" [routerLink]="['/lugar/list']" style="color: #fff;">Cancelar</button>
+            </div>
               
         </form>
     </div>
