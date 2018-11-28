@@ -19,6 +19,7 @@ export class CompraListComponent implements OnInit {
     showCreate: boolean;
     
     onSelected(compra_id: number):void {
+        this.showCreate = false;
         this.compra_id = compra_id;
         this.selectedCompra = new CompraDetail();
         this.getCompraDetail();        
@@ -45,7 +46,9 @@ export class CompraListComponent implements OnInit {
     }
 
     ngOnInit() {
-
+        this.showCreate = false;
+        this.selectedCompra = undefined;
+        this.compra_id= undefined;
         this.getCompras();   
     }
 }
