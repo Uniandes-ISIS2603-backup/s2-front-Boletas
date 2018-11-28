@@ -9,13 +9,17 @@ import { BoletaModule } from '../boleta/boleta.module';
 import { SillaCreateComponent } from './silla-create/silla-create.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule, 
     BoletaModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
+    NgxPermissionsModule
   ],
   declarations: [SillaListComponent, SillaDetailComponent, SillaCreateComponent],
   providers: [SillaService],

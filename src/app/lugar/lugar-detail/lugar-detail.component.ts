@@ -65,7 +65,6 @@ export class LugarDetailComponent implements OnInit {
       {
         return true;
       }
-      
       return false;
   }
 

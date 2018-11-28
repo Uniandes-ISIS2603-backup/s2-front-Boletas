@@ -2,12 +2,12 @@
     <div class="row-fluid">
         <div>
             <h1 class="summary" itemprop="name" >
-                {{espectaculo_id}}
+                {{lugar.nombre}}
             </h1>
         </div>
             <p class="event-details">
                 <time itemprop="startDate" datetime="2019-02-16T20:00:00" data-qa="event-datetime">
-                        Saturday, February 16 2019, 8:00 PM.
+                        {{lugar.direccion}}
                 </time>
             </p>
         
@@ -48,7 +48,7 @@
             <div class="span7">
             
                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                            (click)="showHideCreate()">Crear una silla</button>
+                            (click)="showHideCreate()" *ngxPermissionsOnly="['ORGZ']">Crear una silla</button>
                 
                     <table class="table table-striped table-bordered">
                         <thead class="thead-dark">
@@ -60,14 +60,16 @@
                         </thead>
                         <tbody>
                             <tr *ngFor = "let silla of sillas" (click)="onSelected(silla.id)">
-                                <div *ngIf="sillaLugar(silla.lugar?.id)">
-                                <td style="cursor: pointer;"> 
+                                
+                                <td style="cursor: pointer;" *ngIf="sillaLugar(silla.id)"> 
                                 <dd>{{silla.id}}</dd>
                                 </td>
-                                <td style= "cursor: pointer;">
+                                <td style= "cursor: pointer;" *ngIf="sillaLugar(silla.id)">
                                 <dd>{{silla.numero}}</dd>
                                 </td>
-                            </div>
+                                <td *ngIf="sillaLugar(silla.id)">
+                                    <button class="btn btn-primary text-center">Agregar a carrito</button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>                 
