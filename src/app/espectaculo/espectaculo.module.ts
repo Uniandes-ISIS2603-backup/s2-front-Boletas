@@ -13,6 +13,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import { EspectaculoCarouselComponent } from './espectaculo-carousel/espectaculo-carousel.component';
 import { EspectaculoEditComponent } from './espectaculo-edit/espectaculo-edit.component';
 
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { EspectaculoEditComponent } from './espectaculo-edit/espectaculo-edit.co
     FormsModule,
     NgbModule,
     BrowserModule,
-    ComentarioModule
+    ComentarioModule,
+    NgxPermissionsModule
   ],
   declarations: [EspectaculoListComponent, EspectaculoDetailComponent, EspectaculoCreateComponent, EspectaculoCarouselComponent, EspectaculoEditComponent],
   providers:[EspectaculoService],

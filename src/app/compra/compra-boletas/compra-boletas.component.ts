@@ -50,8 +50,11 @@ export class CompraBoletasComponent implements OnInit {
     this.sillas = pSillas;
     console.log(pSillas);
 
-    this.getClientes(); 
-    this.getBoletas();
+    this.getClientes().then(()=> this.getBoletas()); 
+    
+    await new Promise((resolve) => setTimeout(resolve,3000));
+
+    
     
     console.log(this.boletas);
     this.compra.costoTotal = 0;
@@ -125,7 +128,7 @@ export class CompraBoletasComponent implements OnInit {
 
  async getClientes() {
     this.clienteService.getClientes().subscribe(clientes => {this.clientes= clientes;});
-    await new Promise((resolve) => setTimeout(resolve,20000));
+    await new Promise((resolve) => setTimeout(resolve,20000000));
       
 }
 
@@ -138,7 +141,7 @@ export class CompraBoletasComponent implements OnInit {
    async getBoletas(){
     
     this.boletaService.getBoletas().subscribe(boletas => {this.boletas = boletas;});
-    await new Promise((resolve) => setTimeout(resolve,500000000));
+    await new Promise((resolve) => setTimeout(resolve,5000000000));
       
   }
 

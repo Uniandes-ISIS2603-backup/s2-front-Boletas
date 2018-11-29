@@ -45,7 +45,11 @@ import {IngrModule} from './ingr/ingr.module';
     NgbModule,
     ModalDialogModule.forRoot(),
     IngrModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+  }),
     NgxPermissionsModule.forRoot()
     
   ],
