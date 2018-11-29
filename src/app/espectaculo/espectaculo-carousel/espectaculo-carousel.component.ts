@@ -20,7 +20,7 @@ export class EspectaculoCarouselComponent implements OnInit {
   /**
    * Lista de espectaculos
    */
-   @Input() espectaculos: Espectaculo[];
+  espectaculos: Espectaculo[];
    
    /**
     * Lista con las imagenes de los espectaculos 
@@ -36,8 +36,11 @@ export class EspectaculoCarouselComponent implements OnInit {
     /**
    * Llama al servicio, invocando su funcion de getEspectaculos() pidiendo los espectaculos
    */
-  getEspectaculos():void{
-      this.espectaculoService.getEspectaculos().subscribe(espectaculos => this.espectaculos = espectaculos);
+  async getEspectaculos(){
+    
+    this.espectaculoService.getEspectaculos().subscribe(espectaculos => this.espectaculos = espectaculos);
+    await new Promise((resolve) => setTimeout(resolve,5000000));
+      
   }
   
   /**
@@ -63,6 +66,7 @@ export class EspectaculoCarouselComponent implements OnInit {
                con++;
            }
    }
+   console.log(this.circo);
    }
    
          getTeatro():void{
@@ -87,10 +91,13 @@ export class EspectaculoCarouselComponent implements OnInit {
    }
    }
 
-  ngOnInit() {
+  async ngOnInit() {
       this.getEspectaculos();
+      await new Promise((resolve) => setTimeout(resolve,5000));
       this.getConciertos(this.espectaculos);
+      await new Promise((resolve) => setTimeout(resolve,5000));
       this.getCirco();
+      await new Promise((resolve) => setTimeout(resolve,5000));
       this.getTeatro();
       this.getDeporte();
  

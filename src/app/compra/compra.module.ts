@@ -11,13 +11,8 @@ import { CompraService } from './compra.service';
 import { CompraDetailComponent } from './compra-detail/compra-detail.component';
 import { CompraCreateComponent } from './compra-create/compra-create.component';
 import {BoletaModule} from '../boleta/boleta.module';
-
-
-import { CompraBoletasComponent } from './compra-boletas/compra-boletas.component';
-
-
 import { CompraEditComponent } from './compra-edit/compra-edit.component';
-
+import {CompraBoletasComponent} from './compra-boletas/compra-boletas.component';
 
 @NgModule({
     imports: [       

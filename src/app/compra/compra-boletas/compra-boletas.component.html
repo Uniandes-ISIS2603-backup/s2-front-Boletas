@@ -1,3 +1,71 @@
-<p>
-  compra-boletas works!
-</p>
+<div class="container-fluid">
+<h1>
+  Compra
+</h1>
+<div class="row">
+  <div class="col">
+        <div class="container-fluid">
+        <table class="table table-hover">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Boleta</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Espectaculo</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tr *ngFor="let item of boletas; let i = index;">
+            <td scope="row" *ngIf="esta(item.silla?.id)" >
+              <p>{{item.id}}</p>
+            </td>
+            <td *ngIf="esta(item.silla?.id) && suma(item.precio)">
+                <p>{{item.precio}}</p>
+            </td>
+            <td *ngIf="esta(item.silla?.id)">
+                <p>{{item.espectaculo.id}}</p>
+            </td>
+            <td *ngIf="esta(item.silla?.id)"><button class="btn btn-danger" (click)="deleteItem(i)">Eliminar Boleta</button></td>
+          </tr>
+          <tr>
+            <td>Total:</td>
+            <td>{{getTotal() | currency}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+  </div>
+
+<div class="row">
+    <form name="compra" (ngSubmit)="f.form.valid && comprar()" #f="ngForm" novalidate>
+        <div class="form-group">
+            <label form ="clienteid"><b>Su identificacion:</b></label>
+            <input type="number" id="clienteid" name ="clienteid" class="form-control"  [(ngModel)]="cliente_id"
+                #clienteid ="ngModel" [ngClass]="{'is-invalid':f.submitted && clienteid.invalid}" >
+                <div class="invalid-feedback">
+                    <div>Falta su identificacion</div>
+                </div>    
+            </div>
+        <div class="form-group">
+            <label for="compraEnvio"><b>Envio</b></label>
+            <input type="checkbox" name="compraEnvio" class="form-control" id="compraEnvio" [(ngModel)]="compra.envio">
+        </div>
+          
+          <div class="form-group">
+            <label for="compraDireccion"><b>Direccion de envio</b></label>
+            <input type="text" name="compraDireccion" class="form-control" id="compraDireccion" [(ngModel)]="compra.direccion"
+                #compraDireccion="ngModel" [ngClass]="{ 'is-invalid': f.submitted && compraDireccion.invalid }" *ngIf="checkBoxCompra()" required>
+            <div class="invalid-feedback">
+                <div>Falta la direccion</div>
+            </div>
+        </div>
+       
+        <div class="row form-inline justify-content-center align-self-center">
+            <button type="submit" class="btn btn-primary">Crear</button>
+            <div class="divider"></div>
+            <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+        </div>
+    </form>
+</div>
+</div>

@@ -27,6 +27,8 @@ import {ClienteCreateComponent} from '../app/cliente/cliente-create/cliente-crea
 import {ClienteEditComponent} from '../app/cliente/cliente-edit/cliente-edit.component';
 import {EspectaculoEditComponent} from '../app/espectaculo/espectaculo-edit/espectaculo-edit.component';
 import {EspectaculoCarouselComponent} from '../app/espectaculo/espectaculo-carousel/espectaculo-carousel.component';
+import {CompraBoletasComponent} from '../app/compra/compra-boletas/compra-boletas.component';
+
 import {LugarEditComponent} from '../app/lugar/lugar-edit/lugar-edit.component';
 
 const routes: Routes=[
@@ -55,9 +57,14 @@ const routes: Routes=[
                 component : CompraListComponent
             },
             {
+                path:'confirmar',
+                component: CompraBoletasComponent
+            },
+            {
                 path: ':id',
                 component: CompraDetailComponent
             }
+            
         ]
     },
     {

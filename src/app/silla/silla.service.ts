@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Silla} from './silla';
 import {Observable} from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
+
 
 import {SillaDetail} from './silla-detail';
 
@@ -18,6 +20,7 @@ const sillas = '/sillas';
 @Injectable()
 export class SillaService {
 
+    private sillas = new BehaviorSubject(Silla[1]);
 
   constructor(private http: HttpClient) { }
   getSillas(): Observable<Silla[]>
@@ -33,5 +36,12 @@ export class SillaService {
   createSilla(silla): Observable<Silla>
   {
       return this.http.post<Silla>(API_URL + sillas, silla)
+  }
+
+  s = this.sillas.asObservable();
+
+  cambiarSillas(sillas)
+  {
+    this.sillas.next(sillas);
   }
 }

@@ -5,7 +5,7 @@
             <br>
             <div class="row  justify-content-center align-self-center">
                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-               (click)="showHCreate()">Crea un espectaculo</button>
+               (click)="showHCreate()" *ngxPermissionsOnly="['ORGZ']">Crea un espectaculo</button>
             </div>
             <br>
          </div>
@@ -23,8 +23,8 @@
                       <figcaption class="title-caption text-center">{{es.nombre}}</figcaption>
                     </figure>
                    
-                         <a class="fa fa-pencil"   (click)="showHEdit(es.id)" routerLink="/espectaculos/{{es.id}}/edit"></a>
-                         <a class="fa fa-ban" (click)="deleteEspectaculo(es.id)"></a>
+                         <a class="fa fa-pencil"   (click)="showHEdit(es.id)" routerLink="/espectaculos/{{es.id}}/edit"  *ngxPermissionsOnly="['ORGZ']"></a>
+                         <a class="fa fa-ban" (click)="deleteEspectaculo(es.id)"  *ngxPermissionsOnly="['ORGZ']"></a>
                      
                      <div>
                          

@@ -84,7 +84,7 @@ export class ClienteDetailComponent implements OnInit{
         });
     }
     goBack(): void {
-        this.router.navigate(['/espectaculos']);
+        this.router.navigate(['/main']);
       }
     
     

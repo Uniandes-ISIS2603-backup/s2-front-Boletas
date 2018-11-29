@@ -17,18 +17,18 @@
     </ngb-carousel>
 <br>
 <h1> --------------------------------------Proximos espectaculos--------------------------------------</h1>
-         <div class="col" *ngFor = "let c of conciertos">
+        <!-- <div class="col" *ngFor = "let c of conciertos">
                   <figure class="figure" routerLink = "/espectaculos/{{c.id}}" style="cursor: pointer;" >
                      <div>
                         <img id="spec_image" class=" card-img-top img-thumbnail img-fluid" src='{{c.imagen}}' alt="{{c.nombre}}" />  
                      </div>
                       <figcaption class="title-caption text-center">{{c.nombre}}</figcaption>
                     </figure>
-</div>
+</div>-->
               
               <h1></h1>
               
-                       <div class="col" *ngFor = "let c of circo">
+                <div class="row" *ngFor = "let c of circo">
                   <figure class="figure" routerLink = "/espectaculos/{{c.id}}" style="cursor: pointer;" >
                      <div>
                         <img id="spec_image" class=" card-img-top img-thumbnail img-fluid" src='{{c.imagen}}' alt="{{c.nombre}}" />  

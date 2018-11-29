@@ -32,6 +32,7 @@ export class SillaListComponent implements OnInit {
   selectedSilla:SillaDetail;
   showCreate:boolean;
   tipo:boolean;
+  c:boolean;
   /**
    * Método ejecutado cuando se selecciona una silla de la lista.
    */
@@ -119,6 +120,7 @@ export class SillaListComponent implements OnInit {
   }
 
   comprar():void{
+    this.sillaService.cambiarSillas(this.sillasS);
 
   }
 }
