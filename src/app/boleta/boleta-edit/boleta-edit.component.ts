@@ -1,9 +1,9 @@
-import { Component, OnInit , Input, Output, OnChanges, EventEmitter} from '@angular/core';
-import {Router, ActivatedRoute, NavigationEnd} from '@angular/router';
-import {Observable} from 'rxjs';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
+import {NgbTypeahead} from '@ng-bootstrap/ng-bootstrap';
+import {Observable, Subject, merge} from 'rxjs';
+import {debounceTime, distinctUntilChanged, filter, map} from 'rxjs/operators';
 import {ToastrService} from 'ngx-toastr';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
 import {BoletaService} from '../boleta.service';
 import {BoletaDetail} from '../boleta-detail';
 import {Boleta} from '../boleta';
@@ -13,63 +13,51 @@ import {Boleta} from '../boleta';
   templateUrl: './boleta-edit.component.html',
   styleUrls: ['./boleta-edit.component.css']
 })
-export class BoletaEditComponent implements OnInit, OnChanges {
+export class BoletaEditComponent implements OnInit {
 
-  constructor(private boletaService: BoletaService, private router:Router, private toastrService:ToastrService , private route: ActivatedRoute) {
-    this.navigationSubscription = this.router.events.subscribe((e: any) =>
-      {
-          if (e instanceof NavigationEnd)
-          {
-              this.ngOnInit();
-          }
-      });
+  constructor(private boletaService: BoletaService, 
+      private toastrService: ToastrService,
+        private router: Router,
+        private route: ActivatedRoute) {
   }
 
-  navigationSubscription;
+  
 
   model:any;
 
-  boletaDetail: BoletaDetail;
+  boleta: BoletaDetail;
 
-  @Output() cancel = new EventEmitter();
-
-  @Output() update = new EventEmitter();
 
   @Input()
   boleta_id: number;
 
 
   getBoleta(): void {
-    this.boletaService.getBoletaDetail(this.boleta_id).subscribe( boleta =>{this.boletaDetail = boleta}
+    this.boletaService.getBoletaDetail(this.boleta_id).subscribe( boleta =>{this.boleta = boleta}
     );
   }
 
-  cancelarEdicion(): void {
-    this.toastrService.warning('No se edito la boleta');
-    this.cancel.emit();
+  cancelEdicion(): void {
+    this.toastrService.warning('La boleta no fue editada', 'Boleta edition');
+        this.router.navigate(['/boletas/list']);
   }
   
 
   updateBoleta():void {
-    this.boletaService.updateBoleta(this.boletaDetail).subscribe(
-      () => {this.router.navigate(['/boletas/list']);
+    this.boletaService.updateBoleta(this.boleta).subscribe(
+      () => {this.router.navigate(['/boletas/'+this.boleta.id]);
       this.toastrService.success('La boleta se a modificado correctamente');
     });
-    this.update.emit();
+    
   }
 
   ngOnInit() {
 
-    this.boleta_id = +this.route.snapshot.paramMap.get('id');  
-    this.boletaDetail = new BoletaDetail();
-    this.getBoleta();
-    console.log(this.boletaDetail);
-    this.model = new Boleta();
+     this.boleta = new BoletaDetail();
+       this.getBoleta();
   }
 
-  ngOnChanges() {
-    this.ngOnInit();
-}
+
 
 }
 

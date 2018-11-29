@@ -1,7 +1,10 @@
 <div class="container">
 	<div class="row">
 		
-        
+        <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear boleta</button>
+        </div>
         <div class="col-md-12">
         <h4>Boletas</h4>
         <div class="table-responsive">
@@ -24,11 +27,14 @@
     <tr *ngFor  ="let b of boletas"
                               (click)="onSelected(b.id)">
     
-    <td>{{b.espectaculo.nombre}}</td>
-    <td>${{b.precio}}.00</td>
-    <td>{{b.espectaculo.fecha}}</td>
-    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><a class="fa fa-pencil" ></a></p></td>
-    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><a class="fa fa-remove"></a></p></td>
+    <td style="cursor: pointer;" (click)="onSelected(b.id)">
+    <dd>{{b.espectaculo.nombre}}</dd></td>
+    <td style="cursor: pointer;" (click)="onSelected(b.id)">
+    <dd>${{b.precio}}.00</dd></td>
+    <td style="cursor: pointer;" (click)="onSelected(b.id)">
+    <dd>{{b.espectaculo.fecha}}</dd></td>
+        <td><button class="btn btn-primary" (click)="showHideEdit(b.id)"><span class="fa fa-pencil"></span></button></td>
+    <td><button class="btn btn-danger" (click)="deleteBoleta(b.id)"><span class="fa fa-trash"></span></button></td>
     </tr>
     
    
@@ -40,6 +46,9 @@
             
         </div>
         <div class="col-md-8">
+            <div *ngIf="selectedBoleta">
+                <app-boleta-detail [boletaDetail]="sselectedBoleta"></app-boleta-detail>
+            </div>
             <div *ngIf="showCreate">
                 <app-boleta-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-boleta-create>
             </div>
