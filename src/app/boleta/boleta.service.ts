@@ -52,4 +52,8 @@ export class BoletaService {
     updateBoleta(boleta):Observable<BoletaDetail>{
         return this.http.put<BoletaDetail>(API_URL+boletas + '/'+boleta.id,boleta);
     }
+    
+    deleteBoleta(boletaId): Observable<BoletaDetail> {
+        return this.http.delete<BoletaDetail>(API_URL + boletas + '/' + boletaId);
+    }
 }
