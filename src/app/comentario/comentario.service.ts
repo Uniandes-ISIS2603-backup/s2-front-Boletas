@@ -45,6 +45,14 @@ export class ComentarioService {
         return this.http.post<Comentario>(API_URL + comentarios, comentario);
     }
     
+    updateComentario(comentario): Observable<ComentarioDetail> {
+        return this.http.put<ComentarioDetail>(API_URL + comentarios + '/' + comentario.id, comentario);
+    }
+    
+    deleteComentario(comentarioId): Observable<ComentarioDetail> {
+        return this.http.delete<ComentarioDetail>(API_URL + comentarios + '/' + comentarioId);
+    }
+    
 }
 
 

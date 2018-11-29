@@ -9,5 +9,5 @@ export class Compra {
     direccion:string;
     estado:boolean;
     cliente:Cliente;
-//    devolucion: Devolucion;
+    devolucion: Devolucion;
 }
