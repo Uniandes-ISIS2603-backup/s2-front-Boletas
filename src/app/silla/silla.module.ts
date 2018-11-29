@@ -11,6 +11,9 @@ import { SillaCreateComponent } from './silla-create/silla-create.component';
 import { HttpClientModule } from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgxPermissionsModule} from 'ngx-permissions';
+import { BrowserModule } from '@angular/platform-browser';
+
+import {RoutingModule} from '../routing.module';
 
 @NgModule({
   imports: [
@@ -19,7 +22,9 @@ import {NgxPermissionsModule} from 'ngx-permissions';
     BoletaModule,
     HttpClientModule,
     NgbModule,
-    NgxPermissionsModule
+    NgxPermissionsModule,
+    BrowserModule,
+    RoutingModule
   ],
   declarations: [SillaListComponent, SillaDetailComponent, SillaCreateComponent],
   providers: [SillaService],

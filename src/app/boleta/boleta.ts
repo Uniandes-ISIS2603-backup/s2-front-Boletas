@@ -1,5 +1,6 @@
 import { Espectaculo } from '../espectaculo/espectaculo';
 import { Compra } from '../compra/compra';
+import {Silla} from '../silla/silla';
 /* 
  * Esta clase define la representación de una boleta
  */
@@ -34,5 +35,7 @@ import { Compra } from '../compra/compra';
         * El espectaculo de la boleta
         */
         espectaculo: Espectaculo;
+
+        silla : Silla;
      }
 

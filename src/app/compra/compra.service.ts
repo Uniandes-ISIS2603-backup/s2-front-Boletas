@@ -26,5 +26,10 @@ export class CompraService {
     getCompras() : Observable<Compra[]> {
         return this.http.get<Compra[]>(API_URL + compras);
     }
+
+    updateBCompra(compraId, boletas):Observable<any>
+    {
+        return this.http.put<any>(API_URL + compras+'/'+compraId +'/'+'boletas',boletas);
+    }
     
 }
