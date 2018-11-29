@@ -44,6 +44,7 @@ export class BoletaDetailComponent implements OnInit {
         this.boletaService.getBoletaDetail(this.boleta_id)
             .subscribe(boletaDetail => {
                 this.boletaDetail = boletaDetail
+                console.log(boletaDetail.espectaculo.nombre)
             });
     }
     
@@ -56,6 +57,7 @@ export class BoletaDetailComponent implements OnInit {
         if (this.boleta_id){
             this.boletaDetail = new BoletaDetail();
             this.getBoletaDetail();
+            
         }
   }
 
