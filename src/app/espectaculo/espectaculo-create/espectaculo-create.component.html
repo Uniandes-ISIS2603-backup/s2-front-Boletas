@@ -64,6 +64,16 @@
                 <div>Falta la imagen del espectaculo</div>
             </div>
         </div>
+           <div class="form-group"  >
+            <label for ="lugar"><b>Lugar del espectaculo</b></label>
+            <select class ="form-control" id="lugar" [(ngModel)] = "lugar_id" name="lugar" 
+                  #lugar ="ngModel" [ngClass]="{'is-invalid':f.submitted && espectaculo.invalid}" required>
+                <option *ngFor = "let es of lugares" value='{{es.id}}'>{{es.nombre}}</option>
+            </select>
+                <div class="invalid-feedback">
+                    <div>Falta el lugar del espectaculo</div>
+                </div>
+            </div>
         <div class="row form-inline justify-content-center align-self-center">
                 <button type="submit" class="btn btn-primary">Crear</button>
                 <div class="divider"></div>

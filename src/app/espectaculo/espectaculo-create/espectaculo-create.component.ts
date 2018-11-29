@@ -1,10 +1,12 @@
-import { Component, OnInit ,Output, EventEmitter} from '@angular/core';
+import { Component, OnInit ,Output, EventEmitter, Input} from '@angular/core';
 import { DatePipe } from '@angular/common';
 
 import { ToastrService } from 'ngx-toastr';
 
 import {EspectaculoService} from '../espectaculo.service';
+import {LugarService} from 'src/app/lugar/lugar.service';
 import {Espectaculo} from '../espectaculo';
+import {Lugar} from 'src/app/lugar/lugar';
 
 /**
  * Componente de crear para espectaculo
@@ -33,6 +35,10 @@ export class EspectaculoCreateComponent implements OnInit {
    */
   espectaculo : Espectaculo;
   
+  lugarService: LugarService;
+  
+ @Input() lugares: Lugar[]
+  
   /**
    * Un output que define que el cliente no quiere hacer el proceso
    */
@@ -52,8 +58,17 @@ export class EspectaculoCreateComponent implements OnInit {
       this.cancel.emit();
   }
 
+  /**
+   * Le obtiene los lugares donde se podria realizar el espectaculo
+   */
+  getLugares():void
+  {
+      this.lugarService.getLugares().subscribe(lugares => this.lugares = lugares);
+  }
+  
   ngOnInit() {
       this.espectaculo = new Espectaculo();
+      this.getLugares();
       
   }
   
