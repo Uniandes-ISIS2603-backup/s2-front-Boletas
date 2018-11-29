@@ -3,6 +3,7 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import {EspectaculoService} from '../espectaculo.service';
 import {Espectaculo} from '../espectaculo';
 import {EspectaculoDetail} from '../espectaculo-detail';
+import {Lugar} from 'src/app/lugar/lugar'
 
 /**
  * Componente de detail de un espectaculo
@@ -50,7 +51,7 @@ export class EspectaculoDetailComponent implements OnInit, OnDestroy{
        this.espectaculoService.getEspectaculoDetail(this.espectaculo_id)
             .subscribe(espectaculoDetail => {
                 this.espectaculoDetail = espectaculoDetail;
-                console.log(this.espectaculoDetail);
+                console.log(this.espectaculoDetail.lugar);
             });
     }
     
