@@ -4,7 +4,7 @@
         <br>
         <h2 class="text-center">Editar una boleta</h2>
         <br>
-        <form name="boleta" (ngSubmit)="f.form.valid && createBoleta()" #f="ngForm" novalidate>
+        <form name="boleta" (ngSubmit)="f.form.valid && updateBoleta()" #f="ngForm" novalidate>
             <div class="form-group">
                 <label for="boletaPrecio"><b>Precio</b></label>
                 <input type="text" name="boletaPrecio" class="form-control" id="boletaPrecio" [(ngModel)]="boleta.precio"
@@ -14,20 +14,11 @@
                 </div>
             </div>
            
-            <div class="form-group"  >
-            <label for ="espectaculo"><b>Espectaculo boleta</b></label>
-            <select class ="form-control" id="espectaculo" [(ngModel)] = "espectaculo_id" name="espectaculo" 
-                  #espectaculo ="ngModel" [ngClass]="{'is-invalid':f.submitted && espectaculo.invalid}" required>
-                <option *ngFor = "let es of espectaculos" value='{{es.id}}'>{{es.nombre}}</option>
-            </select>
-                <div class="invalid-feedback">
-                    <div>Falta el espectaculo de la boleta</div>
-                </div>
-            </div>
+            
             <div class="row form-inline justify-content-center align-self-center">
                 <button type="submit" class="btn btn-primary">Create</button>
                 <div class="divider"></div>
-                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+                <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancel</button>
             </div>
         </form>
     </div>
