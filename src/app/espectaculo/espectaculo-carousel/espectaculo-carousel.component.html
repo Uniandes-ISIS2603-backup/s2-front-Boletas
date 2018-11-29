@@ -1,12 +1,11 @@
-
 <ngb-carousel >
       <ng-template ngbSlide>
     <img src="https://i.ebayimg.com/images/g/2DcAAOSwwNtbe0zU/s-l600.jpg"  alt="Random first slide" style="width:1500px;height:400px;">
     <div class="carousel-caption">
       <h3>Second slide label</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-  </ng-template>
+    </div> 
+</ng-template>
   <ng-template ngbSlide *ngFor="let es of espectaculos">
       <img src="{{es.imagen}}" alt="Random second slide" routerLink = "/espectaculos/{{es.id}}" style="cursor: pointer; width:1500px;height:400px;"  >
     <div class="carousel-caption">
@@ -16,51 +15,3 @@
   </ng-template>
     </ngb-carousel>
 <br>
-<h1> --------------------------------------Proximos espectaculos--------------------------------------</h1>
-        <!-- <div class="col" *ngFor = "let c of conciertos">
-                  <figure class="figure" routerLink = "/espectaculos/{{c.id}}" style="cursor: pointer;" >
-                     <div>
-                        <img id="spec_image" class=" card-img-top img-thumbnail img-fluid" src='{{c.imagen}}' alt="{{c.nombre}}" />  
-                     </div>
-                      <figcaption class="title-caption text-center">{{c.nombre}}</figcaption>
-                    </figure>
-</div>-->
-              
-              <h1>Circos</h1>
-              
-                <div class="row" *ngFor = "let c of espectaculos">
-                  <figure class="figure" routerLink = "/espectaculos/{{c.id}}" style="cursor: pointer;" *ngIf="esCirco(c.tipo)" >
-                     <div *ngIf="esCirco(c.tipo)">
-                        <img id="spec_image" class=" card-img-top img-thumbnail img-fluid" src='{{c.imagen}}' alt="{{c.nombre}}" />  
-                     </div>
-                      <figcaption class="title-caption text-center" *ngIf="esCirco(c.tipo)">{{c.nombre}}</figcaption>
-                    </figure>
-</div>
-              <h1>Conciertos</h1>
-                       <div class="col" *ngFor = "let c of espectaculos">
-                  <figure class="figure" routerLink = "/espectaculos/{{c.id}}" style="cursor: pointer;" *ngIf="esConcierto(c.tipo)" >
-                     <div *ngIf="esConcierto(c.tipo)">
-                        <img id="spec_image" class=" card-img-top img-thumbnail img-fluid" src='{{c.imagen}}' alt="{{c.nombre}}" />  
-                     </div>
-                      <figcaption class="title-caption text-center"  *ngIf="esConcierto(c.tipo)">{{c.nombre}}</figcaption>
-                    </figure>
-</div>
-
-              <h1>Teatro</h1>
-         <div class="col" *ngFor = "let t of espectaculos">
-                  <figure class="figure" routerLink = "/espectaculos/{{c.id}}" style="cursor: pointer;" *ngIf="esTeatro(c.tipo)">
-                     <div *ngIf="esTeatro(c.tipo)">
-                        <img id="spec_image" class=" card-img-top img-thumbnail img-fluid" src='{{t.imagen}}' alt="{{t.nombre}}" />  
-                     </div>
-                      <figcaption class="title-caption text-center" *ngIf="esTeatro(c.tipo)">{{t.nombre}}</figcaption>
-                    </figure>
-</div>
-<h1>Deportes</h1>
-                       <div class="col" *ngFor = "let d of espectaculos">
-                  <figure class="figure" routerLink = "/espectaculos/{{c.id}}" style="cursor: pointer;" *ngIf="esDeporte(c.tipo)">
-                     <div *ngIf="esDeporte(c.tipo)">
-                        <img id="spec_image" class=" card-img-top img-thumbnail img-fluid" src='{{d.imagen}}' alt="{{d.nombre}}" />  
-                     </div>
-                      <figcaption class="title-caption text-center" *ngIf="esDeporte(c.tipo)">{{d.nombre}}</figcaption>
-                    </figure>
-</div>
