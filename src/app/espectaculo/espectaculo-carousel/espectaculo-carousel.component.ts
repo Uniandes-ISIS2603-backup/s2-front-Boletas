@@ -66,6 +66,7 @@ export class EspectaculoCarouselComponent implements OnInit {
                con++;
            }
    }
+   console.log(this.circo);
    }
    
          getTeatro():void{
@@ -92,11 +93,11 @@ export class EspectaculoCarouselComponent implements OnInit {
 
   async ngOnInit() {
       this.getEspectaculos();
-      await new Promise((resolve) => setTimeout(resolve,5000000));
+      await new Promise((resolve) => setTimeout(resolve,5000));
       this.getConciertos(this.espectaculos);
-      await new Promise((resolve) => setTimeout(resolve,5000000));
+      await new Promise((resolve) => setTimeout(resolve,5000));
       this.getCirco();
-      await new Promise((resolve) => setTimeout(resolve,5000000));
+      await new Promise((resolve) => setTimeout(resolve,5000));
       this.getTeatro();
       this.getDeporte();
  

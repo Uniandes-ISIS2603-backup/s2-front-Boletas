@@ -13,20 +13,7 @@
         
         <div class="tab-content">
             <div class="row">
-                  <!--  <div class="theatre">
-  
-                            <div class="cinema-seats left">
-                              <div class="cinema-row row-1">
-                                <div class="seat"></div>
-                                <div class="seat"></div>
-                                <div class="seat"></div>
-                                <div class="seat"></div>
-                                <div class="seat"></div>
-                                <div class="seat"></div>
-                                <div class="seat"></div>
-                              </div>
-                              </div>
-                              </div>-->
+                  
                 <div class="col">
 
                 <div class="span5">
@@ -52,7 +39,7 @@
                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
                             (click)="showHideCreate()" *ngxPermissionsOnly="['ORGZ']">Crear una silla</button>
                             <div class="divider"></div>
-                <button class="btn btn-success" (click) ="comprar()" [routerLink] = "['/compras/confirmar']" [queryParams]="{sillas: sillasS}" *ngxPermissionsOnly="['CLIENT']"><i class="fas fa-shopping-cart"></i></button>
+                <button class="btn btn-success" (click) ="comprar()" [routerLink] = "['/compras/confirmar']" [queryParams]="{sillas: sillasS}" *ngxPermissionsOnly="['CLIENT']"><i class="fas fa-shopping-cart"></i>Comprar</button>
                              
                 
                     <table class="table table-striped table-bordered">

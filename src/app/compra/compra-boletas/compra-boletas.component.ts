@@ -54,7 +54,7 @@ export class CompraBoletasComponent implements OnInit {
     
     await new Promise((resolve) => setTimeout(resolve,3000));
 
-    
+    this.getBoletas();
     
     console.log(this.boletas);
     this.compra.costoTotal = 0;

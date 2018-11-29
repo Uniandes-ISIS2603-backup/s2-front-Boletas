@@ -23,8 +23,8 @@
                       <figcaption class="title-caption text-center">{{es.nombre}}</figcaption>
                     </figure>
                    
-                         <a class="fa fa-pencil"   (click)="showHEdit(es.id)" routerLink="/espectaculos/{{es.id}}/edit"></a>
-                         <a class="fa fa-ban" (click)="deleteEspectaculo(es.id)"></a>
+                         <a class="fa fa-pencil"   (click)="showHEdit(es.id)" routerLink="/espectaculos/{{es.id}}/edit"  *ngxPermissionsOnly="['ORGZ']"></a>
+                         <a class="fa fa-ban" (click)="deleteEspectaculo(es.id)"  *ngxPermissionsOnly="['ORGZ']"></a>
                      
                      <div>
                          
