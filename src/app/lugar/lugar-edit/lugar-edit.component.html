@@ -36,9 +36,9 @@ and open the template in the editor.
                 </div>
             </div>
             <div class="row form-inline justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary" [routerLink] = "['/lugar/list']" >Editar</button>
+                <button type="submit" class="btn btn-primary"  (click)="updateLugar()" [routerLink]="['/lugares/list']">Editar</button>
                 <div class="divider"></div>
-                <button type="button" class="btn btn-danger" (click)="cancelarEdicion()" [routerLink]="['/lugar/list']" style="color: #fff;">Cancelar</button>
+                <button type="button" class="btn btn-danger" (click)="cancelarEdicion()" [routerLink]="['/lugares/list']" style="color: #fff;">Cancelar</button>
             </div>
               
         </form>
