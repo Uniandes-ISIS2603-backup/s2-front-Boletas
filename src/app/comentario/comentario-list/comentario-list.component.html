@@ -16,7 +16,7 @@
             <div class="tab-content">
                 <div class="tab-pane active" id="comments-logout">
                     <app-comentario-create ></app-comentario-create>
-                    <ul class="media-list" *ngFor="let c of comentarios" (click)="onSelected(c.id)">
+                    <ul class="media-list" *ngFor="let c of comentarios" >
                       <li class="media">
                             
                         <a class="pull-left">
@@ -25,10 +25,14 @@
                         <div class="media-body">
                           <div class="well well-lg" >
                               <h4 class="media-heading text-uppercase reviews">{{c.cliente.nombre}} </h4>
-                              <p class="media-comment">
+                              <p class="media-comment" (click)="onSelected(c.id)">
                                 {{c.mensaje}}
                               </p>
-                          </div>              
+                          </div>
+                            <a class="pull-right">
+                                <button class="btn btn-primary" (click)="showHideEdit(c.id)"><span class="fa fa-pencil"></span></button>
+                                <button class="btn btn-danger" (click)="deleteComentario(c.id)"><span class="fa fa-trash"></span></button>
+                            </a>
                         </div>
                       </li>
                     </ul> 
@@ -36,6 +40,14 @@
             </div>
         </div>
 	</div>
+      <div class="col-8">
+            <div *ngIf="selectedComentario">
+                <app-comentario-detail [comentarioDetail]="selectedComentario"></app-comentario-detail>
+            </div> 
+            <div *ngIf="showEdit">
+                <app-comentario-edit [comentario_id]="comentario_edit_id" (cancel)="showHideEdit(comentario_edit_id)" (update)="updateComentario()"></app-comentario-edit>
+            </div>
+        </div>
   </div>
   
  

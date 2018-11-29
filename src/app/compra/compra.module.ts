@@ -12,7 +12,9 @@ import { CompraDetailComponent } from './compra-detail/compra-detail.component';
 import { CompraCreateComponent } from './compra-create/compra-create.component';
 import {BoletaModule} from '../boleta/boleta.module';
 
+
 import { CompraBoletasComponent } from './compra-boletas/compra-boletas.component';
+
 
 import { CompraEditComponent } from './compra-edit/compra-edit.component';
 
@@ -27,7 +29,9 @@ import { CompraEditComponent } from './compra-edit/compra-edit.component';
         BoletaModule
     ],
 
+
     declarations: [CompraListComponent, CompraDetailComponent, CompraCreateComponent, CompraBoletasComponent, CompraEditComponent],
+
 
     providers: [CompraService],
     exports:[CompraListComponent]

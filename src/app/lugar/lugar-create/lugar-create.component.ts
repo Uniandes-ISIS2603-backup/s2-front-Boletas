@@ -36,7 +36,7 @@ export class LugarCreateComponent implements OnInit {
       .subscribe((lugar)=>{
           this.lugar = lugar;
           this.create.emit();
-          this.toastrService.success("Ellugar fue creado", "lugar creation");
+          this.toastrService.success("El lugar fue creado", "lugar creation");
           
       });
       return this.lugar;

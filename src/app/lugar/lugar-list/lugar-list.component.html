@@ -30,8 +30,8 @@
                             <td style="cursor: pointer;"(click)="onSelected(lu.id)">
                                 <dd>{{lu.id}}</dd>
                             </td>
-                        
-                            
+                            <td> <a class="fa fa-pencil"   (click)="showHideEdit(lu.id)" routerLink="/lugares/{{lu.id}}/edit"></a></td>
+                            <td><a class="fa fa-remove" ></a></td>
                         </tr>
                     </tbody>
                     
@@ -41,6 +41,9 @@
             
             <div *ngIf="selectedLugar">
                 <app-lugar-detail [lugarDetail]="selectedLugar"></app-lugar-detail>
+            </div>
+            <div *ngIf="showEdit">
+                <app-lugar-edit [lugar_id]="lugar_edit_id" (cancel)="showHideEdit(lugar_edit_id)" (update)="updateLugar()"></app-lugar-edit>
             </div>
             <div *ngIf="showCreate">
                 <app-lugar-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-lugar-create>
