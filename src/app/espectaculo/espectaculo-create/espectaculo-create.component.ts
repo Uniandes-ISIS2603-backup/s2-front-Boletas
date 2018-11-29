@@ -27,6 +27,7 @@ export class EspectaculoCreateComponent implements OnInit {
   constructor(
       private dp: DatePipe,
   private espectaculoService : EspectaculoService,
+  private lugarService: LugarService,
   private toastrService: ToastrService) { }
 
 
@@ -35,9 +36,11 @@ export class EspectaculoCreateComponent implements OnInit {
    */
   espectaculo : Espectaculo;
   
-  lugarService: LugarService;
+  
   
  @Input() lugares: Lugar[]
+ 
+ lugar_id:number;
   
   /**
    * Un output que define que el cliente no quiere hacer el proceso
@@ -81,7 +84,7 @@ export class EspectaculoCreateComponent implements OnInit {
         let dateB: Date = new Date(this.espectaculo.fecha.year, this.espectaculo.fecha.month-1, this.espectaculo.fecha.day);
         this.espectaculo.fecha = this.dp.transform(dateB, 'yyyy-MM-dd');
         console.log(this.espectaculo);
-      
+      this.espectaculo.lugar.id = this.lugar_id;
       this.espectaculoService.crearEspectaculo(this.espectaculo).subscribe((espectaculo) => {
           this.espectaculo = espectaculo;
           this.create.emit();
