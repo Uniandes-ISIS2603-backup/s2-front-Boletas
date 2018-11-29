@@ -23,7 +23,11 @@ import {CompraBoletasComponent} from './compra-boletas/compra-boletas.component'
         FormsModule,
         BoletaModule
     ],
-    declarations: [CompraListComponent, CompraDetailComponent, CompraCreateComponent, CompraEditComponent,CompraBoletasComponent],
+
+
+    declarations: [CompraListComponent, CompraDetailComponent, CompraCreateComponent, CompraBoletasComponent, CompraEditComponent],
+
+
     providers: [CompraService],
     exports:[CompraListComponent]
 })

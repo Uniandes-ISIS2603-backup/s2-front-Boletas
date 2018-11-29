@@ -8,8 +8,7 @@ import { CompraDetail } from './compra-detail';
 
 const API_URL = environment.apiURL;
 const compras = '/compras';
-//const API_URL = '../../assets/';
-//const compras = 'compras.json';
+
 @Injectable()
 export class CompraService {
     
@@ -30,6 +29,14 @@ export class CompraService {
     updateBCompra(compraId, boletas):Observable<any>
     {
         return this.http.put<any>(API_URL + compras+'/'+compraId +'/'+'boletas',boletas);
+    }
+    
+    updateCompra(compra): Observable<CompraDetail> {
+        return this.http.put<CompraDetail>(API_URL + compras + '/' + compra.id, compra);
+    }
+    
+    deleteCompra(compraId): Observable<CompraDetail> {
+        return this.http.delete<CompraDetail>(API_URL + compras + '/' + compraId);
     }
     
 }

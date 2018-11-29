@@ -6,6 +6,7 @@ import {LugarService} from './lugar.service';
 import {FormsModule} from '@angular/forms';
 import { LugarDetailComponent } from './lugar-detail/lugar-detail.component';
 import { LugarCreateComponent } from './lugar-create/lugar-create.component';
+import {LugarEditComponent} from './lugar-edit/lugar-edit.component';
 import { BrowserModule } from '@angular/platform-browser';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgxPermissionsModule} from 'ngx-permissions';
@@ -28,7 +29,7 @@ import {EspectaculoModule} from '../espectaculo/espectaculo.module';
     NgbModule,
     NgxPermissionsModule
   ],
-  declarations: [LugarListComponent, LugarDetailComponent, LugarCreateComponent],
+  declarations: [LugarListComponent, LugarDetailComponent, LugarCreateComponent, LugarEditComponent],
   providers: [LugarService], 
   exports:[LugarListComponent]
 })
