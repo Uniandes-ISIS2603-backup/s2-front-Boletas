@@ -36,8 +36,11 @@ export class EspectaculoCarouselComponent implements OnInit {
     /**
    * Llama al servicio, invocando su funcion de getEspectaculos() pidiendo los espectaculos
    */
-  getEspectaculos():void{
-      this.espectaculoService.getEspectaculos().subscribe(espectaculos => this.espectaculos = espectaculos);
+  async getEspectaculos(){
+    
+    this.espectaculoService.getEspectaculos().subscribe(espectaculos => this.espectaculos = espectaculos);
+    await new Promise((resolve) => setTimeout(resolve,5000000));
+      
   }
   
   /**

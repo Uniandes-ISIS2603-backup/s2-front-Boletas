@@ -27,12 +27,9 @@ import {ClienteCreateComponent} from '../app/cliente/cliente-create/cliente-crea
 import {ClienteEditComponent} from '../app/cliente/cliente-edit/cliente-edit.component';
 import {EspectaculoEditComponent} from '../app/espectaculo/espectaculo-edit/espectaculo-edit.component';
 import {EspectaculoCarouselComponent} from '../app/espectaculo/espectaculo-carousel/espectaculo-carousel.component';
-<<<<<<< HEAD
 import {CompraBoletasComponent} from '../app/compra/compra-boletas/compra-boletas.component';
 
-=======
 import {LugarEditComponent} from '../app/lugar/lugar-edit/lugar-edit.component';
->>>>>>> origin/master
 
 const routes: Routes=[
     {

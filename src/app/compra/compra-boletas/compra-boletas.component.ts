@@ -42,18 +42,21 @@ export class CompraBoletasComponent implements OnInit {
     @Output() create = new EventEmitter();
 
 
-  ngOnInit() {
+  async ngOnInit() {
     this.compra = new Compra();
     this.boletas = new Array();
     this.sillaService.s.subscribe(silla => this.sillas = silla);
     var pSillas =<Array<Silla>> this.sillas;
     this.sillas = pSillas;
     console.log(pSillas);
-    this.getClientes();
+
+    this.getClientes(); 
     this.getBoletas();
+    
+    console.log(this.boletas);
     this.compra.costoTotal = 0;
     this.compra.direccion = '';
-    //  this.buscarBoletas(pSillas);
+    //this.buscarBoletas(pSillas);
       
   }
 
@@ -78,7 +81,7 @@ export class CompraBoletasComponent implements OnInit {
     return this.total;
   }
 
-  comprar():Compra{
+  async comprar(){
 
     var cliente: Cliente ;
     for(let item of this.clientes)
@@ -92,16 +95,19 @@ export class CompraBoletasComponent implements OnInit {
     
     if(cliente != undefined)
     {
-      this.compra.costoTotal = this.getTotal();
+      let db:Date = new Date();
+      this.compra.costoTotal = 0;
       this.compra.cliente = cliente;
-      this.compra.fecha = new Date();
-      this.compra.estado = false;
-      console.log(this.compra);
+      this.compra.fecha = db;
+      this.compra.estado = true;
+      console.log(cliente);
       this.compraService.createCompra(this.compra)
             .subscribe((compra) => {
                 this.compra = compra;  
-                console.log(compra.id);   
+                console.log(compra.id);  
+                console.log(this.compra.id); 
       });
+      await new Promise((resolve) => setTimeout(resolve,1000));
       console.log(this.compra.id);
       this.compraService.updateBCompra(this.compra.id, this.boletas).subscribe();
 
@@ -117,8 +123,10 @@ export class CompraBoletasComponent implements OnInit {
     
   }
 
-  getClientes(): void {
+ async getClientes() {
     this.clienteService.getClientes().subscribe(clientes => {this.clientes= clientes;});
+    await new Promise((resolve) => setTimeout(resolve,20000));
+      
 }
 
 
@@ -127,8 +135,11 @@ export class CompraBoletasComponent implements OnInit {
     this.router.navigate(['/compras/list']);
   }
 
-  getBoletas(): void{
-    this.boletaService.getBoletas().subscribe(boletas => this.boletas = boletas);
+   async getBoletas(){
+    
+    this.boletaService.getBoletas().subscribe(boletas => {this.boletas = boletas;});
+    await new Promise((resolve) => setTimeout(resolve,500000000));
+      
   }
 
   esta(id):boolean
@@ -145,11 +156,11 @@ export class CompraBoletasComponent implements OnInit {
 
   buscarBoletas(sillas)
   {
-    for(let item of this.boletas)
+    for(let item of sillas)
     {
       
       var esta: boolean = false;
-      for(let i of sillas)
+      for(let i of this.boletas)
       {
         if(item.silla.id === i.id)
         {
