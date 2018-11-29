@@ -56,6 +56,41 @@ export class EspectaculoCarouselComponent implements OnInit {
            }
    }
    }
+   esCirco(espectaculoT):boolean
+   {
+       if(espectaculoT === 'Circo')
+       {
+            return true;
+       }
+       return false;
+   }
+
+   esConcierto(espectaculoT):boolean
+   {
+       if(espectaculoT === 'Concierto')
+       {
+            return true;
+       }
+       return false;
+   }
+
+   esTeatro(espectaculoT):boolean
+   {
+       if(espectaculoT === 'Teatro')
+       {
+            return true;
+       }
+       return false;
+   }
+
+   esDeporte(espectaculoT):boolean
+   {
+       if(espectaculoT === 'Deporte')
+       {
+            return true;
+       }
+       return false;
+   }
       
       getCirco():void{
        for (let index = 0; index < this.espectaculos.length; index++)
