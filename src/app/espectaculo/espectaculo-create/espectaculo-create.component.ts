@@ -27,6 +27,7 @@ export class EspectaculoCreateComponent implements OnInit {
   constructor(
       private dp: DatePipe,
   private espectaculoService : EspectaculoService,
+  private lugarService: LugarService,
   private toastrService: ToastrService) { }
 
 
@@ -35,7 +36,7 @@ export class EspectaculoCreateComponent implements OnInit {
    */
   espectaculo : Espectaculo;
   
-  lugarService: LugarService;
+  
   
  @Input() lugares: Lugar[]
   
